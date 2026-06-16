@@ -62,7 +62,7 @@ export default function App() {
 
   return (
     <div className="bg-white text-stone-900 min-h-screen font-sans selection:bg-orange-500 selection:text-white">
-      
+
       {/* 1. Header Navigation */}
       <Navbar
         currentPage={currentPage}

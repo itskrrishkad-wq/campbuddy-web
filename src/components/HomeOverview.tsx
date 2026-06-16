@@ -1,5 +1,7 @@
 import { Activity, ArrowRight, Award, CheckCircle, Heart, MapPin, Shield, Utensils } from "lucide-react";
 import { STATS } from "../data";
+import pawnaHero from "@/src/assets/images/pawna_lake_hero_1781554186715.jpg"
+import panshetHero from "@/src/assets/images/panshet_lake_hero_1781554201017.jpg"
 
 interface HomeOverviewProps {
   setCurrentPage: (page: string) => void;
@@ -43,16 +45,16 @@ export default function HomeOverview({ setCurrentPage, openBookingWithParams }: 
   return (
     <section id="home-overview-section" className="py-24 bg-white text-stone-900 border-t border-stone-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-
-        {/* Statistics highlights bar */}
-        <div
-          id="stats-dashboard-row"
-          className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-6 mb-16 sm:mb-24"
-        >
-          {STATS.map((stat, idx) => (
-            <div
-              key={idx}
-              className="
+        
+       {/* Statistics highlights bar */}
+<div
+  id="stats-dashboard-row"
+  className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-6 mb-16 sm:mb-24"
+>
+  {STATS.map((stat, idx) => (
+    <div
+      key={idx}
+      className="
         bg-white
         rounded-2xl
         border border-stone-200
@@ -63,21 +65,21 @@ export default function HomeOverview({ setCurrentPage, openBookingWithParams }: 
         transition-all
         duration-300
       "
-            >
-              <div className="text-2xl sm:text-4xl font-black text-orange-600 leading-none">
-                {stat.value}
-              </div>
+    >
+      <div className="text-2xl sm:text-4xl font-black text-orange-600 leading-none">
+        {stat.value}
+      </div>
 
-              <div className="mt-2 text-[9px] sm:text-[10px] font-mono uppercase tracking-[0.15em] text-stone-500 font-bold">
-                {stat.label}
-              </div>
+      <div className="mt-2 text-[9px] sm:text-[10px] font-mono uppercase tracking-[0.15em] text-stone-500 font-bold">
+        {stat.label}
+      </div>
 
-              <div className="mt-1 text-[11px] sm:text-xs text-stone-600 leading-relaxed">
-                {stat.description}
-              </div>
-            </div>
-          ))}
-        </div>
+      <div className="mt-1 text-[11px] sm:text-xs text-stone-600 leading-relaxed">
+        {stat.description}
+      </div>
+    </div>
+  ))}
+</div>
 
         {/* 1. Quick Destination Selector */}
         <div className="text-center mb-16">
@@ -99,7 +101,7 @@ export default function HomeOverview({ setCurrentPage, openBookingWithParams }: 
             <div>
               <div className="relative aspect-video overflow-hidden">
                 <img
-                  src="/src/assets/images/pawna_lake_hero_1781554186715.jpg"
+                  src={pawnaHero}
                   alt="Pawna lakeside sunset"
                   className="w-full h-full object-cover group-hover:scale-103 transition-transform duration-700"
                   referrerPolicy="no-referrer"
@@ -163,7 +165,7 @@ export default function HomeOverview({ setCurrentPage, openBookingWithParams }: 
             <div>
               <div className="relative aspect-video overflow-hidden">
                 <img
-                  src="/src/assets/images/panshet_lake_hero_1781554201017.jpg"
+                  src={panshetHero}
                   alt="Panshet backwaters landscape"
                   className="w-full h-full object-cover group-hover:scale-103 transition-transform duration-700"
                   referrerPolicy="no-referrer"

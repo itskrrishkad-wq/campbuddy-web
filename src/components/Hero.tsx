@@ -1,6 +1,9 @@
 import { ArrowRight, MapPin, ShieldCheck, Sparkles, Star } from "lucide-react";
 import { AnimatePresence, motion } from "motion/react";
 import { useEffect, useState } from "react";
+// import pawnaHero from "@/src/assets/images/pawna_lake_hero_1781554186715.";
+import pawnaHero from "@/src/assets/images/pawna_lake_hero_1781554186715.jpg"
+import panshetHero from "@/src/assets/images/panshet_lake_hero_1781554201017.jpg"
 
 interface HeroProps {
   setCurrentPage: (page: string) => void;
@@ -9,7 +12,8 @@ interface HeroProps {
 
 const slides = [
   {
-    image: "/src/assets/images/pawna_lake_hero_1781554186715.jpg",
+    // image: "/src/assets/images/pawna_lake_hero_1781554186715.jpg",
+    image: pawnaHero,
     title: "Eco Glamping & Lakeside Camping",
     accent: "Pawna Lake, Lonavala",
     desc: "Wake up to cold lakeside winds, glowing morning mists, and the majestic sight of ancient mountain forts. Perfect Saturday acoustic nights.",
@@ -18,7 +22,8 @@ const slides = [
     stats: "840+ Daily Booked Spots"
   },
   {
-    image: "/src/assets/images/panshet_lake_hero_1781554201017.jpg",
+    // image: "/src/assets/images/panshet_lake_hero_1781554201017.jpg",
+    image: panshetHero,
     title: "Adventure Valleys & Watersports",
     accent: "Panshet Backwaters, Pune",
     desc: "Unplug from screen exhaustion inside a serene mango orchard farm. Enjoy adrenaline-fueled kayaking, speedboats, and traditional wood-cooked culinary plates.",
