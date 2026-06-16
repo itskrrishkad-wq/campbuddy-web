@@ -1,0 +1,6 @@
+{
+  "name": "Camp Buddy",
+  "description": "A premium, conversion-focused website for Pawna Lake and Panshet camping destinations with interactive booking customizers, smart package comparisons, Masonry gallery, and direct WhatsApp integrations.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
