@@ -6,8 +6,8 @@ import {
   FAQItem,
 } from "./types";
 import pawnaLakeHero from "@/src/assets/images/pawna_lake_hero_1781554186715.jpg";
-  import premiumGlampingTent from "@/src/assets/images/premium_glamping_tent_1781554215882.jpg";
-  import bonfireBarbecueNight from "@/src/assets/images/bonfire_barbecue_night_1781554229242.jpg";
+import premiumGlampingTent from "@/src/assets/images/premium_glamping_tent_1781554215882.jpg";
+import bonfireBarbecueNight from "@/src/assets/images/bonfire_barbecue_night_1781554229242.jpg";
 // import pawnaLakeHero from "@/src/assets/images/pawna_lake_hero_1781554186715.jpg";
 import panshetLakeHero from "@/src/assets/images/panshet_lake_hero_1781554201017.jpg";
 // import premiumGlampingTent from "@/src/assets/images/premium_glamping_tent_1781554215882.jpg";
@@ -44,7 +44,7 @@ export const DESTINATIONS_INFO = {
     distance: "110-120 km from Mumbai | 55-70 km from Pune",
     rating: 4.8,
     reviews: 1980,
-    bannerImage:pawnaLakeHero,
+    bannerImage: pawnaLakeHero,
     shortDesc:
       "Experience premium lakeside camping near Lonavala with breathtaking sunset views, bonfire nights, and cozy tent stays.",
     longDesc:
@@ -516,7 +516,7 @@ export const GALLERY_ITEMS: GalleryItem[] = [
   },
   {
     id: "g-un-kayak",
-    src: "https://images.unsplash.com/photo-1471079688237-3ac9a5553a6b?auto=format&fit=crop&w=800&q=80",
+    src: "https://images.unsplash.com/photo-1723049256176-1aa6e8cbf364?q=80&w=2231&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     alt: "Kayaking on clear emerald river waters",
     category: "activities",
     locationLabel: "Panshet Dam backwaters",
