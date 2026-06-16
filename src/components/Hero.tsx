@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from "react";
-import { ArrowRight, Star, ShieldCheck, MapPin, Sparkles } from "lucide-react";
-import { motion, AnimatePresence } from "motion/react";
+import { ArrowRight, MapPin, ShieldCheck, Sparkles, Star } from "lucide-react";
+import { AnimatePresence, motion } from "motion/react";
+import { useEffect, useState } from "react";
 
 interface HeroProps {
   setCurrentPage: (page: string) => void;
@@ -39,7 +39,7 @@ export default function Hero({ setCurrentPage, openBookingWithParams }: HeroProp
   }, []);
 
   return (
-    <div id="hero-slider-main" className="relative min-h-[90vh] bg-stone-950 flex items-center justify-center overflow-hidden pt-20">
+    <div id="hero-slider-main" className="relative min-h-screen bg-stone-950 flex items-center justify-center overflow-hidden pt-20">
       {/* Background Slideshow */}
       <div className="absolute inset-0 z-0">
         <AnimatePresence mode="wait">
@@ -146,9 +146,8 @@ export default function Hero({ setCurrentPage, openBookingWithParams }: HeroProp
             <button
               key={idx}
               onClick={() => setCurrentSlide(idx)}
-              className={`h-2.5 rounded-full transition-all duration-300 cursor-pointer ${
-                currentSlide === idx ? "w-8 bg-orange-600" : "w-2.5 bg-stone-700 hover:bg-orange-500"
-              }`}
+              className={`h-2.5 rounded-full transition-all duration-300 cursor-pointer ${currentSlide === idx ? "w-8 bg-orange-600" : "w-2.5 bg-stone-700 hover:bg-orange-500"
+                }`}
               aria-label={`Go to slide ${idx + 1}`}
             />
           ))}

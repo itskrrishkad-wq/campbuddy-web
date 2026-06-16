@@ -1,5 +1,4 @@
-import React from "react";
-import { Tent, Phone, Mail, MapPin, Heart, Shield } from "lucide-react";
+import { Heart, Mail, MapPin, Phone, Shield, Tent } from "lucide-react";
 
 interface FooterProps {
   setCurrentPage: (page: string) => void;

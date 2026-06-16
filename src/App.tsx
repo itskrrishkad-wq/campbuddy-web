@@ -1,17 +1,17 @@
-import React, { useState, useEffect } from "react";
-import Navbar from "./components/Navbar";
+import { MessageSquare } from "lucide-react";
+import { useEffect, useState } from "react";
+import BookingForm from "./components/BookingForm";
+import FAQAndReviews from "./components/FAQAndReviews";
 import Footer from "./components/Footer";
+import GallerySection from "./components/GallerySection";
 import Hero from "./components/Hero";
 import HomeOverview from "./components/HomeOverview";
-import PackageSection from "./components/PackageSection";
 import InlineBookingSection from "./components/InlineBookingSection";
-import GallerySection from "./components/GallerySection";
-import FAQAndReviews from "./components/FAQAndReviews";
 import LocationDetails from "./components/LocationDetails";
 import MyBookings from "./components/MyBookings";
-import BookingForm from "./components/BookingForm";
+import Navbar from "./components/Navbar";
+import PackageSection from "./components/PackageSection";
 import { BookingInquiry } from "./types";
-import { MessageSquare } from "lucide-react";
 
 export default function App() {
   const [currentPage, setCurrentPage] = useState<string>("home");
@@ -149,7 +149,7 @@ export default function App() {
           href="https://wa.me/918459154887?text=Hello!+I+am+interested+in+booking+a+camping+session+at+Pawna/Panshet."
           target="_blank"
           rel="noreferrer"
-          className="flex-1 flex items-center justify-center gap-2 bg-orange-650 hover:bg-orange-700 active:bg-orange-800 text-white font-sans font-extrabold text-xs py-3.5 rounded-xl uppercase tracking-wider text-center cursor-pointer shadow-xs"
+          className="flex-1 flex items-center justify-center gap-2 bg-orange-600 hover:bg-orange-700 active:bg-orange-800 text-white font-sans font-extrabold text-xs py-3.5 rounded-xl uppercase tracking-wider text-center cursor-pointer shadow-xs"
         >
           <MessageSquare className="w-4.5 h-4.5" />
           <span>WhatsApp Chat</span>

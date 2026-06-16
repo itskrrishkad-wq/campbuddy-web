@@ -1,17 +1,17 @@
-import React, { useState } from "react";
-import { DESTINATIONS_INFO, PACKAGES, TENTS } from "../data";
 import {
   CheckCircle2,
-  Navigation,
-  Compass,
-  MapPin,
   Coffee,
+  Compass,
   Drum,
   Flame,
+  MapPin,
+  Navigation,
   Sun,
   Sunrise,
   UtensilsCrossed,
 } from "lucide-react";
+import { useState } from "react";
+import { DESTINATIONS_INFO, PACKAGES, TENTS } from "../data";
 
 const timelineEvents = [
   {
@@ -111,7 +111,7 @@ export default function LocationDetails({
   const activeTents = TENTS.filter((t) => t.destinations.includes(destinationId));
 
   return (
-    <div id="location-details-container" className="bg-white text-stone-900 min-h-screen pt-24 pb-16">
+    <div id="location-details-container" className="bg-white text-stone-900 min-h-screen pt-18 pb-16">
       
       {/* 1. Immersive Location Hero Banner */}
       <div id="location-details-hero" className="relative h-[55vh] md:h-[65vh] overflow-hidden">

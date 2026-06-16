@@ -1,7 +1,6 @@
-import React from "react";
-import { BookingInquiry } from "../types";
-import { Calendar, Users, Copy, Check, Trash2, Printer, AlertCircle, MessageSquare } from "lucide-react";
+import { AlertCircle, Calendar, Check, Copy, MessageSquare, Printer, Trash2, Users } from "lucide-react";
 import { useState } from "react";
+import { BookingInquiry } from "../types";
 
 interface MyBookingsProps {
   inquiries: BookingInquiry[];

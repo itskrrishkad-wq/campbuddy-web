@@ -1,5 +1,5 @@
-import React, { useState, useMemo } from "react";
-import { Search, ArrowUpDown, Check, X, Sparkles, Filter, Star, AlertCircle } from "lucide-react";
+import { AlertCircle, ArrowUpDown, Check, Filter, Search, Sparkles, Star, X } from "lucide-react";
+import { useMemo, useState } from "react";
 import { PACKAGES } from "../data";
 import { CampPackage } from "../types";
 

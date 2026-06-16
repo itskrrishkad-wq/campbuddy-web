@@ -1,5 +1,4 @@
-import React from "react";
-import { ArrowRight, MapPin, CheckCircle, Shield, Utensils, Award, Heart, Activity } from "lucide-react";
+import { Activity, ArrowRight, Award, CheckCircle, Heart, MapPin, Shield, Utensils } from "lucide-react";
 import { STATS } from "../data";
 
 interface HomeOverviewProps {
@@ -44,21 +43,36 @@ export default function HomeOverview({ setCurrentPage, openBookingWithParams }: 
   return (
     <section id="home-overview-section" className="py-24 bg-white text-stone-900 border-t border-stone-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
+
         {/* Statistics highlights bar */}
-        <div id="stats-dashboard-row" className="grid grid-cols-2 lg:grid-cols-4 gap-8 mb-24">
+        <div
+          id="stats-dashboard-row"
+          className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-6 mb-16 sm:mb-24"
+        >
           {STATS.map((stat, idx) => (
             <div
               key={idx}
-              className="bg-stone-50 p-6 rounded-[28px] border border-stone-200 text-center shadow-sm hover:shadow-md transition-all duration-300"
+              className="
+        bg-white
+        rounded-2xl
+        border border-stone-200
+        p-4 sm:p-6
+        text-center
+        shadow-sm
+        hover:shadow-md
+        transition-all
+        duration-300
+      "
             >
-              <div className="text-3xl sm:text-4xl font-sans font-black text-orange-600 mb-1">
+              <div className="text-2xl sm:text-4xl font-black text-orange-600 leading-none">
                 {stat.value}
               </div>
-              <div className="text-[10px] font-mono uppercase tracking-wider text-stone-500 font-extrabold mb-1">
+
+              <div className="mt-2 text-[9px] sm:text-[10px] font-mono uppercase tracking-[0.15em] text-stone-500 font-bold">
                 {stat.label}
               </div>
-              <div className="text-xs text-stone-605">
+
+              <div className="mt-1 text-[11px] sm:text-xs text-stone-600 leading-relaxed">
                 {stat.description}
               </div>
             </div>

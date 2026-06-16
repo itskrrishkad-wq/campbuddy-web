@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import { ChevronLeft, ChevronRight, MapPin, Tent, X, ZoomIn } from "lucide-react";
+import { useState } from "react";
 import { GALLERY_ITEMS } from "../data";
-import { X, ChevronLeft, ChevronRight, MapPin, ZoomIn, Tent } from "lucide-react";
 import { GalleryItem } from "../types";
 
 interface GallerySectionProps {

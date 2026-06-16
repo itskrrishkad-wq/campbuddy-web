@@ -1,24 +1,20 @@
-import React, { useState, useEffect } from "react";
 import {
-  Calendar,
-  Users,
-  Phone,
-  CheckCircle,
-  Calculator,
-  PhoneCall,
-  Sparkles,
   AlertCircle,
-  Copy,
+  Calculator,
+  Calendar,
   Check,
-  Shield,
-  HelpCircle,
-  Utensils,
-  MapPin,
+  CheckCircle,
   Clock,
-  Coins
+  Coins,
+  Copy,
+  PhoneCall,
+  Shield,
+  Sparkles,
+  Utensils
 } from "lucide-react";
+import React, { useEffect, useState } from "react";
 import { PACKAGES } from "../data";
-import { CampPackage, BookingInquiry } from "../types";
+import { BookingInquiry } from "../types";
 
 interface InlineBookingSectionProps {
   addBookingInquiry: (inquiry: BookingInquiry) => void;
@@ -417,22 +413,20 @@ Please confirm slot availability so I can make standard 50% secured UPI booking 
                           <button
                             type="button"
                             onClick={() => setDestination("pawna")}
-                            className={`py-3 px-3 rounded-xl text-xs font-sans font-black text-center border cursor-pointer transition-all ${
-                              destination === "pawna"
+                            className={`py-3 px-3 rounded-xl text-xs font-sans font-black text-center border cursor-pointer transition-all ${destination === "pawna"
                                 ? "bg-orange-50 border-orange-500 text-orange-800 font-bold"
                                 : "bg-white border-stone-200 text-stone-500 hover:text-stone-800"
-                            }`}
+                              }`}
                           >
                             Pawna Lonavala
                           </button>
                           <button
                             type="button"
                             onClick={() => setDestination("panshet")}
-                            className={`py-3 px-3 rounded-xl text-xs font-sans font-black text-center border cursor-pointer transition-all ${
-                              destination === "panshet"
+                            className={`py-3 px-3 rounded-xl text-xs font-sans font-black text-center border cursor-pointer transition-all ${destination === "panshet"
                                 ? "bg-orange-50 border-orange-500 text-orange-800 font-bold"
                                 : "bg-white border-stone-200 text-stone-500 hover:text-stone-800"
-                            }`}
+                              }`}
                           >
                             Panshet Pune
                           </button>
@@ -456,9 +450,14 @@ Please confirm slot availability so I can make standard 50% secured UPI booking 
                             ))}
                           </select>
                           <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-stone-500">
-                            <svg className="fill-current h-4 w-4" viewBox="0 0 20 20">
-                              <path d="M5.516 7.548c0.436-0.446 1.043-0.481 1.5760l3.908 3.747 3.908-3.747c0.533-0.481 1.141-0.446 1.5760 0.436 0.445 0.408 1.197 0 1.615l-4.695 4.502c-0.213 0.213-0.556 0.213-0.769 0l-4.695-4.502c-0.408-0.418-0.436-1.17 0-1.615z" />
+                            <svg
+                              className="fill-current h-4 w-4"
+                              viewBox="0 0 20 20"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path d="M5.23 7.21a.75.75 0 011.06.02L10 10.94l3.71-3.71a.75.75 0 111.06 1.06l-4.24 4.24a.75.75 0 01-1.06 0L5.21 8.29a.75.75 0 01.02-1.08z" />
                             </svg>
+
                           </div>
                         </div>
                       </div>

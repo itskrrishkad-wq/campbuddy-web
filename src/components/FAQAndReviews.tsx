@@ -1,7 +1,7 @@
-import React, { useState } from "react";
-import { Star, HelpCircle } from "lucide-react";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import { HelpCircle, Star } from "lucide-react";
+import { useState } from "react";
 import { FAQS, TESTIMONIALS } from "../data";
-import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "@/components/ui/accordion";
 
 export default function FAQAndReviews() {
   // Frequently asked questions
@@ -14,7 +14,7 @@ export default function FAQAndReviews() {
   return (
     <section id="faq-reviews-section" className="py-24 bg-stone-50 text-stone-900 border-t border-stone-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
+
         {/* SECTION 1: Testimonials Review Grid */}
         <div id="reviews-sub-section" className="mb-24">
           <div className="text-center mb-16">
@@ -44,9 +44,8 @@ export default function FAQAndReviews() {
                         {[1, 2, 3, 4, 5].map((s) => (
                           <Star
                             key={s}
-                            className={`w-4 h-4 ${
-                              s <= review.rating ? "fill-amber-400 text-amber-400" : "text-stone-250"
-                            }`}
+                            className={`w-4 h-4 ${s <= review.rating ? "fill-amber-400 text-amber-400" : "text-stone-250"
+                              }`}
                           />
                         ))}
                       </div>
@@ -99,7 +98,7 @@ export default function FAQAndReviews() {
 
           {/* Accordion List */}
           <div id="faq-accordion-list" className="max-w-3xl mx-auto">
-            <Accordion type="single" className="space-y-4">
+            <Accordion className="space-y-4">
               {FAQS.map((faq) => {
                 return (
                   <AccordionItem

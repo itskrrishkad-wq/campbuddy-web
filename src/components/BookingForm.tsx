@@ -1,23 +1,19 @@
-import React, { useState, useEffect } from "react";
 import {
-  X,
-  Calendar,
-  Users,
-  Phone,
-  CheckCircle,
+  AlertCircle,
   Calculator,
+  Calendar,
+  Check,
+  CheckCircle,
+  Copy,
+  MapPin,
+  Phone,
   PhoneCall,
   Sparkles,
-  AlertCircle,
-  Copy,
-  Check,
-  Utensils,
-  MapPin,
-  Clock,
-  Notebook
+  X
 } from "lucide-react";
+import React, { useEffect, useState } from "react";
 import { PACKAGES } from "../data";
-import { CampPackage, BookingInquiry } from "../types";
+import { BookingInquiry } from "../types";
 
 interface BookingFormProps {
   onClose: () => void;
