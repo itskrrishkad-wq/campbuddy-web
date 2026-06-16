@@ -12,6 +12,11 @@ import {
   Sunrise,
   UtensilsCrossed,
 } from "lucide-react";
+import pawnaHero from "@/src/assets/images/pawna_lake_hero_1781554186715.jpg"
+import panshetHero from "@/src/assets/images/panshet_lake_hero_1781554201017.jpg"
+  import premiumGlampingTent from "@/src/assets/images/premium_glamping_tent_1781554215882.jpg";
+  import bonfireBarbecueNight from "@/src/assets/images/bonfire_barbecue_night_1781554229242.jpg";
+
 
 const timelineEvents = [
   {
@@ -20,7 +25,7 @@ const timelineEvents = [
     description:
       "Arrive at the campsite and begin your getaway with a smooth and effortless check-in. Settle into your accommodation and soak in the natural surroundings.",
     icon: Sun,
-    image: "/src/assets/images/panshet_lake_hero_1781554201017.jpg",
+    image: panshetHero,
     color: "bg-gradient-to-r from-orange-400 to-orange-600",
   },
   {
@@ -48,7 +53,7 @@ const timelineEvents = [
     description:
       "Relish freshly grilled BBQ snacks while enjoying lively DJ music. The perfect mix of great food and great vibes until 9:30 PM.",
     icon: Flame,
-    image: "/src/assets/images/bonfire_barbecue_night_1781554229242.jpg",
+    image: bonfireBarbecueNight,
     color: "bg-gradient-to-r from-red-500 to-red-700",
   },
   {

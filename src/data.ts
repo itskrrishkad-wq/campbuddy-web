@@ -6,8 +6,12 @@ import {
   FAQItem,
 } from "./types";
 import pawnaLakeHero from "@/src/assets/images/pawna_lake_hero_1781554186715.jpg";
-import premiumGlampingTent from "@/src/assets/images/premium_glamping_tent_1781554215882.jpg";
-import bonfireBarbecueNight from "@/src/assets/images/bonfire_barbecue_night_1781554229242.jpg";
+  import premiumGlampingTent from "@/src/assets/images/premium_glamping_tent_1781554215882.jpg";
+  import bonfireBarbecueNight from "@/src/assets/images/bonfire_barbecue_night_1781554229242.jpg";
+// import pawnaLakeHero from "@/src/assets/images/pawna_lake_hero_1781554186715.jpg";
+import panshetLakeHero from "@/src/assets/images/panshet_lake_hero_1781554201017.jpg";
+// import premiumGlampingTent from "@/src/assets/images/premium_glamping_tent_1781554215882.jpg";
+// import bonfireBarbecueNight from "@/src/assets/images/bonfire_barbecue_night_1781554229242.jpg";
 
 export const STATS = [
   {
@@ -40,7 +44,7 @@ export const DESTINATIONS_INFO = {
     distance: "110-120 km from Mumbai | 55-70 km from Pune",
     rating: 4.8,
     reviews: 1980,
-    bannerImage: "/src/assets/images/pawna_lake_hero_1781554186715.jpg",
+    bannerImage:pawnaLakeHero,
     shortDesc:
       "Experience premium lakeside camping near Lonavala with breathtaking sunset views, bonfire nights, and cozy tent stays.",
     longDesc:
@@ -95,7 +99,7 @@ export const DESTINATIONS_INFO = {
     distance: "180 km from Mumbai | 42 km from Pune",
     rating: 4.7,
     reviews: 1220,
-    bannerImage: "/src/assets/images/panshet_lake_hero_1781554201017.jpg",
+    bannerImage: panshetLakeHero,
     shortDesc:
       "Immerse in nature with majestic backwater valleys, exciting water sports adventure, and authentic village cooking.",
     longDesc:
@@ -408,7 +412,7 @@ export const TENTS: TentType[] = [
       "External Solar Lanterns",
     ],
     destinations: ["pawna", "panshet"],
-    image: "/src/assets/images/premium_glamping_tent_1781554215882.jpg", // Our beautiful bespoke boho glamping tent photo!
+    image: premiumGlampingTent, // Our beautiful bespoke boho glamping tent photo!
   },
   {
     id: "tent-glamping-bell",
@@ -463,7 +467,7 @@ export const TENTS: TentType[] = [
 export const GALLERY_ITEMS: GalleryItem[] = [
   {
     id: "g-pawna-lakeside",
-    src: "/src/assets/images/pawna_lake_hero_1781554186715.jpg",
+    src: pawnaLakeHero,
     alt: "Sunset over pristine Pawna Lake",
     category: "pawna",
     locationLabel: "Pawna Lake",
@@ -471,7 +475,7 @@ export const GALLERY_ITEMS: GalleryItem[] = [
   },
   {
     id: "g-panshet-valley",
-    src: "/src/assets/images/panshet_lake_hero_1781554201017.jpg",
+    src: panshetLakeHero,
     alt: "Scenic backwater valleys at Panshet Dam",
     category: "panshet",
     locationLabel: "Panshet Eco-Camp",
@@ -479,7 +483,7 @@ export const GALLERY_ITEMS: GalleryItem[] = [
   },
   {
     id: "g-bell-tent-cozy",
-    src: "/src/assets/images/premium_glamping_tent_1781554215882.jpg",
+    src: premiumGlampingTent,
     alt: "Inside a warm glowing bell glamping tent",
     category: "tents",
     locationLabel: "Pawna Lake",
@@ -487,7 +491,7 @@ export const GALLERY_ITEMS: GalleryItem[] = [
   },
   {
     id: "g-bonfire-party",
-    src: "/src/assets/images/bonfire_barbecue_night_1781554229242.jpg",
+    src: bonfireBarbecueNight,
     alt: "Friends gathering around a sparkling bonfire at night",
     category: "bonfire",
     locationLabel: "Campfire Common Ring",
