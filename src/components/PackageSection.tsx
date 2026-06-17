@@ -84,7 +84,7 @@ export default function PackageSection({ openBookingWithParams, preSelectedDesti
   return (
     <section id="packages-section" className="py-24 bg-stone-50 text-stone-900 border-t border-stone-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
+
         {/* Title */}
         <div className="text-center mb-16">
           <span className="text-xs font-bold font-mono tracking-[0.2em] text-orange-600 uppercase">
@@ -119,29 +119,27 @@ export default function PackageSection({ openBookingWithParams, preSelectedDesti
               <button
                 id="dest-filter-all"
                 onClick={() => setDestFilter("all")}
-                className={`flex-1 py-1.5 text-xs font-sans font-semibold rounded-xl transition-all cursor-pointer ${
-                  destFilter === "all" ? "bg-orange-600 text-white shadow-sm font-bold" : "text-stone-500 hover:text-stone-800"
-                }`}
+                className={`flex-1 py-1.5 text-xs font-sans font-semibold rounded-xl transition-all cursor-pointer ${destFilter === "all" ? "bg-orange-600 text-white shadow-sm font-bold" : "text-stone-500 hover:text-stone-800"
+                  }`}
               >
                 All Camps
               </button>
               <button
                 id="dest-filter-pawna"
                 onClick={() => setDestFilter("pawna")}
-                className={`flex-1 py-1.5 text-xs font-sans font-semibold rounded-xl transition-all cursor-pointer ${
-                  destFilter === "pawna" ? "bg-orange-600 text-white shadow-sm font-bold" : "text-stone-500 hover:text-stone-800"
-                }`}
+                className={`flex-1 py-1.5 text-xs font-sans font-semibold rounded-xl transition-all cursor-pointer ${destFilter === "pawna" ? "bg-orange-600 text-white shadow-sm font-bold" : "text-stone-500 hover:text-stone-800"
+                  }`}
               >
                 Pawna Lake
               </button>
               <button
                 id="dest-filter-panshet"
                 onClick={() => setDestFilter("panshet")}
-                className={`flex-1 py-1.5 text-xs font-sans font-semibold rounded-xl transition-all cursor-pointer ${
-                  destFilter === "panshet" ? "bg-orange-600 text-white shadow-sm font-bold" : "text-stone-500 hover:text-stone-800"
-                }`}
+                className={`flex-1 py-1.5 text-xs font-sans font-semibold rounded-xl transition-all cursor-pointer ${destFilter === "panshet" ? "bg-orange-600 text-white shadow-sm font-bold" : "text-stone-500 hover:text-stone-800"
+                  }`}
               >
-                Panshet Backwater
+                <span className="max-md:hidden">Panshet Backwater</span>
+                <span className="md:hidden">Panshet</span>
               </button>
             </div>
 
@@ -185,7 +183,7 @@ export default function PackageSection({ openBookingWithParams, preSelectedDesti
                 step="100"
                 value={priceFilter}
                 onChange={(e) => setPriceFilter(Number(e.target.value))}
-                className="w-full accent-orange-600 bg-stone-200 h-1.5 rounded-lg appearance-none cursor-pointer"
+                className="w-full mt-2 h-1.5 accent-orange-600 bg-stone-200 rounded-lg cursor-pointer"
               />
             </div>
             <button
@@ -216,10 +214,10 @@ export default function PackageSection({ openBookingWithParams, preSelectedDesti
                 {/* Image on top */}
                 {pkg.image && (
                   <div className="relative h-56 w-full overflow-hidden bg-stone-100">
-                    <img 
+                    <img
                       id={`package-image-${pkg.id}`}
-                      src={pkg.image} 
-                      alt={pkg.name} 
+                      src={pkg.image}
+                      alt={pkg.name}
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                       referrerPolicy="no-referrer"
                     />
@@ -232,7 +230,7 @@ export default function PackageSection({ openBookingWithParams, preSelectedDesti
                   {pkg.tags.map((tag, i) => (
                     <span
                       key={i}
-                      className="bg-orange-600/90 text-white text-[10px] font-mono font-black px-2.5 py-1 rounded-full uppercase tracking-wider shadow-sm"
+                      className="bg-orange-600/90 text-white w-max text-[10px] font-mono font-black px-2.5 py-1 rounded-full uppercase tracking-wider shadow-sm"
                     >
                       {tag}
                     </span>
@@ -247,9 +245,8 @@ export default function PackageSection({ openBookingWithParams, preSelectedDesti
                   title="Compare package highlights"
                 >
                   <div
-                    className={`w-4 h-4 rounded border flex items-center justify-center transition-all ${
-                      isCompared ? "bg-amber-500 border-amber-500 text-stone-900" : "border-stone-300"
-                    }`}
+                    className={`w-4 h-4 rounded border flex items-center justify-center transition-all ${isCompared ? "bg-amber-500 border-amber-500 text-stone-900" : "border-stone-300"
+                      }`}
                   >
                     {isCompared && <Check className="w-3 h-3 stroke-[3]" />}
                   </div>
@@ -273,16 +270,15 @@ export default function PackageSection({ openBookingWithParams, preSelectedDesti
                       {[1, 2, 3, 4, 5].map((s) => (
                         <Star
                           key={s}
-                          className={`w-3.5 h-3.5 ${
-                            s <= pkg.rating ? "fill-amber-400 text-amber-400" : "text-stone-200"
-                          }`}
+                          className={`w-3.5 h-3.5 ${s <= pkg.rating ? "fill-amber-400 text-amber-400" : "text-stone-200"
+                            }`}
                         />
                       ))}
                     </div>
                     <span className="text-stone-800 font-bold font-mono">{pkg.rating}</span>
                     <span>({pkg.reviewsCount} reviews)</span>
                   </div>
-                  
+
                   {/* Pricing and savings */}
                   <div className="bg-stone-50 rounded-2xl p-4 mb-6 border border-stone-200/60 flex items-center justify-between">
                     <div>
@@ -416,7 +412,7 @@ export default function PackageSection({ openBookingWithParams, preSelectedDesti
         {showCompareModal && (
           <div id="compare-modal" className="fixed inset-0 bg-stone-900/60 backdrop-blur-md z-50 flex items-center justify-center p-4">
             <div className="bg-white border border-stone-200 w-full max-w-4xl max-h-[90vh] rounded-3xl shadow-2xl overflow-y-auto flex flex-col">
-              
+
               {/* Header */}
               <div className="p-6 border-b border-stone-100 flex items-center justify-between">
                 <div>

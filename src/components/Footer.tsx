@@ -12,7 +12,7 @@ export default function Footer({ setCurrentPage, openBookingWithParams }: Footer
   };
 
   return (
-    <footer id="main-app-footer" className="bg-stone-50 text-stone-600 border-t border-stone-200 pt-16 pb-8">
+    <footer id="main-app-footer" className="bg-stone-50 text-stone-600 border-t border-stone-200 pt-16 pb-8 max-md:pb-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
           {/* Brand Column: Camp Buddy */}
@@ -33,13 +33,13 @@ export default function Footer({ setCurrentPage, openBookingWithParams }: Footer
             <p className="text-sm text-stone-550 leading-relaxed font-sans">
               Experience the beautiful Western Ghats valleys. We operate premier, family-friendly riverside and lakeside campsites at Pawna Lake Lonavala and Panshet backwaters with extreme safety standards.
             </p>
-            <div className="flex items-center gap-3.5 bg-orange-50 border border-orange-100 rounded-3xl p-4 shadow-xs">
+            {/* <div className="flex items-center gap-3.5 bg-orange-50 border border-orange-100 rounded-3xl p-4 shadow-xs">
               <Shield className="w-5 h-5 text-orange-600 shrink-0 animate-pulse" />
               <div className="text-xs">
                 <p className="font-extrabold text-stone-850">ISO 9001 Certified Safety</p>
                 <p className="text-stone-550 font-medium">Continuous CCTV & 24/7 on-site guards</p>
               </div>
-            </div>
+            </div> */}
           </div>
 
           {/* Useful Links Column */}

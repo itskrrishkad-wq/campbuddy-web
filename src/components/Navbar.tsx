@@ -118,7 +118,7 @@ export default function Navbar({
                 href="https://wa.me/918459154887?text=Hello!+I+am+interested+in+booking+a+camping+stay+at+Pawna/Panshet."
                 target="_blank"
                 rel="noreferrer"
-                className="flex items-center gap-2 text-stone-600 hover:text-orange-750 transition-colors text-sm font-mono border-r border-stone-200 pr-5"
+                className="flex items-center gap-2 text-stone-600 hover:text-orange-750 transition-colors text-sm font-mono "
               >
                 <div className="bg-orange-50 p-1.5 rounded-lg text-orange-600">
                   <Phone className="w-4 h-4" />
@@ -229,7 +229,7 @@ export default function Navbar({
                       <span>Call Support: +91 84591 54887</span>
                     </a>
 
-                    <SheetClose>
+                    <SheetClose className={"w-full"}>
                       <div
                         onClick={() => openBookingWithParams()}
                         className="w-full block bg-orange-600 hover:bg-orange-700 text-white font-sans font-extrabold py-3.5 rounded-xl text-center shadow-sm cursor-pointer text-sm"

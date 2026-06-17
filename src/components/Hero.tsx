@@ -44,7 +44,7 @@ export default function Hero({ setCurrentPage, openBookingWithParams }: HeroProp
   }, []);
 
   return (
-    <div id="hero-slider-main" className="relative min-h-screen bg-stone-950 flex items-center justify-center overflow-hidden pt-20">
+    <div id="hero-slider-main" className="relative min-h-screen bg-stone-950 flex items-start sm:items-center justify-center overflow-hidden pt-20">
       {/* Background Slideshow */}
       <div className="absolute inset-0 z-0">
         <AnimatePresence mode="wait">
@@ -57,8 +57,8 @@ export default function Hero({ setCurrentPage, openBookingWithParams }: HeroProp
             className="absolute inset-0"
           >
             {/* Elegant dark/black-focused gradient overlays for supreme visual punch */}
-            <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/55 to-black/15 z-10" />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-transparent to-black/15 z-10" />
+            <div className="absolute inset-0 bg-gradient-to-r from-black/65 via-black/55 to-black/15 z-10" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/65 via-transparent to-black/15 z-10" />
             <img
               id={`hero-slide-image-${currentSlide}`}
               src={slides[currentSlide].image}
@@ -72,7 +72,7 @@ export default function Hero({ setCurrentPage, openBookingWithParams }: HeroProp
 
       {/* Content Container */}
       <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full py-16 md:py-24">
-        <div className="max-w-2xl lg:max-w-3xl text-left">
+        <div className="max-w-2xl lg:max-w-3xl text-left ">
           {/* Trust Badge Hero */}
           <motion.div
             initial={{ opacity: 0, y: 15 }}
@@ -146,7 +146,7 @@ export default function Hero({ setCurrentPage, openBookingWithParams }: HeroProp
         </div>
 
         {/* Carousel Indicators / Controls */}
-        <div className="absolute bottom-8 right-4 sm:right-8 z-30 flex items-center gap-2.5 bg-stone-900/90 backdrop-blur-md px-4 py-2 border border-stone-800 rounded-full shadow-sm">
+        <div className="absolute bottom-4 sm:bottom-8 right-4 sm:right-8 z-30 flex items-center gap-2.5 bg-stone-900/90 backdrop-blur-md px-4 py-2 border border-stone-800 rounded-full shadow-sm">
           {slides.map((slide, idx) => (
             <button
               key={idx}

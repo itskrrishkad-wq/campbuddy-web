@@ -14,8 +14,17 @@ import {
 import React, { useEffect, useState } from "react";
 import { PACKAGES } from "../data";
 import { BookingInquiry } from "../types";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog";
+import { ScrollArea } from "@/components/ui/scroll-area";
 
 interface BookingFormProps {
+  open: boolean;
   onClose: () => void;
   destinationParam?: "pawna" | "panshet";
   packageIdParam?: string;
@@ -23,6 +32,7 @@ interface BookingFormProps {
 }
 
 export default function BookingForm({
+  open,
   onClose,
   destinationParam,
   packageIdParam,
@@ -33,7 +43,7 @@ export default function BookingForm({
   const [phone, setPhone] = useState("");
   const [email, setEmail] = useState("");
   const [destination, setDestination] = useState<"pawna" | "panshet">(
-    destinationParam || "pawna"
+    destinationParam ? destinationParam : "pawna"
   );
   const [packageId, setPackageId] = useState<string>(packageIdParam || "");
   const [checkInDate, setCheckInDate] = useState("");
@@ -51,22 +61,75 @@ export default function BookingForm({
   const availablePackages = PACKAGES.filter((p) => p.destination === destination);
 
   // Adjust packageId if destination changes
+  // useEffect(() => {
+  //   if (destinationParam && !packageIdParam) {
+  //     setDestination(destinationParam);
+  //     const pkgs = PACKAGES.filter((p) => p.destination === destinationParam);
+  //     if (pkgs.length > 0) setPackageId(pkgs[0].id);
+  //   } else if (packageIdParam) {
+  //     const pkg = PACKAGES.find((p) => p.id === packageIdParam);
+  //     if (pkg) {
+  //       setDestination(pkg.destination);
+  //       setPackageId(pkg.id);
+  //     }
+  //   } else {
+  //     const firstPkg = PACKAGES.find((p) => p.destination === destination);
+  //     if (firstPkg) setPackageId(firstPkg.id);
+  //   }
+  // }, [destination, destinationParam, packageIdParam]);
+
   useEffect(() => {
-    if (destinationParam && !packageIdParam) {
-      setDestination(destinationParam);
-      const pkgs = PACKAGES.filter((p) => p.destination === destinationParam);
-      if (pkgs.length > 0) setPackageId(pkgs[0].id);
-    } else if (packageIdParam) {
-      const pkg = PACKAGES.find((p) => p.id === packageIdParam);
+    if (!open) return;
+
+    if (packageIdParam) {
+      const pkg = PACKAGES.find(
+        (p) => p.id === packageIdParam
+      );
+
       if (pkg) {
         setDestination(pkg.destination);
         setPackageId(pkg.id);
       }
-    } else {
-      const firstPkg = PACKAGES.find((p) => p.destination === destination);
-      if (firstPkg) setPackageId(firstPkg.id);
+
+      return;
     }
-  }, [destination, destinationParam, packageIdParam]);
+
+    if (destinationParam) {
+      setDestination(destinationParam);
+
+      const firstPkg = PACKAGES.find(
+        (p) => p.destination === destinationParam
+      );
+
+      if (firstPkg) {
+        setPackageId(firstPkg.id);
+      }
+
+      return;
+    }
+
+    const firstPkg = PACKAGES.find(
+      (p) => p.destination === destination
+    );
+
+    if (firstPkg) {
+      setPackageId(firstPkg.id);
+    }
+  }, [open]);
+
+
+  useEffect(() => {
+    const firstPkg = PACKAGES.find(
+      (p) => p.destination === destination
+    );
+
+    if (
+      firstPkg &&
+      !availablePackages.some((p) => p.id === packageId)
+    ) {
+      setPackageId(firstPkg.id);
+    }
+  }, [destination]);
 
   // Adjust food proportions on guests slider shift
   useEffect(() => {
@@ -264,450 +327,471 @@ Cost: ₹${submittedInquiry.totalCost}`;
   };
 
   return (
-    <div
-      id="booking-modal-overlay"
-      className="fixed inset-0 z-50 overflow-y-auto bg-stone-900/60 backdrop-blur-md flex items-center justify-center p-4"
-    >
-      <div
-        id="booking-modal-card"
-        className="relative bg-white border border-stone-200 rounded-[32px] shadow-2xl w-full max-w-xl max-h-[90vh] overflow-y-auto flex flex-col justify-between text-stone-900"
+    <Dialog open={open} onOpenChange={onClose}>
+      <DialogContent
+        className="p-0 gap-0 max-h-[90vh] overflow-hidden max-w-[95vw] md:min-w-3xl"
       >
-        {/* Header decoration */}
-        <div className="absolute top-0 inset-x-0 h-1.5 bg-gradient-to-r from-orange-500 via-amber-400 to-orange-600" />
+        <ScrollArea className={"gap-0 max-h-[90vh] max-w-[95vw] md:min-w-3xl"}>
 
-        {/* Action Close */}
-        <button
-          id="booking-form-close-x"
-          onClick={onClose}
-          className="absolute top-4 right-4 text-stone-500 hover:text-stone-800 p-1.5 bg-stone-100 border border-stone-200 hover:bg-stone-200 rounded-full z-10 cursor-pointer transition-colors"
-        >
-          <X className="w-5 h-5" />
-        </button>
 
-        {!isSubmitted ? (
-          <div className="p-6 sm:p-8">
-            <div className="flex items-center gap-2 mb-2">
-              <Sparkles className="w-5 h-5 text-orange-600 animate-pulse" />
-              <span className="text-[10px] font-mono tracking-wider text-orange-600 font-bold uppercase">
-                Quick Single-Step Booking
-              </span>
-            </div>
-            <h3 className="text-xl sm:text-2xl font-sans font-extrabold text-stone-900 tracking-tight">
-              Instantly Calculate & Book
-            </h3>
-            <p className="text-xs text-stone-500 mt-1 leading-relaxed">
-              Fill out your travel specifications. Dynamic pricing and inclusions will load instantly lower down.
-            </p>
+          <DialogHeader className="sr-only">
+            <DialogTitle>Camping Booking</DialogTitle>
+            <DialogDescription>
+              Book your camping experience.
+            </DialogDescription>
+          </DialogHeader>
 
-            <form onSubmit={handleSubmit} className="mt-6 space-y-6">
-              {/* SECTION 1: DESTINATION & PACKAGE SELECT */}
-              <div className="bg-stone-50 p-4 rounded-2xl border border-stone-200 space-y-4">
-                <div className="flex items-center gap-2 border-b border-stone-200 pb-2">
-                  <MapPin className="w-4 h-4 text-orange-600" />
-                  <span className="text-xs font-mono font-bold text-stone-800 uppercase">
-                    1. Choose Camp & package style
+          <div className="relative w-full bg-white text-stone-900 h-full overflow-y-scroll">
+            {!isSubmitted ? (
+              <div className="p-6">
+                <div className="flex items-center gap-2 mb-2">
+                  <Sparkles className="w-5 h-5 text-orange-600 animate-pulse" />
+                  <span className="text-[10px] font-mono tracking-wider text-orange-600 font-bold uppercase">
+                    Quick Single-Step Booking
                   </span>
                 </div>
+                <h3 className="text-xl sm:text-2xl font-sans font-extrabold text-stone-900 tracking-tight">
+                  Instantly Calculate & Book
+                </h3>
+                <p className="text-xs text-stone-500 mt-1 leading-relaxed">
+                  Fill out your travel specifications. Dynamic pricing and inclusions will load instantly lower down.
+                </p>
 
-                <div className="grid grid-cols-2 gap-3">
-                  <button
-                    type="button"
-                    onClick={() => setDestination("pawna")}
-                    className={`py-3 px-4 rounded-xl text-xs font-sans font-bold text-center border cursor-pointer transition-all ${
-                      destination === "pawna"
-                        ? "bg-orange-50 border-orange-500 text-orange-800"
-                        : "bg-white border-stone-200 text-stone-500 hover:text-stone-800"
-                    }`}
-                  >
-                    Pawna Lake (Lonavala)
-                  </button>
-                  <button
-                    type="button"
-                    onClick={() => setDestination("panshet")}
-                    className={`py-3 px-4 rounded-xl text-xs font-sans font-bold text-center border cursor-pointer transition-all ${
-                      destination === "panshet"
-                        ? "bg-orange-50 border-orange-500 text-orange-800"
-                        : "bg-white border-stone-200 text-stone-500 hover:text-stone-800"
-                    }`}
-                  >
-                    Panshet Valley (Pune)
-                  </button>
-                </div>
+                <form onSubmit={handleSubmit} className="mt-6 space-y-6">
+                  {/* SECTION 1: DESTINATION & PACKAGE SELECT */}
+                  <div className="bg-stone-50 p-4 rounded-2xl border border-stone-200 space-y-4">
+                    <div className="flex items-center gap-2 border-b border-stone-200 pb-2">
+                      <MapPin className="w-4 h-4 text-orange-600" />
+                      <span className="text-xs font-mono font-bold text-stone-800 uppercase">
+                        1. Choose Camp & package style
+                      </span>
+                    </div>
 
-                <div>
-                  <div className="relative">
-                    <select
-                      value={packageId}
-                      onChange={(e) => setPackageId(e.target.value)}
-                      className="w-full bg-white border border-stone-200 rounded-xl px-4 py-3 text-xs sm:text-sm text-stone-850 focus:outline-none focus:border-orange-500 appearance-none cursor-pointer font-sans font-semibold"
+                    <div className="grid grid-cols-2 gap-3">
+                      <div
+                        // type="button"
+                        // onClick={() => setDestination("pawna")}
+                        onClick={() => {
+                          setDestination("pawna");
+
+                          const firstPkg = PACKAGES.find(
+                            (p) => p.destination === "pawna"
+                          );
+
+                          if (firstPkg) {
+                            setPackageId(firstPkg.id);
+                          }
+                        }}
+                        className={`py-3 px-4 rounded-xl text-xs font-sans font-bold text-center border cursor-pointer transition-all ${destination === "pawna"
+                          ? "bg-orange-50 border-orange-500 text-orange-800"
+                          : "bg-white border-stone-200 text-stone-500 hover:text-stone-800"
+                          }`}
+                      >
+                        Pawna Lake (Lonavala)
+                      </div>
+                      <div
+                        // type="button"
+                        // onClick={() => setDestination("panshet")}
+                        onClick={() => {
+                          setDestination("panshet");
+
+                          const firstPkg = PACKAGES.find(
+                            (p) => p.destination === "panshet"
+                          );
+
+                          if (firstPkg) {
+                            setPackageId(firstPkg.id);
+                          }
+                        }}
+                        className={`py-3 px-4 rounded-xl text-xs font-sans font-bold text-center border cursor-pointer transition-all ${destination === "panshet"
+                          ? "bg-orange-50 border-orange-500 text-orange-800"
+                          : "bg-white border-stone-200 text-stone-500 hover:text-stone-800"
+                          }`}
+                      >
+                        Panshet Valley (Pune)
+                      </div>
+                    </div>
+
+                    <div>
+                      <div className="relative">
+                        <select
+                          value={packageId}
+                          onChange={(e) => setPackageId(e.target.value)}
+                          className="w-full bg-white border border-stone-200 rounded-xl px-4 py-3 text-xs sm:text-sm text-stone-850 focus:outline-none focus:border-orange-500 appearance-none cursor-pointer font-sans font-semibold"
+                        >
+                          {availablePackages.map((p) => (
+                            <option key={p.id} value={p.id}>
+                              {p.name} (₹{p.pricePerPerson}/person)
+                            </option>
+                          ))}
+                        </select>
+                        <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-stone-500">
+                          <svg
+                            className="fill-current h-4 w-4"
+                            viewBox="0 0 20 20"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path d="M5.516 7.548a0.625 0.625 0 0 1 0.884 0L10 11.148l3.6-3.6a0.625 0.625 0 1 1 0.884 0l-4.042 4.042a0.625 0.625 0 0 1-0.884 0L5.516 8.432a0.625 0.625 0 0 1 0-0.884z" />
+                          </svg>
+                        </div>
+                      </div>
+                    </div>
+
+                    {selectedPackage && (
+                      <div className="bg-white border border-stone-150 rounded-xl p-3 text-[11px] leading-relaxed">
+                        <p className="font-extrabold text-stone-800 font-sans border-b border-stone-100 pb-1.5 mb-2 flex items-center justify-between">
+                          <span>{selectedPackage.name} Key Features</span>
+                          <span className="text-orange-700 font-mono font-black">
+                            ₹{selectedPackage.pricePerPerson}/head
+                          </span>
+                        </p>
+                        <ul className="grid grid-cols-2 gap-x-4 gap-y-1 text-stone-605">
+                          <li>• Tent Type: {selectedPackage.tentType}</li>
+                          <li>• Occupancy: {selectedPackage.occupancy}</li>
+                          <li>• Access: {selectedPackage.checkIn} check-in</li>
+                          <li className="truncate">
+                            • Meals: {selectedPackage.meals[1] || selectedPackage.meals[0]}
+                          </li>
+                        </ul>
+                      </div>
+                    )}
+                  </div>
+
+                  {/* SECTION 2: SCHEDULE & GUESTS COUNT */}
+                  <div className="bg-stone-50 p-4 rounded-2xl border border-stone-200 space-y-4">
+                    <div className="flex items-center gap-2 border-b border-stone-200 pb-2">
+                      <Calendar className="w-4 h-4 text-orange-600" />
+                      <span className="text-xs font-mono font-bold text-stone-800 uppercase">
+                        2. Choose Dates & Guests list
+                      </span>
+                    </div>
+
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                      <div className="relative">
+                        <label className="block text-[10px] font-mono text-stone-500 mb-1 uppercase">
+                          Check-In Date
+                        </label>
+                        <div className="relative">
+                          <Calendar className="absolute left-3.5 top-1/2 -translate-y-1/2 text-stone-400 w-4 h-4" />
+                          <input
+                            type="date"
+                            required
+                            value={checkInDate}
+                            onChange={(e) => setCheckInDate(e.target.value)}
+                            className="w-full bg-white border border-stone-200 rounded-xl pl-10 pr-4 py-2.5 text-xs text-stone-850 focus:outline-none focus:border-orange-500 font-sans font-semibold"
+                          />
+                        </div>
+                      </div>
+
+                      <div>
+                        <div className="flex justify-between items-baseline mb-1">
+                          <label className="block text-[10px] font-mono text-stone-500 uppercase">
+                            How many adults?
+                          </label>
+                          <span className="text-xs font-black font-mono text-orange-700">
+                            {guestsCount} Guests
+                          </span>
+                        </div>
+                        <input
+                          type="range"
+                          min="1"
+                          max="25"
+                          value={guestsCount}
+                          onChange={(e) => setGuestsCount(Number(e.target.value))}
+                          className="w-full mt-2 h-1.5 accent-orange-600 bg-stone-200 rounded-lg cursor-pointer"
+                        />
+                      </div>
+                    </div>
+
+                    <div className="bg-white rounded-xl p-3 border border-stone-150">
+                      <p className="text-[9px] uppercase font-mono font-bold text-stone-400 mb-2">
+                        Food Preferences Split (Must equal {guestsCount})
+                      </p>
+                      <div className="grid grid-cols-2 gap-4">
+                        <div>
+                          <label className="block text-[10px] text-stone-605 font-mono mb-1">
+                            Vegetarian Diet
+                          </label>
+                          <input
+                            type="number"
+                            min="0"
+                            max={guestsCount}
+                            value={vegGuests}
+                            onChange={(e) =>
+                              setVegGuests(Math.min(guestsCount, Number(e.target.value)))
+                            }
+                            className="bg-stone-50 border border-stone-200 rounded-lg p-2 text-xs w-full text-stone-850 font-bold focus:outline-none focus:border-orange-500"
+                          />
+                        </div>
+                        <div>
+                          <label className="block text-[10px] text-stone-605 font-mono mb-1">
+                            Non-Veg Diet
+                          </label>
+                          <input
+                            type="number"
+                            min="0"
+                            max={guestsCount}
+                            value={nonVegGuests}
+                            onChange={(e) =>
+                              setNonVegGuests(Math.min(guestsCount, Number(e.target.value)))
+                            }
+                            className="bg-stone-50 border border-stone-200 rounded-lg p-2 text-xs w-full text-stone-850 font-bold focus:outline-none focus:border-orange-500"
+                          />
+                        </div>
+                      </div>
+
+                      {vegGuests + nonVegGuests !== guestsCount && (
+                        <p className="text-[10px] text-rose-600 mt-2 flex items-center gap-1">
+                          <AlertCircle className="w-3.5 h-3.5" />
+                          <span>Meal totals must equate exactly {guestsCount}</span>
+                        </p>
+                      )}
+                    </div>
+                  </div>
+
+                  {/* SECTION 3: CONTACT INFORMATION */}
+                  <div className="bg-stone-50 p-4 rounded-2xl border border-stone-200 space-y-4">
+                    <div className="flex items-center gap-2 border-b border-stone-200 pb-2">
+                      <Phone className="w-4 h-4 text-orange-600" />
+                      <span className="text-xs font-mono font-bold text-stone-800 uppercase">
+                        3. Contact Coordinates
+                      </span>
+                    </div>
+
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                      <div>
+                        <label className="block text-[10px] font-mono text-stone-500 uppercase mb-1">
+                          Your Full Name
+                        </label>
+                        <input
+                          type="text"
+                          required
+                          placeholder="e.g. Rahul Deshmukh"
+                          value={name}
+                          onChange={(e) => setName(e.target.value)}
+                          className="w-full bg-white border border-stone-200 rounded-xl px-3 py-2.5 text-xs text-stone-850 focus:outline-none focus:border-orange-500 font-sans"
+                        />
+                      </div>
+
+                      <div>
+                        <label className="block text-[10px] font-mono text-stone-500 uppercase mb-1">
+                          Mobile (WhatsApp)
+                        </label>
+                        <div className="relative">
+                          <span className="absolute left-3 opac-50 top-1/2 -translate-y-1/2 text-stone-500 font-mono text-[11px] font-bold">
+                            +91
+                          </span>
+                          <input
+                            type="tel"
+                            required
+                            pattern="[0-9]{10}"
+                            placeholder="9876543210"
+                            value={phone}
+                            onChange={(e) => setPhone(e.target.value)}
+                            className="w-full bg-white border border-stone-200 rounded-xl pl-11 pr-3 py-2.5 text-xs text-stone-850 focus:outline-none focus:border-orange-500 font-sans"
+                          />
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                      <div>
+                        <label className="block text-[10px] font-mono text-stone-500 uppercase mb-1">
+                          Email Address
+                        </label>
+                        <input
+                          type="email"
+                          required
+                          placeholder="rahul@gmail.com"
+                          value={email}
+                          onChange={(e) => setEmail(e.target.value)}
+                          className="w-full bg-white border border-stone-200 rounded-xl px-3 py-2.5 text-xs text-stone-850 focus:outline-none focus:border-orange-500 font-sans"
+                        />
+                      </div>
+
+                      <div>
+                        <label className="block text-[10px] font-mono text-stone-500 uppercase mb-1">
+                          Special requests / diet (Optional)
+                        </label>
+                        <input
+                          type="text"
+                          placeholder="Anniversary banner, extra mattress, etc."
+                          value={notes}
+                          onChange={(e) => setNotes(e.target.value)}
+                          className="w-full bg-white border border-stone-200 rounded-xl px-3 py-2.5 text-xs text-stone-850 focus:outline-none focus:border-orange-500"
+                        />
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Dynamic bill calculations summary */}
+                  <div className="bg-stone-100 rounded-2xl p-4 border border-stone-200 flex flex-col gap-2 shadow-xs font-sans text-xs text-stone-605">
+                    <div className="flex items-center gap-1.5 text-[10px] text-stone-500 font-mono uppercase mb-1 tracking-wider">
+                      <Calculator className="w-4 h-4 text-orange-600" />
+                      <span>Real-Time Bill Breakdown</span>
+                    </div>
+
+                    <div className="flex justify-between">
+                      <span>Base package tag:</span>
+                      <span className="font-mono font-bold">₹{priceExponent}/head</span>
+                    </div>
+
+                    <div className="flex justify-between font-semibold text-stone-800">
+                      <span>Group Tariff ({guestsCount} adults):</span>
+                      <span className="font-mono">₹{baseCost}</span>
+                    </div>
+
+                    {discountSavings > 0 && (
+                      <div className="flex justify-between text-orange-600 font-bold">
+                        <span>Lakeside Direct Discount:</span>
+                        <span className="font-mono">-₹{discountSavings}</span>
+                      </div>
+                    )}
+
+                    <div className="flex justify-between text-[11px]">
+                      <span>Tourism Luxury GST Tax (5%):</span>
+                      <span className="font-mono">₹{gstAmount}</span>
+                    </div>
+
+                    <div className="border-t border-stone-200 mt-2 pt-2.5 flex justify-between items-baseline">
+                      <span className="font-black text-stone-900 text-sm">Estimated Total Rate:</span>
+                      <div className="text-right">
+                        <span className="text-xl font-black font-mono text-orange-600">
+                          ₹{totalCost}
+                        </span>
+                        <p className="text-[9px] text-stone-500 font-mono -mt-0.5">
+                          Only 50% UPI advance is required to secure draft dates
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* SUBMISSION CONTROL */}
+                  <div className="pt-2">
+                    <button
+                      type="submit"
+                      className="w-full bg-orange-600 hover:bg-orange-700 active:bg-orange-800 text-white font-sans font-black text-sm py-4 rounded-xl cursor-pointer shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-2"
                     >
-                      {availablePackages.map((p) => (
-                        <option key={p.id} value={p.id}>
-                          {p.name} (₹{p.pricePerPerson}/person)
-                        </option>
-                      ))}
-                    </select>
-                    <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-stone-500">
-                      <svg className="fill-current h-4 w-4" viewBox="0 0 20 20">
-                        <path d="M5.516 7.548c0.436-0.446 1.043-0.481 1.576 0l3.908 3.747 3.908-3.747c0.533-0.481 1.141-0.446 1.5760 0.436 0.445 0.408 1.197 0 1.615l-4.695 4.502c-0.213 0.213-0.556 0.213-0.769 0l-4.695-4.502c-0.408-0.418-0.436-1.17 0-1.615z" />
-                      </svg>
-                    </div>
+                      <span>Submit Inquiry & Generate Voucher</span>
+                      <CheckCircle className="w-5 h-5 text-white" />
+                    </button>
                   </div>
+                </form>
+              </div>
+            ) : (
+              /* SUCCESS INQUIRY RECEIPT FRAME */
+              <div className="p-6 text-center bg-white text-stone-900">
+                <div className="w-16 h-16 bg-orange-50 border border-orange-200 text-orange-600 rounded-full flex items-center justify-center mx-auto mb-6 shadow-xs">
+                  <CheckCircle className="w-9 h-9" />
                 </div>
 
-                {selectedPackage && (
-                  <div className="bg-white border border-stone-150 rounded-xl p-3 text-[11px] leading-relaxed">
-                    <p className="font-extrabold text-stone-800 font-sans border-b border-stone-100 pb-1.5 mb-2 flex items-center justify-between">
-                      <span>{selectedPackage.name} Key Features</span>
-                      <span className="text-orange-700 font-mono font-black">
-                        ₹{selectedPackage.pricePerPerson}/head
-                      </span>
-                    </p>
-                    <ul className="grid grid-cols-2 gap-x-4 gap-y-1 text-stone-605">
-                      <li>• Tent Type: {selectedPackage.tentType}</li>
-                      <li>• Occupancy: {selectedPackage.occupancy}</li>
-                      <li>• Access: {selectedPackage.checkIn} check-in</li>
-                      <li className="truncate">
-                        • Meals: {selectedPackage.meals[1] || selectedPackage.meals[0]}
-                      </li>
-                    </ul>
-                  </div>
-                )}
-              </div>
+                <h3 className="text-2xl font-sans font-extrabold text-stone-900 leading-tight">
+                  Inquiry Calculated!
+                </h3>
+                <p className="text-xs text-stone-500 mt-2 leading-relaxed">
+                  We have compiled your camping invoice proposal. To safeguard your booking dates, trigger the direct WhatsApp button below to lock slots in our physical registers.
+                </p>
 
-              {/* SECTION 2: SCHEDULE & GUESTS COUNT */}
-              <div className="bg-stone-50 p-4 rounded-2xl border border-stone-200 space-y-4">
-                <div className="flex items-center gap-2 border-b border-stone-200 pb-2">
-                  <Calendar className="w-4 h-4 text-orange-600" />
-                  <span className="text-xs font-mono font-bold text-stone-800 uppercase">
-                    2. Choose Dates & Guests list
+                <div className="bg-stone-50 border border-stone-200 rounded-3xl p-5 my-6 text-left relative overflow-hidden">
+                  <div className="absolute top-0 right-0 bg-amber-400 text-stone-950 font-mono text-[9px] font-black px-2.5 py-0.5 uppercase rounded-bl-xl">
+                    Pending Confirmation
+                  </div>
+
+                  <span className="block text-[9px] uppercase font-mono text-stone-500">
+                    Camp Reference Reservation
                   </span>
-                </div>
-
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <div className="relative">
-                    <label className="block text-[10px] font-mono text-stone-500 mb-1 uppercase">
-                      Check-In Date
-                    </label>
-                    <div className="relative">
-                      <Calendar className="absolute left-3.5 top-1/2 -translate-y-1/2 text-stone-400 w-4 h-4" />
-                      <input
-                        type="date"
-                        required
-                        value={checkInDate}
-                        onChange={(e) => setCheckInDate(e.target.value)}
-                        className="w-full bg-white border border-stone-200 rounded-xl pl-10 pr-4 py-2.5 text-xs text-stone-850 focus:outline-none focus:border-orange-500 font-sans font-semibold"
-                      />
-                    </div>
-                  </div>
-
-                  <div>
-                    <div className="flex justify-between items-baseline mb-1">
-                      <label className="block text-[10px] font-mono text-stone-500 uppercase">
-                        How many adults?
-                      </label>
-                      <span className="text-xs font-black font-mono text-orange-700">
-                        {guestsCount} Guests
-                      </span>
-                    </div>
-                    <input
-                      type="range"
-                      min="1"
-                      max="25"
-                      value={guestsCount}
-                      onChange={(e) => setGuestsCount(Number(e.target.value))}
-                      className="w-full accent-orange-600 bg-stone-200 h-1 rounded-lg appearance-none cursor-pointer mt-2"
-                    />
-                  </div>
-                </div>
-
-                <div className="bg-white rounded-xl p-3 border border-stone-150">
-                  <p className="text-[9px] uppercase font-mono font-bold text-stone-400 mb-2">
-                    Food Preferences Split (Must equal {guestsCount})
-                  </p>
-                  <div className="grid grid-cols-2 gap-4">
-                    <div>
-                      <label className="block text-[10px] text-stone-605 font-mono mb-1">
-                        Vegetarian Diet
-                      </label>
-                      <input
-                        type="number"
-                        min="0"
-                        max={guestsCount}
-                        value={vegGuests}
-                        onChange={(e) =>
-                          setVegGuests(Math.min(guestsCount, Number(e.target.value)))
-                        }
-                        className="bg-stone-50 border border-stone-200 rounded-lg p-2 text-xs w-full text-stone-850 font-bold focus:outline-none focus:border-orange-500"
-                      />
-                    </div>
-                    <div>
-                      <label className="block text-[10px] text-stone-605 font-mono mb-1">
-                        Non-Veg Diet
-                      </label>
-                      <input
-                        type="number"
-                        min="0"
-                        max={guestsCount}
-                        value={nonVegGuests}
-                        onChange={(e) =>
-                          setNonVegGuests(Math.min(guestsCount, Number(e.target.value)))
-                        }
-                        className="bg-stone-50 border border-stone-200 rounded-lg p-2 text-xs w-full text-stone-850 font-bold focus:outline-none focus:border-orange-500"
-                      />
-                    </div>
-                  </div>
-
-                  {vegGuests + nonVegGuests !== guestsCount && (
-                    <p className="text-[10px] text-rose-600 mt-2 flex items-center gap-1">
-                      <AlertCircle className="w-3.5 h-3.5" />
-                      <span>Meal totals must equate exactly {guestsCount}</span>
-                    </p>
-                  )}
-                </div>
-              </div>
-
-              {/* SECTION 3: CONTACT INFORMATION */}
-              <div className="bg-stone-50 p-4 rounded-2xl border border-stone-200 space-y-4">
-                <div className="flex items-center gap-2 border-b border-stone-200 pb-2">
-                  <Phone className="w-4 h-4 text-orange-600" />
-                  <span className="text-xs font-mono font-bold text-stone-800 uppercase">
-                    3. Contact Coordinates
+                  <span className="block font-sans font-mono font-bold text-sm text-stone-800 mt-0.5 flex items-center gap-2">
+                    <span>{submittedInquiry?.id}</span>
+                    <button
+                      onClick={copyReceiptSummary}
+                      className="text-stone-400 hover:text-stone-700 p-1 cursor-pointer"
+                    >
+                      {isCopied ? (
+                        <Check className="w-3.5 h-3.5 text-orange-600 font-bold" />
+                      ) : (
+                        <Copy className="w-3.5 h-3.5" />
+                      )}
+                    </button>
                   </span>
-                </div>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <div>
-                    <label className="block text-[10px] font-mono text-stone-500 uppercase mb-1">
-                      Your Full Name
-                    </label>
-                    <input
-                      type="text"
-                      required
-                      placeholder="e.g. Rahul Deshmukh"
-                      value={name}
-                      onChange={(e) => setName(e.target.value)}
-                      className="w-full bg-white border border-stone-200 rounded-xl px-3 py-2.5 text-xs text-stone-850 focus:outline-none focus:border-orange-500 font-sans"
-                    />
-                  </div>
+                  <div className="border-t border-dashed border-stone-200 my-3.5" />
 
-                  <div>
-                    <label className="block text-[10px] font-mono text-stone-500 uppercase mb-1">
-                      Mobile (WhatsApp)
-                    </label>
-                    <div className="relative">
-                      <span className="absolute left-3 opac-50 top-1/2 -translate-y-1/2 text-stone-500 font-mono text-[11px] font-bold">
-                        +91
+                  <ul className="space-y-1.5 text-xs text-stone-600 font-sans">
+                    <li className="flex justify-between">
+                      <span>Camp Location:</span>
+                      <span className="text-stone-800 font-semibold">
+                        {submittedInquiry?.destination === "pawna"
+                          ? "Pawna Lake Dam"
+                          : "Panshet Backwaters"}
                       </span>
-                      <input
-                        type="tel"
-                        required
-                        pattern="[0-9]{10}"
-                        placeholder="9876543210"
-                        value={phone}
-                        onChange={(e) => setPhone(e.target.value)}
-                        className="w-full bg-white border border-stone-200 rounded-xl pl-11 pr-3 py-2.5 text-xs text-stone-850 focus:outline-none focus:border-orange-500 font-sans"
-                      />
-                    </div>
-                  </div>
+                    </li>
+                    <li className="flex justify-between">
+                      <span>Stay Option:</span>
+                      <span
+                        className="text-stone-800 font-semibold leading-none truncate max-w-[200px]"
+                        title={submittedInquiry?.packageName}
+                      >
+                        {submittedInquiry?.packageName}
+                      </span>
+                    </li>
+                    <li className="flex justify-between">
+                      <span>In-Check Date:</span>
+                      <span className="text-stone-800 font-semibold">
+                        {submittedInquiry?.checkInDate}
+                      </span>
+                    </li>
+                    <li className="flex justify-between">
+                      <span>Travelers registered:</span>
+                      <span className="text-stone-800 font-semibold">
+                        {submittedInquiry?.guestsCount} Adults
+                      </span>
+                    </li>
+                    <li className="flex justify-between">
+                      <span>Diet (Veg / Non-Veg):</span>
+                      <span className="text-stone-800 font-semibold">
+                        {submittedInquiry?.vegGuests}V / {submittedInquiry?.nonVegGuests}NV
+                      </span>
+                    </li>
+                    <li className="border-t border-dashed border-stone-200 my-2 pt-2 flex justify-between font-bold text-stone-900">
+                      <span>Total Payable:</span>
+                      <span className="text-orange-700 font-mono font-extrabold text-base">
+                        ₹{submittedInquiry?.totalCost}
+                      </span>
+                    </li>
+                  </ul>
                 </div>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <div>
-                    <label className="block text-[10px] font-mono text-stone-500 uppercase mb-1">
-                      Email Address
-                    </label>
-                    <input
-                      type="email"
-                      required
-                      placeholder="rahul@gmail.com"
-                      value={email}
-                      onChange={(e) => setEmail(e.target.value)}
-                      className="w-full bg-white border border-stone-200 rounded-xl px-3 py-2.5 text-xs text-stone-850 focus:outline-none focus:border-orange-500 font-sans"
-                    />
-                  </div>
-
-                  <div>
-                    <label className="block text-[10px] font-mono text-stone-500 uppercase mb-1">
-                      Special requests / diet (Optional)
-                    </label>
-                    <input
-                      type="text"
-                      placeholder="Anniversary banner, extra mattress, etc."
-                      value={notes}
-                      onChange={(e) => setNotes(e.target.value)}
-                      className="w-full bg-white border border-stone-200 rounded-xl px-3 py-2.5 text-xs text-stone-850 focus:outline-none focus:border-orange-500"
-                    />
-                  </div>
-                </div>
-              </div>
-
-              {/* Dynamic bill calculations summary */}
-              <div className="bg-stone-100 rounded-2xl p-4 border border-stone-200 flex flex-col gap-2 shadow-xs font-sans text-xs text-stone-605">
-                <div className="flex items-center gap-1.5 text-[10px] text-stone-500 font-mono uppercase mb-1 tracking-wider">
-                  <Calculator className="w-4 h-4 text-orange-600" />
-                  <span>Real-Time Bill Breakdown</span>
-                </div>
-
-                <div className="flex justify-between">
-                  <span>Base package tag:</span>
-                  <span className="font-mono font-bold">₹{priceExponent}/head</span>
-                </div>
-
-                <div className="flex justify-between font-semibold text-stone-800">
-                  <span>Group Tariff ({guestsCount} adults):</span>
-                  <span className="font-mono">₹{baseCost}</span>
-                </div>
-
-                {discountSavings > 0 && (
-                  <div className="flex justify-between text-orange-600 font-bold">
-                    <span>Lakeside Direct Discount:</span>
-                    <span className="font-mono">-₹{discountSavings}</span>
-                  </div>
-                )}
-
-                <div className="flex justify-between text-[11px]">
-                  <span>Tourism Luxury GST Tax (5%):</span>
-                  <span className="font-mono">₹{gstAmount}</span>
-                </div>
-
-                <div className="border-t border-stone-200 mt-2 pt-2.5 flex justify-between items-baseline">
-                  <span className="font-black text-stone-900 text-sm">Estimated Total Rate:</span>
-                  <div className="text-right">
-                    <span className="text-xl font-black font-mono text-orange-600">
-                      ₹{totalCost}
-                    </span>
-                    <p className="text-[9px] text-stone-500 font-mono -mt-0.5">
-                      Only 50% UPI advance is required to secure draft dates
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              {/* SUBMISSION CONTROL */}
-              <div className="pt-2">
-                <button
-                  type="submit"
-                  className="w-full bg-orange-600 hover:bg-orange-700 active:bg-orange-800 text-white font-sans font-black text-sm py-4 rounded-xl cursor-pointer shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-2"
-                >
-                  <span>Submit Inquiry & Generate Voucher</span>
-                  <CheckCircle className="w-5 h-5 text-white" />
-                </button>
-              </div>
-            </form>
-          </div>
-        ) : (
-          /* SUCCESS INQUIRY RECEIPT FRAME */
-          <div className="p-8 text-center bg-white text-stone-900">
-            <div className="w-16 h-16 bg-orange-50 border border-orange-200 text-orange-600 rounded-full flex items-center justify-center mx-auto mb-6 shadow-xs">
-              <CheckCircle className="w-9 h-9" />
-            </div>
-
-            <h3 className="text-2xl font-sans font-extrabold text-stone-900 leading-tight">
-              Inquiry Calculated!
-            </h3>
-            <p className="text-xs text-stone-500 mt-2 leading-relaxed">
-              We have compiled your camping invoice proposal. To safeguard your booking dates, trigger the direct WhatsApp button below to lock slots in our physical registers.
-            </p>
-
-            <div className="bg-stone-50 border border-stone-200 rounded-3xl p-5 my-6 text-left relative overflow-hidden">
-              <div className="absolute top-0 right-0 bg-amber-400 text-stone-950 font-mono text-[9px] font-black px-2.5 py-0.5 uppercase rounded-bl-xl">
-                Pending Confirmation
-              </div>
-
-              <span className="block text-[9px] uppercase font-mono text-stone-500">
-                Camp Reference Reservation
-              </span>
-              <span className="block font-sans font-mono font-bold text-sm text-stone-800 mt-0.5 flex items-center gap-2">
-                <span>{submittedInquiry?.id}</span>
-                <button
-                  onClick={copyReceiptSummary}
-                  className="text-stone-400 hover:text-stone-700 p-1 cursor-pointer"
-                >
-                  {isCopied ? (
-                     <Check className="w-3.5 h-3.5 text-orange-600 font-bold" />
-                  ) : (
-                    <Copy className="w-3.5 h-3.5" />
-                  )}
-                </button>
-              </span>
-
-              <div className="border-t border-dashed border-stone-200 my-3.5" />
-
-              <ul className="space-y-1.5 text-xs text-stone-600 font-sans">
-                <li className="flex justify-between">
-                  <span>Camp Location:</span>
-                  <span className="text-stone-800 font-semibold">
-                    {submittedInquiry?.destination === "pawna"
-                      ? "Pawna Lake Dam"
-                      : "Panshet Backwaters"}
-                  </span>
-                </li>
-                <li className="flex justify-between">
-                  <span>Stay Option:</span>
-                  <span
-                    className="text-stone-800 font-semibold leading-none truncate max-w-[200px]"
-                    title={submittedInquiry?.packageName}
+                <div className="space-y-3">
+                  <a
+                    href={getWhatsAppURL()}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="w-full flex items-center justify-center gap-2 bg-orange-600 hover:bg-orange-700 active:bg-orange-800 text-white font-sans font-black py-4 rounded-xl text-center shadow-sm transition-colors cursor-pointer"
                   >
-                    {submittedInquiry?.packageName}
-                  </span>
-                </li>
-                <li className="flex justify-between">
-                  <span>In-Check Date:</span>
-                  <span className="text-stone-800 font-semibold">
-                    {submittedInquiry?.checkInDate}
-                  </span>
-                </li>
-                <li className="flex justify-between">
-                  <span>Travelers registered:</span>
-                  <span className="text-stone-800 font-semibold">
-                    {submittedInquiry?.guestsCount} Adults
-                  </span>
-                </li>
-                <li className="flex justify-between">
-                  <span>Diet (Veg / Non-Veg):</span>
-                  <span className="text-stone-800 font-semibold">
-                    {submittedInquiry?.vegGuests}V / {submittedInquiry?.nonVegGuests}NV
-                  </span>
-                </li>
-                <li className="border-t border-dashed border-stone-200 my-2 pt-2 flex justify-between font-bold text-stone-900">
-                  <span>Total Payable:</span>
-                  <span className="text-orange-700 font-mono font-extrabold text-base">
-                    ₹{submittedInquiry?.totalCost}
-                  </span>
-                </li>
-              </ul>
-            </div>
+                    <PhoneCall className="w-5 h-5 shrink-0" />
+                    <span>Lock Slots on WhatsApp Support</span>
+                  </a>
 
-            <div className="space-y-3">
-              <a
-                href={getWhatsAppURL()}
-                target="_blank"
-                rel="noreferrer"
-                className="w-full flex items-center justify-center gap-2 bg-orange-600 hover:bg-orange-700 active:bg-orange-800 text-white font-sans font-black py-4 rounded-xl text-center shadow-sm transition-colors cursor-pointer"
-              >
-                <PhoneCall className="w-5 h-5 shrink-0" />
-                <span>Lock Slots on WhatsApp Support</span>
-              </a>
-
-              <div className="grid grid-cols-2 gap-3">
-                <button
-                  onClick={handlePrint}
-                  className="bg-stone-50 hover:bg-stone-100 text-stone-700 font-sans font-bold text-xs py-3 rounded-xl cursor-pointer"
-                >
-                  Print Slip Voucher
-                </button>
-                <button
-                  onClick={onClose}
-                  className="bg-white hover:bg-stone-50 text-stone-500 border border-stone-200 font-sans font-semibold py-3 rounded-xl cursor-pointer transition-colors"
-                >
-                  Return to Website
-                </button>
+                  <div className="grid grid-cols-2 gap-3">
+                    <button
+                      onClick={handlePrint}
+                      className="bg-stone-50 hover:bg-stone-100 text-stone-700 font-sans font-bold text-xs py-3 rounded-xl cursor-pointer"
+                    >
+                      Print Slip Voucher
+                    </button>
+                    <button
+                      onClick={onClose}
+                      className="bg-white hover:bg-stone-50 text-stone-500 border border-stone-200 font-sans font-semibold py-3 rounded-xl cursor-pointer transition-colors"
+                    >
+                      Return to Website
+                    </button>
+                  </div>
+                </div>
               </div>
-            </div>
+            )}
           </div>
-        )}
-      </div>
-    </div>
+        </ScrollArea>
+      </DialogContent>
+    </Dialog>
   );
 }

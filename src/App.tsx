@@ -133,14 +133,15 @@ export default function App() {
       />
 
       {/* 4. Modular Booking Form Overlay */}
-      {isBookingOpen && (
-        <BookingForm
-          onClose={() => setIsBookingOpen(false)}
-          destinationParam={bookingParams.destination}
-          packageIdParam={bookingParams.packageId}
-          addBookingInquiry={addBookingInquiry}
-        />
-      )}
+      {/* {isBookingOpen && ( */}
+      <BookingForm
+        open={isBookingOpen}
+        onClose={() => setIsBookingOpen(false)}
+        destinationParam={bookingParams.destination}
+        packageIdParam={bookingParams.packageId}
+        addBookingInquiry={addBookingInquiry}
+      />
+      {/* )} */}
 
       {/* 5. STICKY MOBILE CONVERSION BAR - Styled in clean white / orange accents */}
       <div className="fixed bottom-0 inset-x-0 z-40 bg-white/95 border-t border-stone-200 p-3 lg:hidden flex items-center justify-between gap-3 backdrop-blur-md shadow-lg">
