@@ -20,9 +20,9 @@ export const STATS = [
     description: "Across Pune & Lonavala",
   },
   {
-    value: "4.8 ★",
+    value: "4.7 ★",
     label: "Average Rating",
-    description: "From 3,200+ Google Reviews",
+    description: "From 800+ Google Reviews",
   },
   {
     value: "5+ Years",
@@ -39,7 +39,7 @@ export const STATS = [
 export const DESTINATIONS_INFO = {
   pawna: {
     id: "pawna" as const,
-    name: "Pawna Lake Camping WITH Camp Buddy",
+    name: "Pawna Lake Camping with Camp Buddy",
     location: "Lonavala, Maharashtra",
     distance: "110-120 km from Mumbai | 55-70 km from Pune",
     rating: 4.8,
@@ -94,7 +94,7 @@ export const DESTINATIONS_INFO = {
   },
   panshet: {
     id: "panshet" as const,
-    name: "Panshet Camping",
+    name: "Panshet Camping with Camp Buddy",
     location: "Velhe, Near Pune, Maharashtra",
     distance: "180 km from Mumbai | 42 km from Pune",
     rating: 4.7,
@@ -153,7 +153,7 @@ export const DESTINATIONS_INFO = {
 export const PACKAGES: CampPackage[] = [
   {
     id: "pw-lake-classic",
-    name: "Lakeside Classic Stay",
+    name: "Pawna Camping Tent",
     pricePerPerson: 1299,
     originalPricePerPerson: 1999,
     duration: "1 Night / 2 Days",
@@ -188,11 +188,24 @@ export const PACKAGES: CampPackage[] = [
     description:
       "Our signature and most well-rounded weekend camp package. Sleep right beside the silver waters of Pawna Lake, feast on coal-grilled starters, and enjoy a warm blazing bonfire with games.",
     // image: "/src/assets/images/pawna_lake_hero_1781554186715.jpg"
-    image: pawnaLakeHero,
+    images: [
+      "/images/pawna/camping-tent/camping-tent-1.webp",
+      "/images/pawna/camping-tent/camping-tent-2.webp",
+      "/images/pawna/camping-tent/camping-tent-3.webp",
+      "/images/pawna/camping-tent/camping-tent-4.webp",
+      "/images/pawna/camping-tent/camping-tent-5.webp",
+      "/images/pawna/camping-tent/camping-tent-6.webp",
+      "/images/pawna/camping-tent/camping-tent-7.webp",
+      "/images/pawna/camping-tent/camping-tent-8.webp",
+      "/images/pawna/camping-tent/camping-tent-9.webp",
+      "/images/pawna/camping-tent/camping-tent-10.webp",
+      "/images/pawna/camping-tent/camping-tent-11.webp",
+      "/images/pawna/camping-tent/camping-tent-12.webp",
+    ],
   },
   {
     id: "pw-couple-glamping",
-    name: "Couple's Lakeside Glamping",
+    name: "Pawna White Luxury Cottage",
     pricePerPerson: 1899,
     originalPricePerPerson: 2999,
     duration: "1 Night / 2 Days",
@@ -228,11 +241,21 @@ export const PACKAGES: CampPackage[] = [
     description:
       "Designed for couples wanting absolute comfort and serene romance. A private spacious bell tent adorned with fairy lights, dual mattresses, beautiful local flowers, and front-row seats to the tranquil Pawna sunset.",
     // image: "/src/assets/images/premium_glamping_tent_1781554215882.jpg"
-    image: premiumGlampingTent,
+    images: [
+      "/images/pawna/white-luxury-cottage/white-luxury-cottage-1.webp",
+      "/images/pawna/white-luxury-cottage/white-luxury-cottage-2.webp",
+      "/images/pawna/white-luxury-cottage/white-luxury-cottage-3.webp",
+      "/images/pawna/white-luxury-cottage/white-luxury-cottage-4.webp",
+      "/images/pawna/white-luxury-cottage/white-luxury-cottage-5.webp",
+      "/images/pawna/white-luxury-cottage/white-luxury-cottage-6.webp",
+      "/images/pawna/white-luxury-cottage/white-luxury-cottage-7.webp",
+      "/images/pawna/white-luxury-cottage/white-luxury-cottage-8.webp",
+      "/images/pawna/white-luxury-cottage/white-luxury-cottage-9.webp",
+    ],
   },
   {
     id: "pw-group-bonanza",
-    name: "Adventure Group Bonanza",
+    name: "Pawna White Luxury Pods",
     pricePerPerson: 1199,
     originalPricePerPerson: 1799,
     duration: "1 Night / 2 Days",
@@ -268,11 +291,23 @@ export const PACKAGES: CampPackage[] = [
     description:
       "Specially discounted pricing package perfect for corporate outings, college groups, and large families. Included features are a lakeside DJ dance floor, competitive lawn games, and a full-size barbecue feast.",
     // image: "/src/assets/images/bonfire_barbecue_night_1781554229242.jpg"
-    image: bonfireBarbecueNight,
+
+    images: [
+      "/images/pawna/white-luxury-pods/white-luxury-pods-1.webp",
+      "/images/pawna/white-luxury-pods/white-luxury-pods-2.webp",
+      "/images/pawna/white-luxury-pods/white-luxury-pods-3.webp",
+      "/images/pawna/white-luxury-pods/white-luxury-pods-4.webp",
+      "/images/pawna/white-luxury-pods/white-luxury-pods-5.webp",
+      "/images/pawna/white-luxury-pods/white-luxury-pods-6.webp",
+      "/images/pawna/white-luxury-pods/white-luxury-pods-7.webp",
+      "/images/pawna/white-luxury-pods/white-luxury-pods-8.webp",
+      "/images/pawna/white-luxury-pods/white-luxury-pods-9.webp",
+      "/images/pawna/white-luxury-pods/white-luxury-pods-10.webp",
+    ],
   },
   {
     id: "pn-backwater-sports",
-    name: "Valley Backwater Adventure",
+    name: "Panshet Camping Tent",
     pricePerPerson: 1499,
     originalPricePerPerson: 2299,
     duration: "1 Night / 2 Days",
@@ -306,12 +341,23 @@ export const PACKAGES: CampPackage[] = [
     checkOut: "11:00 AM",
     description:
       "Get wet and wild! This package fully includes high-quality kayaking, exhilarating high-speed boating, and swimming under strict supervision of certified lifeguards on Panshet backwaters.",
-    image:
-      "https://images.unsplash.com/photo-1723049256176-1aa6e8cbf364?q=80&w=2231&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    images: [
+      "/images/panshet/camping-tent/camping-tent-1.webp",
+      "/images/panshet/camping-tent/camping-tent-2.webp",
+      "/images/panshet/camping-tent/camping-tent-3.webp",
+      "/images/panshet/camping-tent/camping-tent-4.webp",
+      "/images/panshet/camping-tent/camping-tent-5.webp",
+      "/images/panshet/camping-tent/camping-tent-6.webp",
+      "/images/panshet/camping-tent/camping-tent-7.webp",
+      "/images/panshet/camping-tent/camping-tent-8.webp",
+      "/images/panshet/camping-tent/camping-tent-9.webp",
+      "/images/panshet/camping-tent/camping-tent-10.webp",
+      "/images/panshet/camping-tent/camping-tent-11.webp",
+    ],
   },
   {
     id: "pn-rustic-nature",
-    name: "Panshet Rustic Wilderness Eco-Retreat",
+    name: "Panshet Swiss Tent",
     pricePerPerson: 1299,
     originalPricePerPerson: 1899,
     duration: "1 Night / 2 Days",
@@ -345,12 +391,17 @@ export const PACKAGES: CampPackage[] = [
     checkOut: "12:00 PM",
     description:
       "Unplug from screen strain and heal in nature. Situated within an organic mango grove, enjoy guided early morning bird spotting, organic farming demonstrations, and slow woodfired Maharashtrian dishes.",
-    image:
-      "https://images.unsplash.com/photo-1510312305653-8ed496efae75?auto=format&fit=crop&w=800&q=80",
+    images: [
+      "/images/panshet/swiss-tent/swiss-tent-1.webp",
+      "/images/panshet/swiss-tent/swiss-tent-2.webp",
+      "/images/panshet/swiss-tent/swiss-tent-3.webp",
+      "/images/panshet/swiss-tent/swiss-tent-4.webp",
+      "/images/panshet/swiss-tent/swiss-tent-5.webp",
+    ],
   },
   {
     id: "pn-luxury-safari",
-    name: "Panshet Canopy Safari Cabin",
+    name: "Panshet Wooden Cottages",
     pricePerPerson: 2299,
     originalPricePerPerson: 3499,
     duration: "1 Night / 2 Days",
@@ -385,8 +436,15 @@ export const PACKAGES: CampPackage[] = [
     checkOut: "11:00 AM",
     description:
       "The pinnacle of comfortable wilderness living. Enjoy semi-permanent high-canopy safari luxury tents built on sturdy wooden decks with attached clean private western washrooms, comfortable wood furniture, and unmatched privacy.",
-    image:
-      "https://images.unsplash.com/photo-1525253086316-d0c936c814f8?auto=format&fit=crop&w=800&q=80",
+    images: [
+      "/images/panshet/wooden-cottages/wooden-cottages-1.webp",
+      "/images/panshet/wooden-cottages/wooden-cottages-2.webp",
+      "/images/panshet/wooden-cottages/wooden-cottages-3.webp",
+      "/images/panshet/wooden-cottages/wooden-cottages-4.webp",
+      "/images/panshet/wooden-cottages/wooden-cottages-5.webp",
+      "/images/panshet/wooden-cottages/wooden-cottages-6.webp",
+      "/images/panshet/wooden-cottages/wooden-cottages-7.webp",
+    ],
   },
 ];
 
@@ -466,57 +524,8 @@ export const TENTS: TentType[] = [
 
 export const GALLERY_ITEMS: GalleryItem[] = [
   {
-    id: "g-pawna-lakeside",
-    src: pawnaLakeHero,
-    alt: "Sunset over pristine Pawna Lake",
-    category: "pawna",
-    locationLabel: "Pawna Lake",
-    description: "Pristine golden hours on the lakeside",
-  },
-  {
-    id: "g-panshet-valley",
-    src: panshetLakeHero,
-    alt: "Scenic backwater valleys at Panshet Dam",
-    category: "panshet",
-    locationLabel: "Panshet Eco-Camp",
-    description: "Mist rolling over the silent valleys",
-  },
-  {
-    id: "g-bell-tent-cozy",
-    src: premiumGlampingTent,
-    alt: "Inside a warm glowing bell glamping tent",
-    category: "tents",
-    locationLabel: "Pawna Lake",
-    description: "Bohemian fairy lights cozy interiors",
-  },
-  {
-    id: "g-bonfire-party",
-    src: bonfireBarbecueNight,
-    alt: "Friends gathering around a sparkling bonfire at night",
-    category: "bonfire",
-    locationLabel: "Campfire Common Ring",
-    description: "Acoustic tunes, laughter, and crackling logs",
-  },
-  // Unsplash high quality photos to complete the masonry gallery
-  {
-    id: "g-un-tent",
-    src: "https://images.unsplash.com/photo-1510312305653-8ed496efae75?auto=format&fit=crop&w=800&q=80",
-    alt: "Campsite setup during beautiful morning blue hour",
-    category: "tents",
-    locationLabel: "Panshet Camp",
-    description: "Stormproof double layer domes",
-  },
-  {
-    id: "g-un-bbq",
-    src: "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=800&q=80",
-    alt: "Barbecue chicken skewers sizzling over coal embers",
-    category: "food",
-    locationLabel: "Food Court Starters",
-    description: "Sizzling smoky marinated tikkas cooked live",
-  },
-  {
     id: "g-un-kayak",
-    src: "https://images.unsplash.com/photo-1723049256176-1aa6e8cbf364?q=80&w=2231&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    src: "/images/pawna/happy-clients/happy-clients-1.webp",
     alt: "Kayaking on clear emerald river waters",
     category: "activities",
     locationLabel: "Panshet Dam backwaters",
@@ -524,7 +533,7 @@ export const GALLERY_ITEMS: GalleryItem[] = [
   },
   {
     id: "g-un-dinner",
-    src: "https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=800&q=80",
+    src: "/images/pawna/happy-clients/happy-clients-2.webp",
     alt: "Buffet dishes laid out on wooden table under lanterns",
     category: "food",
     locationLabel: "Lakeside Buffet Area",
@@ -532,7 +541,7 @@ export const GALLERY_ITEMS: GalleryItem[] = [
   },
   {
     id: "g-un-nightsky",
-    src: "https://images.unsplash.com/photo-1506318137071-a8e063b4bec0?auto=format&fit=crop&w=800&q=80",
+    src: "/images/pawna/happy-clients/happy-clients-3.webp",
     alt: "Milky way galaxy shining bright over the campsite hills",
     category: "night",
     locationLabel: "High Sky Observatory",
@@ -540,27 +549,59 @@ export const GALLERY_ITEMS: GalleryItem[] = [
   },
   {
     id: "g-un-singing",
-    src: "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=800&q=80",
+    src: "/images/pawna/happy-clients/happy-clients-4.webp",
     alt: "Acoustic guitar sitting next to campfire",
     category: "activities",
     locationLabel: "Pawna Lake Stage",
     description: "Sat live acoustic unplugged jams",
   },
   {
-    id: "g-un-archery",
-    src: "https://images.unsplash.com/photo-1511193311914-0346f16efe90?auto=format&fit=crop&w=800&q=80",
-    alt: "A wood archery bow setup aimed at target board",
-    category: "activities",
-    locationLabel: "Recreation Lawn",
-    description: "Lawn games like archery and carrom",
+    id: "g-pawna-lakeside",
+    src: "/images/panshet/happy-clients/happy-clients-1.webp",
+    alt: "Sunset over pristine Pawna Lake",
+    category: "pawna",
+    locationLabel: "Pawna Lake",
+    description: "Pristine golden hours on the lakeside",
   },
   {
-    id: "g-un-tea",
-    src: "https://images.unsplash.com/photo-1576092768241-dec231879fc3?auto=format&fit=crop&w=800&q=80",
-    alt: "Hot steaming tea poured into glass cups next to hot fritters",
+    id: "g-panshet-valley",
+    src: "/images/panshet/happy-clients/happy-clients-2.webp",
+    alt: "Scenic backwater valleys at Panshet Dam",
+    category: "panshet",
+    locationLabel: "Panshet Eco-Camp",
+    description: "Mist rolling over the silent valleys",
+  },
+  {
+    id: "g-bell-tent-cozy",
+    src: "/images/panshet/happy-clients/happy-clients-3.webp",
+    alt: "Inside a warm glowing bell glamping tent",
+    category: "tents",
+    locationLabel: "Pawna Lake",
+    description: "Bohemian fairy lights cozy interiors",
+  },
+  {
+    id: "g-bonfire-party",
+    src: "/images/panshet/happy-clients/happy-clients-4.webp",
+    alt: "Friends gathering around a sparkling bonfire at night",
+    category: "bonfire",
+    locationLabel: "Campfire Common Ring",
+    description: "Acoustic tunes, laughter, and crackling logs",
+  },
+  {
+    id: "g-un-tent",
+    src: "/images/panshet/happy-clients/happy-clients-5.webp",
+    alt: "Campsite setup during beautiful morning blue hour",
+    category: "tents",
+    locationLabel: "Panshet Camp",
+    description: "Stormproof double layer domes",
+  },
+  {
+    id: "g-un-bbq",
+    src: "/images/panshet/happy-clients/happy-clients-6.webp",
+    alt: "Barbecue chicken skewers sizzling over coal embers",
     category: "food",
-    locationLabel: "Sunset Dining tent",
-    description: "Hot high-tea paired with tasty Kanda Bhajji",
+    locationLabel: "Food Court Starters",
+    description: "Sizzling smoky marinated tikkas cooked live",
   },
 ];
 
@@ -663,6 +704,27 @@ export const FAQS: FAQItem[] = [
       "Do you offer private transportation services from Lonavala or Pune railway stations?",
     answer:
       "Yes. While transport is not included in the default camp base package, we can easily reserve a private comfortable shared auto, Ertiga car, or Bolero cruiser directly from Kamshet/Lonavala Station (for Pawna) or Shivajinagar/Kothrud (for Panshet) at standard nominal local taxi tariffs.",
+    category: "booking",
+  },
+  {
+    id: "faq-9",
+    question: "What should I carry for the camping trip?",
+    answer:
+      "We recommend carrying winter wear such as a sweater or light jacket, a portable charger or power bank, personal medicines, toiletries, and Odomos or any mosquito repellent for added comfort during your stay.",
+    category: "general",
+  },
+  {
+    id: "faq-10",
+    question: "What are the campsite guidelines and important advisories?",
+    answer:
+      "In case of rain, tents are shifted under a covered shed area. All tents are allotted on a first-come, first-served basis. The campsite welcomes families, couples, friends, and bachelor groups. Washrooms and bonfire areas are common for all guests. Mobile and laptop charging points are available in designated common areas. Guests are requested to follow all instructions provided by the organizers, avoid littering, and respect the natural surroundings. Activities such as Cricket, Volleyball, Carrom, and Badminton can be arranged on request through the campsite manager.",
+    category: "general",
+  },
+  {
+    id: "faq-8",
+    question: "What is your cancellation and refund policy?",
+    answer:
+      "Prior booking is mandatory, and 50% of the total amount must be paid in advance to confirm your booking. The remaining 50% can be paid on arrival at the campsite. If a booking is canceled 7 days or more before the event date, 50% of the booking amount will be refunded. No refunds will be provided for cancellations made within 5 days of the event date. Please note that only bookings with the advance payment completed are considered confirmed.",
     category: "booking",
   },
 ];

@@ -1,3 +1,4 @@
+import { cn } from "@/lib/utils";
 import { Heart, Mail, MapPin, Phone, Shield, Tent } from "lucide-react";
 
 interface FooterProps {
@@ -18,8 +19,12 @@ export default function Footer({ setCurrentPage, openBookingWithParams }: Footer
           {/* Brand Column: Camp Buddy */}
           <div className="space-y-4">
             <div className="flex items-center gap-2.5">
-              <div className="bg-orange-600 p-2.5 rounded-xl">
-                <Tent className="w-5.5 h-5.5 text-white" />
+              <div className={cn(" bg-transparent rounded-xl  transition-colors")}>
+                <img
+                  src="/images/campbuddy/campbuddy-logo-nobg.png"
+                  className="w-9.5 h-9.5 shrink-0"
+                  alt="campbuddy-logo"
+                />
               </div>
               <div>
                 <span className="block font-sans font-black text-lg text-stone-900 tracking-tight uppercase">

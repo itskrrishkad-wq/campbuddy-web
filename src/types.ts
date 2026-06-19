@@ -16,7 +16,7 @@ export interface CampPackage {
   checkIn: string;
   checkOut: string;
   description: string;
-  image?: string;
+  images: string[];
 }
 
 export interface TentType {
@@ -36,7 +36,14 @@ export interface GalleryItem {
   id: string;
   src: string;
   alt: string;
-  category: "pawna" | "panshet" | "tents" | "activities" | "food" | "bonfire" | "night";
+  category:
+    | "pawna"
+    | "panshet"
+    | "tents"
+    | "activities"
+    | "food"
+    | "bonfire"
+    | "night";
   description?: string;
   locationLabel: string;
 }

@@ -1,4 +1,5 @@
 import { Sheet, SheetClose, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import { cn } from "@/lib/utils";
 import { Calendar, Image as ImageIcon, Menu, Phone, Tent } from "lucide-react";
 import { useEffect, useState } from "react";
 
@@ -46,11 +47,10 @@ export default function Navbar({
     <>
       <header
         id="main-app-header"
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          isScrolled
-            ? "bg-white/95 backdrop-blur-md shadow-md border-b border-stone-200 py-3"
-            : "bg-white/60 backdrop-blur-xs border-b border-stone-200/40 py-3"
-        }`}
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled
+          ? "bg-white/95 backdrop-blur-md shadow-md border-b border-stone-200 py-3"
+          : "bg-white/60 backdrop-blur-xs border-b border-stone-200/40 py-3"
+          }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between">
@@ -60,11 +60,18 @@ export default function Navbar({
               onClick={() => handleNavClick("home")}
               className="flex items-center gap-2.5 group cursor-pointer focus:outline-none"
             >
-              <div className="bg-orange-500 p-2.5 rounded-xl group-hover:bg-orange-600 transition-colors shadow-sm">
+              {/* <div className="bg-orange-500 p-2.5 rounded-xl group-hover:bg-orange-600 transition-colors shadow-sm">
                 <Tent className="w-5.5 h-5.5 text-white" />
+              </div> */}
+              <div className={cn("p-0.5 bg-transparent rounded-xl  transition-colors")}>
+                <img
+                  src="/images/campbuddy/campbuddy-logo-nobg.png"
+                  className="w-9.5 h-9.5 shrink-0"
+                  alt="campbuddy-logo"
+                />
               </div>
-              <div className="text-left">
-                <span className="block font-sans font-black tracking-tight text-xl text-stone-900 group-hover:text-orange-600 transition-colors uppercase">
+              <div className="text-left"> 
+                <span className="block font-sans font-black tracking-tight text-xl text-stone-900 transition-colors uppercase">
                   Camp Buddy
                 </span>
                 <span className="block text-[9px] uppercase tracking-[0.25em] font-mono text-orange-600 font-bold -mt-1">
@@ -81,11 +88,10 @@ export default function Navbar({
                   <div
                     key={item.id}
                     onClick={() => handleNavClick(item.id)}
-                    className={`px-4 py-2 rounded-full font-sans font-semibold text-sm transition-all duration-200 cursor-pointer ${
-                      isActive
-                        ? "bg-orange-50 text-orange-800 border border-orange-200"
-                        : "text-stone-600 hover:text-stone-900 hover:bg-stone-50"
-                    }`}
+                    className={`px-4 py-2 rounded-full font-sans font-semibold text-sm transition-all duration-200 cursor-pointer ${isActive
+                      ? "bg-orange-50 text-orange-800 border border-orange-200"
+                      : "text-stone-600 hover:text-stone-900 hover:bg-stone-50"
+                      }`}
                   >
                     {item.label}
                   </div>
@@ -96,11 +102,10 @@ export default function Navbar({
               <div
                 id="my-bookings-nav-btn"
                 onClick={() => handleNavClick("bookings")}
-                className={`ml-2 px-4 py-2 rounded-full font-sans font-semibold text-sm transition-all relative cursor-pointer ${
-                  currentPage === "bookings"
-                    ? "bg-amber-50 text-amber-700 border border-amber-200/60"
-                    : "text-stone-600 hover:text-stone-900 hover:bg-stone-50"
-                }`}
+                className={`ml-2 px-4 py-2 rounded-full font-sans font-semibold text-sm transition-all relative cursor-pointer ${currentPage === "bookings"
+                  ? "bg-amber-50 text-amber-700 border border-amber-200/60"
+                  : "text-stone-600 hover:text-stone-900 hover:bg-stone-50"
+                  }`}
               >
                 <span>My Bookings</span>
                 {bookingInquiriesCount > 0 && (
@@ -127,7 +132,7 @@ export default function Navbar({
               </a>
 
               {/* Instant Book Now div */}
-            { /* <div
+              { /* <div
                 id="header-book-now-cta"
                 onClick={() => openBookingWithParams()}
                 className="bg-orange-600 text-white hover:bg-orange-700 active:bg-orange-800 font-sans font-bold text-sm px-6 py-2.5 rounded-full shadow-sm hover:shadow transition-all cursor-pointer whitespace-nowrap"
@@ -155,19 +160,23 @@ export default function Navbar({
                 <SheetTrigger >
                   <div
                     id="mobile-menu-trigger-btn"
-                    className="p-2 text-stone-600 hover:text-stone-900 bg-stone-50 border border-stone-200 rounded-xl focus:outline-none cursor-pointer"
+                    className="p-2 text-stone-600 hover:text-stone-900 bg-transparent rounded-xl focus:outline-none cursor-pointer"
                     aria-label="Toggle Menu"
                   >
                     <Menu className="w-5 h-5" />
                   </div>
                 </SheetTrigger>
-                
+
                 <SheetContent side="right" className="bg-white text-stone-900 !w-full p-6 flex flex-col justify-between h-full border-l border-stone-200 shadow-2xl">
                   <div className="space-y-6">
                     {/* Header branding in mobile drawer */}
                     <div className="flex items-center gap-2.5 border-b border-stone-100 pb-5">
-                      <div className="bg-orange-500 p-2 rounded-lg">
-                        <Tent className="w-5 h-5 text-white" />
+                      <div className={cn(" bg-transparent rounded-xl  transition-colors")}>
+                        <img
+                          src="/images/campbuddy/campbuddy-logo-nobg.png"
+                          className="w-9.5 h-9.5 shrink-0"
+                          alt="campbuddy-logo"
+                        />
                       </div>
                       <span className="font-sans font-black tracking-tight text-lg text-stone-900 uppercase">
                         Camp Buddy
@@ -183,11 +192,10 @@ export default function Navbar({
                           <SheetClose key={item.id} >
                             <div
                               onClick={() => handleNavClick(item.id)}
-                              className={`w-full flex items-center gap-3.5 px-4 py-3 rounded-xl font-sans font-bold text-sm text-left transition-colors cursor-pointer ${
-                                isActive
-                                  ? "bg-orange-50 text-orange-850 border border-orange-100 font-extrabold"
-                                  : "text-stone-600 hover:bg-stone-50"
-                              }`}
+                              className={`w-full flex items-center gap-3.5 px-4 py-3 rounded-xl font-sans font-bold text-sm text-left transition-colors cursor-pointer ${isActive
+                                ? "bg-orange-50 text-orange-850 border border-orange-100 font-extrabold"
+                                : "text-stone-600 hover:bg-stone-50"
+                                }`}
                             >
                               <IconComponent className="w-4.5 h-4.5 opacity-70" />
                               <span>{item.label}</span>
@@ -199,11 +207,10 @@ export default function Navbar({
                       <SheetClose>
                         <div
                           onClick={() => handleNavClick("bookings")}
-                          className={`w-full flex items-center justify-between px-4 py-3 rounded-xl font-sans font-bold text-sm text-left transition-colors cursor-pointer ${
-                            currentPage === "bookings"
-                              ? "bg-amber-50 text-amber-700 border border-amber-100 font-extrabold"
-                              : "text-stone-600 hover:bg-stone-50"
-                          }`}
+                          className={`w-full flex items-center justify-between px-4 py-3 rounded-xl font-sans font-bold text-sm text-left transition-colors cursor-pointer ${currentPage === "bookings"
+                            ? "bg-amber-50 text-amber-700 border border-amber-100 font-extrabold"
+                            : "text-stone-600 hover:bg-stone-50"
+                            }`}
                         >
                           <div className="flex items-center gap-3.5">
                             <Calendar className="w-4.5 h-4.5 opacity-70" />

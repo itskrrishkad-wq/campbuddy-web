@@ -107,7 +107,7 @@ export default function Hero({ setCurrentPage, openBookingWithParams }: HeroProp
                   <Star key={s} className="w-3.5 h-3.5 fill-amber-400 text-amber-400" />
                 ))}
               </div>
-              <span className="text-stone-200 font-extrabold">4.8/5 Rating</span>
+              <span className="text-stone-200 font-extrabold">4.7/5 Rating</span>
             </div>
             <div className="w-1 h-1 rounded-full bg-stone-700" />
             <div className="flex items-center gap-1">
