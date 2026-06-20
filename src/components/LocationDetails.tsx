@@ -198,45 +198,18 @@ export default function LocationDetails({
           {/* LEFT COLUMN: DESCRIPTION, HIGHLIGHTS, FOOD TIMELINE, GUIDE DIRECTIONS */}
           <div className="lg:col-span-8 space-y-16">
 
-            {/* Overview */}
-            <div id="overview-content-block">
-              <h2 className="text-2xl font-sans font-extrabold text-stone-900 tracking-tight border-b border-stone-200 pb-3 mb-5">
-                Overview & Experience
-              </h2>
-              <p className="text-sm sm:text-base text-stone-600 leading-relaxed font-sans font-normal mb-8">
-                {info.longDesc}
-              </p>
-              <div id="best-time-box" className="p-5 bg-stone-50 border border-stone-200 rounded-3xl">
-                <span className="block text-xs font-mono font-bold uppercase text-orange-600">BEST TIME TO VISIT</span>
-                <p className="text-xs text-stone-550 mt-1 font-semibold">{info.bestTimeToVisit}</p>
-              </div>
-            </div>
-
-            {/* Stay Highlights checklist */}
-            <div id="highlights-content-block">
-              <h2 className="text-2xl font-sans font-extrabold text-stone-900 tracking-tight border-b border-stone-200 pb-3 mb-6">
-                Camping Experience Highlights
-              </h2>
-              <div className="space-y-4">
-                {info.highlights.map((hl, idx) => (
-                  <div key={idx} className="flex items-start gap-4 bg-stone-50 border border-stone-200 p-5 rounded-3xl shadow-sm">
-                    <CheckCircle2 className="w-5.5 h-5.5 text-orange-600 shrink-0 mt-0.5" />
-                    <div>
-                      <p className="text-xs sm:text-sm text-stone-705 font-semibold font-sans leading-relaxed">{hl}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-
+            <h2 className="text-2xl font-sans font-extrabold text-stone-900 tracking-tight border-b border-stone-200 pb-3 mb-5">
+              Stay Options
+            </h2>
             <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-8 ">
+
               {filteredAndSortedPackages.map((pkg) => {
                 const isCompared = compareList.some((item) => item.id === pkg.id);
                 return (
                   <div
                     id={`package-card-${pkg.id}`}
                     key={pkg.id}
-                    className="group relative bg-white border border-stone-250/50 rounded-3xl overflow-hidden shadow-sm hover:shadow-xl hover:border-orange-500/30 transition-all duration-300 flex flex-col justify-between"
+                    className="group relative bg-white border rounded-3xl overflow-hidden shadow-sm hover:shadow-xl border-orange-500/30 transition-all duration-300 flex flex-col justify-between"
                   >
                     {/* Image on top */}
                     {pkg.images?.length && pkg.images.length > 0 && (
@@ -407,6 +380,39 @@ export default function LocationDetails({
                 );
               })}
             </div>
+
+            {/* Overview */}
+            <div id="overview-content-block">
+              <h2 className="text-2xl font-sans font-extrabold text-stone-900 tracking-tight border-b border-stone-200 pb-3 mb-5">
+                Overview & Experience
+              </h2>
+              <p className="text-sm sm:text-base text-stone-600 leading-relaxed font-sans font-normal mb-8">
+                {info.longDesc}
+              </p>
+              <div id="best-time-box" className="p-5 bg-stone-50 border border-stone-200 rounded-3xl">
+                <span className="block text-xs font-mono font-bold uppercase text-orange-600">BEST TIME TO VISIT</span>
+                <p className="text-xs text-stone-550 mt-1 font-semibold">{info.bestTimeToVisit}</p>
+              </div>
+            </div>
+
+            {/* Stay Highlights checklist */}
+            <div id="highlights-content-block">
+              <h2 className="text-2xl font-sans font-extrabold text-stone-900 tracking-tight border-b border-stone-200 pb-3 mb-6">
+                Camping Experience Highlights
+              </h2>
+              <div className="space-y-4">
+                {info.highlights.map((hl, idx) => (
+                  <div key={idx} className="flex items-start gap-4 bg-stone-50 border border-stone-200 p-5 rounded-3xl shadow-sm">
+                    <CheckCircle2 className="w-5.5 h-5.5 text-orange-600 shrink-0 mt-0.5" />
+                    <div>
+                      <p className="text-xs sm:text-sm text-stone-705 font-semibold font-sans leading-relaxed">{hl}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+
 
             {/* Food Schedule Timeline */}
             <div id="meals-timeline-block">

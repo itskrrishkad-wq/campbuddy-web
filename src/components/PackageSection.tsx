@@ -210,7 +210,7 @@ export default function PackageSection({ openBookingWithParams, preSelectedDesti
               <div
                 id={`package-card-${pkg.id}`}
                 key={pkg.id}
-                className="group relative bg-white border border-stone-250/50 rounded-3xl overflow-hidden shadow-sm hover:shadow-xl hover:border-orange-500/30 transition-all duration-300 flex flex-col justify-between"
+                className="group relative bg-white border rounded-3xl overflow-hidden shadow-sm hover:shadow-xl border-orange-500/30 transition-all duration-300 flex flex-col justify-between"
               >
                 {/* Image on top */}
                 {pkg.images?.length && pkg.images.length > 0 && (
