@@ -236,7 +236,6 @@ export default function PackageSection({ openBookingWithParams, preSelectedDesti
                               {/* eslint-disable-next-line @next/next/no-img-element */}
                               <img
                                 src={image}
-                                loading="lazy"
                                 alt={`${image} - Image ${imageIndex + 1
                                   }`}
                                 className={cn(

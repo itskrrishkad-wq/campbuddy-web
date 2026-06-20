@@ -18,7 +18,7 @@ const timelineEvents = [
         description:
             "Arrive at the campsite and begin your getaway with a smooth and effortless check-in. Settle into your accommodation and soak in the natural surroundings.",
         icon: Sun,
-        image: "/images/new_images/image-5.webp",
+        image: "/images/others/welcome.webp",
         color: "bg-gradient-to-r from-green-400 to-green-600",
     },
     {
