@@ -85,8 +85,7 @@ export default function InlineBookingSection({
   const baseCost = priceExponent * guestsCount;
   const originalCost = originalExponent * guestsCount;
   const discountSavings = originalCost - baseCost;
-  const gstAmount = Math.round(baseCost * 0.05); // 5% GST
-  const totalCost = baseCost + gstAmount;
+  const totalCost = baseCost;
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -671,10 +670,7 @@ Please confirm slot availability so I can make standard 50% secured UPI booking 
                       </div>
                     )}
 
-                    <div className="flex justify-between">
-                      <span>GST Tax & processing services (5%):</span>
-                      <span className="font-mono">₹{gstAmount}</span>
-                    </div>
+
 
                     <div className="border-t border-stone-200 mt-3 pt-3 flex justify-between text-sm items-baseline">
                       <span className="font-black text-stone-900 text-sm">Estimated Total Cost:</span>

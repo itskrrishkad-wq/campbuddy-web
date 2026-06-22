@@ -150,8 +150,7 @@ export default function BookingForm({
   const baseCost = priceExponent * guestsCount;
   const originalCost = originalExponent * guestsCount;
   const discountSavings = originalCost - baseCost;
-  const gstAmount = Math.round(baseCost * 0.05); // 5% GST
-  const totalCost = baseCost + gstAmount;
+  const totalCost = baseCost;
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -645,10 +644,7 @@ Cost: ₹${submittedInquiry.totalCost}`;
                       </div>
                     )}
 
-                    <div className="flex justify-between text-[11px]">
-                      <span>Tourism Luxury GST Tax (5%):</span>
-                      <span className="font-mono">₹{gstAmount}</span>
-                    </div>
+
 
                     <div className="border-t border-stone-200 mt-2 pt-2.5 flex justify-between items-baseline">
                       <span className="font-black text-stone-900 text-sm">Estimated Total Rate:</span>
