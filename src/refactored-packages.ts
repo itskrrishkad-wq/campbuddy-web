@@ -14,6 +14,14 @@ export const DEFAULT_ACTIVITIES = [
   "Outdoor Games",
 ];
 
+export const DEFAULT_ACTIVITIES_PANSHET = [
+  "DJ Night",
+  "Bonfire",
+  "Live Music (Weekends)",
+  "Indoor Games",
+  "Outdoor Games",
+];
+
 export const PACKAGES = [
   {
     id: "pw-lake-classic",
@@ -234,6 +242,7 @@ export const PACKAGES = [
         price: 1099,
         originalPrice: 1399,
       },
+      { type: "perPerson", guests: 1, label: "With Pool Access", price: 1299 },
     ],
     amenities: [
       "Waterproof Camping Tent",
@@ -247,7 +256,7 @@ export const PACKAGES = [
     accommodation: "Waterproof Dam View Tent",
     occupancy: "2-4 Guests",
     meals: DEFAULT_MEALS,
-    activities: DEFAULT_ACTIVITIES,
+    activities: DEFAULT_ACTIVITIES_PANSHET,
     imageFolder: "/images/panshet/camping-tent",
     imageCount: 11,
   },

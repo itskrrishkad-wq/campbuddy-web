@@ -11,16 +11,7 @@ export default function GallerySection({ preSelectedDestination = "all" }: Galle
   const [selectedCategory, setSelectedCategory] = useState<string>("all");
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
 
-  const categories = [
-    { id: "all", label: "All Photos" },
-    { id: "pawna", label: "Pawna Lake" },
-    { id: "panshet", label: "Panshet Valley" },
-    { id: "tents", label: "Tents & Lobbies" },
-    { id: "activities", label: "Adventure Activities" },
-    { id: "food", label: "BBQ & Dining" },
-    { id: "bonfire", label: "Bonfires" },
-    { id: "night", label: "Night Stargazing" }
-  ];
+
 
   // Filtering gallery items
   const filteredItems = GALLERY_ITEMS.filter((item) => {
@@ -70,21 +61,7 @@ export default function GallerySection({ preSelectedDestination = "all" }: Galle
           </p>
         </div>
 
-        {/* Category filters with rounded corners */}
-        <div id="gallery-filters-row" className="flex flex-wrap items-center justify-center gap-1.5 sm:gap-2 mb-12">
-          {categories.map((cat) => (
-            <button
-              key={cat.id}
-              onClick={() => setSelectedCategory(cat.id)}
-              className={`px-4 py-2.5 rounded-2xl text-xs sm:text-sm font-sans font-extrabold transition-all cursor-pointer ${selectedCategory === cat.id
-                ? "bg-orange-600 text-white shadow-sm"
-                : "bg-stone-50 text-stone-600 hover:text-stone-900 border border-stone-200 hover:bg-stone-100"
-                }`}
-            >
-              {cat.label}
-            </button>
-          ))}
-        </div>
+       
 
         {/* Masonry-like Grid Layout with highly rounded cards */}
         <div id="gallery-items-column-layout" className="columns-2 sm:columns-2 md:columns-3 lg:columns-4 gap-2 sm:gap-6 space-y-2 sm:space-y-6">
@@ -113,7 +90,7 @@ export default function GallerySection({ preSelectedDestination = "all" }: Galle
               </div>
 
               {/* Title Card lower details */}
-              <div className="max-sm:hidden p-4 bg-stone-50 z-10 relative">
+              <div className="hidden p-4 bg-stone-50 z-10 relative">
                 <div className="flex items-center justify-between gap-2">
                   <span className="text-[10px] font-mono tracking-wider bg-white border border-stone-200 text-stone-605 px-2.5 py-1 rounded-xl uppercase font-bold shadow-xs">
                     {item.locationLabel}

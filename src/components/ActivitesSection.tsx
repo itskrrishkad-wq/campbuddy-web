@@ -1,7 +1,7 @@
 const activities = [
     {
         emoji: "🚣",
-        title: "Boating (Seasonal)",
+        title: "Boating (Extra charges)",
         description: "Glide across calm waters and soak in breathtaking lakeside views.",
     },
     {
