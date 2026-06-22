@@ -85,7 +85,7 @@ export const DESTINATIONS_INFO = {
     ],
     locationDetails: {
       address:
-        "Camp Buddy Pawna Lake Camping, Thakursai Village, Near Lonavala, Maharashtra 410406",
+        "Campbuddy pawna lake Camping Thakursai-Aajiwali Rd, Gevhande Khadak, Maharashtra 410406",
       directions:
         "From Pune: 55-70 km (1.5 to 2 hrs). Drive via Pune-Mumbai Expressway (NH48), exit Talegaon or Kamshet, and continue via Kamshet. By Train: Board local train to Lonavala or Kamshet, then hire taxi. From Mumbai: 110-120 km (2 to 3 hrs) via Expressway, exit at Lonavala and drive 10-20 km past Kamshet. Landmarks: Lonavala (20 km), Kamshet (15 km), Tikona Fort (5 km), Lohagad Fort (15 km), Visapur Fort (15 km), Tung Fort (8 km).",
       mapEmbedSrc:
@@ -141,7 +141,7 @@ export const DESTINATIONS_INFO = {
     ],
     locationDetails: {
       address:
-        "Panshet Backwaters Green Farms, Shirkoli Village, Velhe Taluka, Pune, Maharashtra 412107",
+        "Campbuddy Panshet Camping Velhe-Panshet Rd, Panshet, Kadve, Maharashtra 412107",
       directions:
         "Drive via Sinhagad Road from Pune, take Left past Khadakwasla Dam toward Panshet, and proceed about 8 km from the Panshet Dam wall along the backwater loop.",
       mapEmbedSrc:
