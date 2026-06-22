@@ -1,29 +1,25 @@
-import React, { useMemo, useState } from "react";
-import { DESTINATIONS_INFO, PACKAGES, TENTS } from "../data";
+import bonfireBarbecueNight from "@/src/assets/images/bonfire_barbecue_night_1781554229242.jpg";
+import panshetHero from "@/src/assets/images/panshet_lake_hero_1781554201017.jpg";
 import {
+  AlertCircle,
   CheckCircle2,
-  Navigation,
-  Compass,
-  MapPin,
   Coffee,
+  Compass,
   Drum,
   Flame,
+  MapPin,
+  Navigation,
+  Sparkles,
   Sun,
   Sunrise,
   UtensilsCrossed,
-  Check,
-  Star,
-  Sparkles,
-  XIcon,
-  AlertCircle,
+  XIcon
 } from "lucide-react";
-import { Carousel, CarouselPrevious, CarouselContent, CarouselItem, CarouselNext } from "@/components/ui/carousel"
-import pawnaHero from "@/src/assets/images/pawna_lake_hero_1781554186715.jpg"
-import panshetHero from "@/src/assets/images/panshet_lake_hero_1781554201017.jpg"
-import premiumGlampingTent from "@/src/assets/images/premium_glamping_tent_1781554215882.jpg";
-import bonfireBarbecueNight from "@/src/assets/images/bonfire_barbecue_night_1781554229242.jpg";
+import { useMemo, useState } from "react";
+import { DESTINATIONS_INFO, TENTS } from "../data";
+import { PACKAGES } from "../refactored-packages";
 import { CampPackage } from "../types";
-import { cn } from "@/lib/utils";
+import PackageCard from "./PackageCard";
 
 
 const timelineEvents = [
@@ -193,190 +189,191 @@ export default function LocationDetails({
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 py-16">
+        <div className="w-full gap-12 py-16">
 
           {/* LEFT COLUMN: DESCRIPTION, HIGHLIGHTS, FOOD TIMELINE, GUIDE DIRECTIONS */}
-          <div className="lg:col-span-8 space-y-16">
+          <div className=" space-y-16">
 
             <h2 className="text-2xl font-sans font-extrabold text-stone-900 tracking-tight border-b border-stone-200 pb-3 mb-5">
               Stay Options
             </h2>
-            <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-8 ">
+            <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 ">
 
               {filteredAndSortedPackages.map((pkg) => {
                 const isCompared = compareList.some((item) => item.id === pkg.id);
                 return (
-                  <div
-                    id={`package-card-${pkg.id}`}
-                    key={pkg.id}
-                    className="group relative bg-white border rounded-3xl overflow-hidden shadow-sm hover:shadow-xl border-orange-500/30 transition-all duration-300 flex flex-col justify-between"
-                  >
-                    {/* Image on top */}
-                    {pkg.images?.length && pkg.images.length > 0 && (
-                      <div className="relative h-64 w-full overflow-hidden bg-stone-100">
-                        {/* <img
-                      id={`package-image-${pkg.id}`}
-                      src={pkg.images[0]}
-                      alt={pkg.name}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                      referrerPolicy="no-referrer"
-                    /> */}
-                        <Carousel
-                          className="w-full h-64"
-                          opts={{ align: "start", loop: true }}
-                        >
-                          <CarouselContent className="h-full">
-                            {pkg.images.map((image, imageIndex) => (
-                              <CarouselItem key={imageIndex} className="h-full">
-                                <div className="relative w-full h-full">
-                                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                                  <img
-                                    src={image}
-                                    loading="lazy"
-                                    alt={`${image} - Image ${imageIndex + 1
-                                      }`}
-                                    className={cn(
-                                      "w-full h-64 object-cover object-center group-hover:scale-105 transition-transform duration-700",
-                                      // image.imageClassName,
-                                    )}
-                                  />
+                  // <div
+                  //   id={`package-card-${pkg.id}`}
+                  //   key={pkg.id}
+                  //   className="group relative bg-white border rounded-3xl overflow-hidden shadow-sm hover:shadow-xl border-orange-500/30 transition-all duration-300 flex flex-col justify-between"
+                  // >
+                  //   {/* Image on top */}
+                  //   {pkg.images?.length && pkg.images.length > 0 && (
+                  //     <div className="relative h-64 w-full overflow-hidden bg-stone-100">
+                  //       {/* <img
+                  //     id={`package-image-${pkg.id}`}
+                  //     src={pkg.images[0]}
+                  //     alt={pkg.name}
+                  //     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  //     referrerPolicy="no-referrer"
+                  //   /> */}
+                  //       <Carousel
+                  //         className="w-full h-64"
+                  //         opts={{ align: "start", loop: true }}
+                  //       >
+                  //         <CarouselContent className="h-full">
+                  //           {pkg.images.map((image, imageIndex) => (
+                  //             <CarouselItem key={imageIndex} className="h-full">
+                  //               <div className="relative w-full h-full">
+                  //                 {/* eslint-disable-next-line @next/next/no-img-element */}
+                  //                 <img
+                  //                   src={image}
+                  //                   loading="lazy"
+                  //                   alt={`${image} - Image ${imageIndex + 1
+                  //                     }`}
+                  //                   className={cn(
+                  //                     "w-full h-64 object-cover object-center group-hover:scale-105 transition-transform duration-700",
+                  //                     // image.imageClassName,
+                  //                   )}
+                  //                 />
 
-                                  <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                                </div>
-                              </CarouselItem>
-                            ))}
-                          </CarouselContent>
+                  //                 <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  //               </div>
+                  //             </CarouselItem>
+                  //           ))}
+                  //         </CarouselContent>
 
-                          {/* Carousel Navigation */}
-                          <CarouselPrevious className="absolute left-2 inset-y-0  bg-white/20 backdrop-blur-sm border-white/30 text-white hover:bg-white/30  transition-all duration-300 w-8 h-8" />
-                          <CarouselNext className="absolute right-2 inset-y-0 bg-white/20 backdrop-blur-sm border-white/30 text-white hover:bg-white/30  transition-all duration-300 w-8 h-8" />
+                  //         {/* Carousel Navigation */}
+                  //         <CarouselPrevious className="absolute left-2 inset-y-0  bg-white/20 backdrop-blur-sm border-white/30 text-white hover:bg-white/30  transition-all duration-300 w-8 h-8" />
+                  //         <CarouselNext className="absolute right-2 inset-y-0 bg-white/20 backdrop-blur-sm border-white/30 text-white hover:bg-white/30  transition-all duration-300 w-8 h-8" />
 
-                          {/* Dot Indicators */}
-                          <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex space-x-1  transition-opacity duration-300">
-                            {pkg.images.map((_, dotIndex) => (
-                              <div
-                                key={dotIndex}
-                                className="w-2 h-2 rounded-full bg-white/60 backdrop-blur-sm"
-                              />
-                            ))}
-                          </div>
-                        </Carousel>
+                  //         {/* Dot Indicators */}
+                  //         <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex space-x-1  transition-opacity duration-300">
+                  //           {pkg.images.map((_, dotIndex) => (
+                  //             <div
+                  //               key={dotIndex}
+                  //               className="w-2 h-2 rounded-full bg-white/60 backdrop-blur-sm"
+                  //             />
+                  //           ))}
+                  //         </div>
+                  //       </Carousel>
 
-                      </div>
-                    )}
+                  //     </div>
+                  //   )}
 
-                    {/* Visual Label Tags */}
-                    <div className="absolute top-4 left-4 z-10 flex flex-col gap-1.5">
-                      {pkg.tags.map((tag, i) => (
-                        <span
-                          key={i}
-                          className="bg-orange-600/90 text-white w-max text-[10px] font-mono font-black px-2.5 py-1 rounded-full uppercase tracking-wider shadow-sm"
-                        >
-                          {tag}
-                        </span>
-                      ))}
-                    </div>
+                  //   {/* Visual Label Tags */}
+                  //   <div className="absolute top-4 left-4 z-10 flex flex-col gap-1.5">
+                  //     {pkg.tags.map((tag, i) => (
+                  //       <span
+                  //         key={i}
+                  //         className="bg-orange-600/90 text-white w-max text-[10px] font-mono font-black px-2.5 py-1 rounded-full uppercase tracking-wider shadow-sm"
+                  //       >
+                  //         {tag}
+                  //       </span>
+                  //     ))}
+                  //   </div>
 
-                    {/* Compare Checkbox */}
-                    <button
-                      id={`compare-toggle-btn-${pkg.id}`}
-                      onClick={() => toggleCompare(pkg)}
-                      className="absolute top-4 right-4 z-10 bg-white/95 backdrop-blur border border-stone-200 text-stone-700 hover:text-stone-900 p-2 rounded-2xl cursor-pointer flex items-center justify-center gap-1.5 shadow-sm hover:bg-stone-50 transition-colors"
-                      title="Compare package highlights"
-                    >
-                      <div
-                        className={`w-4 h-4 rounded border flex items-center justify-center transition-all ${isCompared ? "bg-amber-500 border-amber-500 text-stone-900" : "border-stone-300"
-                          }`}
-                      >
-                        {isCompared && <Check className="w-3 h-3 stroke-[3]" />}
-                      </div>
-                      <span className="text-[10px] font-mono font-extrabold pr-1">COMPARE</span>
-                    </button>
+                  //   {/* Compare Checkbox */}
+                  //   <button
+                  //     id={`compare-toggle-btn-${pkg.id}`}
+                  //     onClick={() => toggleCompare(pkg)}
+                  //     className="absolute top-4 right-4 z-10 bg-white/95 backdrop-blur border border-stone-200 text-stone-700 hover:text-stone-900 p-2 rounded-2xl cursor-pointer flex items-center justify-center gap-1.5 shadow-sm hover:bg-stone-50 transition-colors"
+                  //     title="Compare package highlights"
+                  //   >
+                  //     <div
+                  //       className={`w-4 h-4 rounded border flex items-center justify-center transition-all ${isCompared ? "bg-amber-500 border-amber-500 text-stone-900" : "border-stone-300"
+                  //         }`}
+                  //     >
+                  //       {isCompared && <Check className="w-3 h-3 stroke-[3]" />}
+                  //     </div>
+                  //     <span className="text-[10px] font-mono font-extrabold pr-1">COMPARE</span>
+                  //   </button>
 
-                    {/* Body Content */}
-                    <div className="p-6 flex-grow flex flex-col">
-                      {/* Destination stamp */}
-                      <span className="text-[10px] uppercase tracking-widest font-mono font-black text-orange-600">
-                        {pkg.destination === "pawna" ? "Pawna Lake Camping" : "Panshet Eco Backwaters"}
-                      </span>
+                  //   {/* Body Content */}
+                  //   <div className="p-6 flex-grow flex flex-col">
+                  //     {/* Destination stamp */}
+                  //     <span className="text-[10px] uppercase tracking-widest font-mono font-black text-orange-600">
+                  //       {pkg.destination === "pawna" ? "Pawna Lake Camping" : "Panshet Eco Backwaters"}
+                  //     </span>
 
-                      <h3 className="text-xl font-sans font-extrabold text-stone-900 mt-1 mb-2 group-hover:text-orange-600 transition-colors">
-                        {pkg.name}
-                      </h3>
+                  //     <h3 className="text-xl font-sans font-extrabold text-stone-900 mt-1 mb-2 group-hover:text-orange-600 transition-colors">
+                  //       {pkg.name}
+                  //     </h3>
 
-                      {/* Reviews rating */}
-                      <div className="flex items-center gap-1.5 mb-4 text-xs text-stone-500">
-                        <div className="flex">
-                          {[1, 2, 3, 4, 5].map((s) => (
-                            <Star
-                              key={s}
-                              className={`w-3.5 h-3.5 ${s <= pkg.rating ? "fill-amber-400 text-amber-400" : "text-stone-200"
-                                }`}
-                            />
-                          ))}
-                        </div>
-                        <span className="text-stone-800 font-bold font-mono">{pkg.rating}</span>
-                        <span>({pkg.reviewsCount} reviews)</span>
-                      </div>
+                  //     {/* Reviews rating */}
+                  //     <div className="flex items-center gap-1.5 mb-4 text-xs text-stone-500">
+                  //       <div className="flex">
+                  //         {[1, 2, 3, 4, 5].map((s) => (
+                  //           <Star
+                  //             key={s}
+                  //             className={`w-3.5 h-3.5 ${s <= pkg.rating ? "fill-amber-400 text-amber-400" : "text-stone-200"
+                  //               }`}
+                  //           />
+                  //         ))}
+                  //       </div>
+                  //       <span className="text-stone-800 font-bold font-mono">{pkg.rating}</span>
+                  //       <span>({pkg.reviewsCount} reviews)</span>
+                  //     </div>
 
-                      {/* Pricing and savings */}
-                      <div className="bg-stone-50 rounded-2xl p-4 mb-6 border border-stone-200/60 flex items-center justify-between">
-                        <div>
-                          <div className="flex items-baseline gap-2">
-                            <span className="text-2xl font-black font-mono text-orange-600">
-                              ₹{pkg.pricePerPerson}
-                            </span>
-                            <span className="text-sm line-through text-stone-400 font-mono">
-                              ₹{pkg.originalPricePerPerson}
-                            </span>
-                          </div>
-                          <span className="text-[10px] text-stone-500">Inclusive of meals & guides *</span>
-                        </div>
-                        <div className="bg-orange-50 border border-orange-200/50 text-orange-850 text-[10px] font-mono font-bold px-2.5 py-1 rounded-lg">
-                          Save {Math.round((1 - pkg.pricePerPerson / pkg.originalPricePerPerson) * 100)}%
-                        </div>
-                      </div>
+                  //     {/* Pricing and savings */}
+                  //     <div className="bg-stone-50 rounded-2xl p-4 mb-6 border border-stone-200/60 flex items-center justify-between">
+                  //       <div>
+                  //         <div className="flex items-baseline gap-2">
+                  //           <span className="text-2xl font-black font-mono text-orange-600">
+                  //             ₹{pkg.pricePerPerson}
+                  //           </span>
+                  //           <span className="text-sm line-through text-stone-400 font-mono">
+                  //             ₹{pkg.originalPricePerPerson}
+                  //           </span>
+                  //         </div>
+                  //         <span className="text-[10px] text-stone-500">Inclusive of meals & guides *</span>
+                  //       </div>
+                  //       <div className="bg-orange-50 border border-orange-200/50 text-orange-850 text-[10px] font-mono font-bold px-2.5 py-1 rounded-lg">
+                  //         Save {Math.round((1 - pkg.pricePerPerson / pkg.originalPricePerPerson) * 100)}%
+                  //       </div>
+                  //     </div>
 
-                      {/* Highlights Bullet list */}
-                      <div className="space-y-3 font-sans text-xs text-stone-600 mb-6 border-b border-stone-100 pb-5">
-                        <div className="flex items-center gap-2">
-                          <span className="text-[10px] font-bold font-mono bg-stone-100 text-orange-800 border border-stone-200 px-1.5 py-0.5 rounded uppercase">
-                            Meals
-                          </span>
-                          <span className="truncate text-stone-750" title={pkg.meals.join(", ")}>
-                            {pkg.meals[1] || pkg.meals[0]} BBQ included
-                          </span>
-                        </div>
+                  //     {/* Highlights Bullet list */}
+                  //     <div className="space-y-3 font-sans text-xs text-stone-600 mb-6 border-b border-stone-100 pb-5">
+                  //       <div className="flex items-center gap-2">
+                  //         <span className="text-[10px] font-bold font-mono bg-stone-100 text-orange-800 border border-stone-200 px-1.5 py-0.5 rounded uppercase">
+                  //           Meals
+                  //         </span>
+                  //         <span className="truncate text-stone-750" title={pkg.meals.join(", ")}>
+                  //           {pkg.meals[1] || pkg.meals[0]} BBQ included
+                  //         </span>
+                  //       </div>
 
-                        <div className="flex items-center gap-2">
-                          <span className="text-[10px] font-bold font-mono bg-stone-100 text-orange-800 border border-stone-200 px-1.5 py-0.5 rounded uppercase">
-                            Tents
-                          </span>
-                          <span className="text-stone-750">{pkg.tentType} ({pkg.occupancy})</span>
-                        </div>
+                  //       <div className="flex items-center gap-2">
+                  //         <span className="text-[10px] font-bold font-mono bg-stone-100 text-orange-800 border border-stone-200 px-1.5 py-0.5 rounded uppercase">
+                  //           Tents
+                  //         </span>
+                  //         <span className="text-stone-750">{pkg.tentType} ({pkg.occupancy})</span>
+                  //       </div>
 
-                        <div className="flex items-center gap-2">
-                          <span className="text-[10px] font-bold font-mono bg-stone-100 text-orange-800 border border-stone-200 px-1.5 py-0.5 rounded uppercase">
-                            Acts
-                          </span>
-                          <span className="truncate text-stone-750">{pkg.activities.slice(0, 3).join(", ")}...</span>
-                        </div>
-                      </div>
+                  //       <div className="flex items-center gap-2">
+                  //         <span className="text-[10px] font-bold font-mono bg-stone-100 text-orange-800 border border-stone-200 px-1.5 py-0.5 rounded uppercase">
+                  //           Acts
+                  //         </span>
+                  //         <span className="truncate text-stone-750">{pkg.activities.slice(0, 3).join(", ")}...</span>
+                  //       </div>
+                  //     </div>
 
-                      <p className="text-xs text-stone-600 leading-relaxed font-sans mt-auto">{pkg.description}</p>
-                    </div>
+                  //     <p className="text-xs text-stone-600 leading-relaxed font-sans mt-auto">{pkg.description}</p>
+                  //   </div>
 
-                    {/* Lower Action buttons */}
-                    <div className="p-6 pt-0 mt-auto">
-                      <button
-                        id={`package-book-btn-${pkg.id}`}
-                        onClick={() => openBookingWithParams(pkg.destination, pkg.id)}
-                        className="w-full bg-orange-600 hover:bg-orange-700 active:bg-orange-850 text-white font-sans font-bold text-sm py-3.5 rounded-xl transition-all cursor-pointer flex items-center justify-center gap-1.5 shadow-sm hover:shadow"
-                      >
-                        <span>Instant Booking Inquiry</span>
-                      </button>
-                    </div>
-                  </div>
+                  //   {/* Lower Action buttons */}
+                  //   <div className="p-6 pt-0 mt-auto">
+                  //     <button
+                  //       id={`package-book-btn-${pkg.id}`}
+                  //       onClick={() => openBookingWithParams(pkg.destination, pkg.id)}
+                  //       className="w-full bg-orange-600 hover:bg-orange-700 active:bg-orange-850 text-white font-sans font-bold text-sm py-3.5 rounded-xl transition-all cursor-pointer flex items-center justify-center gap-1.5 shadow-sm hover:shadow"
+                  //     >
+                  //       <span>Instant Booking Inquiry</span>
+                  //     </button>
+                  //   </div>
+                  // </div>
+                  <PackageCard key={pkg.id} pkg={pkg} />
                 );
               })}
             </div>
@@ -451,7 +448,7 @@ export default function LocationDetails({
 
                       {/* Content Card */}
                       <div
-                        className={`bg-white border rounded-[32px] p-6 shadow-xs hover:shadow-xl transition-all duration-350 ${isHovered
+                        className={`bg-white border rounded-[32px] p-6 shadow-xl hover:shadow-xl transition-all duration-350 ${isHovered
                           ? "border-orange-500/30 -translate-y-0.5 bg-stone-50/20"
                           : "border-stone-200"
                           }`}
@@ -485,6 +482,7 @@ export default function LocationDetails({
                 })}
               </div>
             </div>
+
 
             {/* How to Reach section */}
             <div id="directions-block">
@@ -524,96 +522,6 @@ export default function LocationDetails({
           </div>
 
           {/* RIGHT COLUMN: DIRECT ACTION BOOKING CTA PANEL, AVAILABLE PACKAGES INDEX */}
-          <div className="lg:col-span-4 space-y-10 h-fit sticky top-24">
-
-            {/* Quick Pricing Inquiry CTA Box */}
-            <div className="bg-white border-2 border-stone-200 rounded-[28px] p-6 sm:p-8 shadow-sm relative overflow-hidden">
-              <div className="absolute top-0 right-0 h-2 bg-orange-600 w-1/3" />
-              <span className="text-[10px] uppercase tracking-wider font-mono text-orange-600 font-extrabold">Instant Quote Estimation</span>
-              <h3 className="text-lg sm:text-xl font-sans font-extrabold text-stone-900 tracking-tight mt-1 mb-2">
-                Draft Reserve Stay
-              </h3>
-              <p className="text-xs text-stone-550 font-sans leading-relaxed mb-6">
-                Estimate package cost instantly and trigger custom booking inquiries directly toward WhatsApp register cells.
-              </p>
-
-              <button
-                id="location-wizard-quote-btn"
-                onClick={() => openBookingWithParams(destinationId)}
-                className="w-full bg-orange-600 hover:bg-orange-700 active:bg-orange-850 text-white font-sans font-bold text-xs sm:text-sm py-4 rounded-xl shadow-xs transition-colors cursor-pointer text-center flex items-center justify-center gap-1.5"
-              >
-                <span>Launch Booking Inquiry</span>
-              </button>
-
-              <div className="flex items-center gap-2 justify-center mt-4">
-                <span className="w-1.5 h-1.5 rounded-full bg-orange-600 animate-pulse" />
-                <span className="text-[10px] text-stone-500 font-mono font-semibold">14 people booking slots today</span>
-              </div>
-            </div>
-
-            {/* Micro List of Available Packages at this destination */}
-            <div className="bg-stone-50 border border-stone-200 rounded-[28px] p-6 sm:p-8 shadow-sm">
-              <h3 className="text-lg font-sans font-extrabold text-stone-900 mb-4 border-b border-stone-200 pb-2">
-                Available Holiday Tiers
-              </h3>
-              <div className="space-y-4">
-                {activePackages.map((pkg) => (
-                  <div
-                    id={`package-tier-${pkg.id}`}
-                    key={pkg.id}
-                    onClick={() => openBookingWithParams(destinationId, pkg.id)}
-                    className="p-4 rounded-2xl bg-white border border-stone-200 hover:border-orange-500 hover:shadow transition-all duration-200 cursor-pointer flex flex-col justify-between gap-3 group"
-                  >
-                    <div>
-                      <div className="flex justify-between items-baseline mb-1">
-                        <h4 className="text-xs sm:text-sm font-extrabold text-stone-800 group-hover:text-orange-600 transition-colors">
-                          {pkg.name}
-                        </h4>
-                        <span className="text-xs font-mono font-bold text-orange-600 shrink-0">₹{pkg.pricePerPerson}</span>
-                      </div>
-                      <p className="text-[10px] text-stone-500 line-clamp-2 leading-relaxed">
-                        {pkg.description}
-                      </p>
-                    </div>
-                    <div className="flex items-center justify-between text-[9px] font-mono text-stone-500">
-                      <span>{pkg.duration}</span>
-                      <span className="bg-orange-50 text-orange-700 border border-orange-100 px-1.5 py-0.5 rounded text-[8px] font-black uppercase shadow-sm">Click to book</span>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* Cozy Tent Accommodations list */}
-            <div className="bg-stone-50 border border-stone-200 rounded-[28px] p-6 sm:p-8 shadow-sm">
-              <h3 className="text-lg font-sans font-extrabold text-stone-900 mb-4 border-b border-stone-200 pb-2">
-                Stay Outpost Options
-              </h3>
-              <div className="space-y-4">
-                {activeTents.map((tent) => (
-                  <div
-                    key={tent.id}
-                    className="flex items-center gap-3 bg-white border border-stone-200 p-3 rounded-2xl shadow-sm"
-                  >
-                    <img
-                      src={tent.image}
-                      alt={tent.name}
-                      className="w-16 h-16 object-cover rounded-xl shrink-0"
-                      referrerPolicy="no-referrer"
-                    />
-                    <div>
-                      <h4 className="text-xs font-sans font-bold text-stone-850">
-                        {tent.name}
-                      </h4>
-                      <p className="text-[10px] text-stone-500 mt-1">Fits {tent.capacity}</p>
-                      <span className="text-xs font-mono font-bold text-orange-600 mt-1 block">From ₹{tent.pricing}/head</span>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-          </div>
 
         </div>
       </div>

@@ -153,41 +153,53 @@ export const DESTINATIONS_INFO = {
 export const PACKAGES: CampPackage[] = [
   {
     id: "pw-lake-classic",
-    name: "Pawna Camping Tent",
-    pricePerPerson: 1299,
-    originalPricePerPerson: 1999,
+    name: "Lakeside Camping Tent",
+    pricePerPerson: 1099,
+    originalPricePerPerson: 1500,
     duration: "1 Night / 2 Days",
     rating: 4.8,
     reviewsCount: 840,
     destination: "pawna",
-    tags: ["Best Seller", "Popular"],
+    tags: ["Best Seller", "Popular", "Lake View"],
     meals: [
-      "Hi-Tea",
-      "BBQ (250g limited)",
-      "Unlimited Indian Dinner (Veg/Non-Veg)",
+      "Evening Snacks",
+      "Limited BBQ",
+      "Unlimited Dinner (Veg/Non-Veg)",
       "Morning Breakfast",
     ],
     amenities: [
-      "Comfortable Bedding",
-      "Pillows & Blankets",
-      "Shared Clean Washrooms",
-      "Charging Points",
-      "First Aid",
+      "Waterproof Lakeside Camping Tent",
+      "Floor Mattress",
+      "Blanket & Pillow",
+      "Common Washroom (Indian & Western)",
+      "Lake View",
+      "Mountain View",
+      "Sunrise & Sunset Views",
     ],
     activities: [
+      "DJ Night",
       "Bonfire",
-      "Archery & Dart Game",
-      "Cricket & Volleyball",
-      "Carrom/Chess",
-      "Sunset Lake Walk",
+      "Movie Screening",
+      "Live Music (Weekends)",
+      "Indoor Games",
+      "Outdoor Games",
     ],
-    tentType: "Premium Dome Tent",
+    tentType: "Waterproof Lakeside Tent",
     occupancy: "2, 3, or 4 Adults Sharing",
     checkIn: "4:00 PM",
     checkOut: "11:00 AM",
     description:
-      "Our signature and most well-rounded weekend camp package. Sleep right beside the silver waters of Pawna Lake, feast on coal-grilled starters, and enjoy a warm blazing bonfire with games.",
-    // image: "/src/assets/images/pawna_lake_hero_1781554186715.jpg"
+      "Wake up to stunning lake and mountain views while enjoying a true outdoor camping experience. Stay in a comfortable waterproof tent near the lakeside, savor delicious meals, relax by the bonfire, enjoy DJ nights, movie screenings, and live music on weekends.",
+    highlights: [
+      "Lakeside Camping Experience",
+      "Beautiful Sunrise & Sunset Views",
+      "Scenic Mountain Views",
+      "Unlimited Dinner (Veg/Non-Veg)",
+      "DJ Night & Bonfire",
+      "Movie Screening",
+      "Live Music on Weekends",
+      "Indoor & Outdoor Games",
+    ],
     images: [
       "/images/pawna/camping-tent/camping-tent-1.webp",
       "/images/pawna/camping-tent/camping-tent-2.webp",
@@ -204,43 +216,64 @@ export const PACKAGES: CampPackage[] = [
     ],
   },
   {
-    id: "pw-couple-glamping",
-    name: "Pawna White Luxury Cottage",
-    pricePerPerson: 1899,
-    originalPricePerPerson: 2999,
+    id: "pw-cozy-vibes-camping",
+    name: "Pawna Cozy Vibes Camping",
+    pricePerPerson: 1299,
+    originalPricePerPerson: 1800,
     duration: "1 Night / 2 Days",
-    rating: 4.9,
-    reviewsCount: 410,
+    rating: 4.8,
+    reviewsCount: 520,
     destination: "pawna",
-    tags: ["Romantic Choice", "Luxury Comfort"],
+    tags: ["Couples Favorite", "Nature View", "Peaceful Stay"],
+
     meals: [
-      "Welcoming Drinks",
-      "Premium Hi-Tea",
-      "Paneer & Chicken BBQ Skewers",
-      "Premium Lakeside Dinner",
-      "Breakfast & Fresh Juice",
+      "Evening Snacks",
+      "Limited BBQ",
+      "Unlimited Dinner (Veg/Non-Veg)",
+      "Morning Breakfast",
     ],
+
     amenities: [
-      "Plush Double Mattress",
-      "Elegant Boho Caravan Style Decor",
-      "Fairy Lights & Lanterns",
-      "Private Garden Sitting Setup",
-      "Complimentary Water & Snacks",
+      "Premium Camping Tent",
+      "Thick Mattress",
+      "Blanket & Pillow",
+      "Charging Point Nearby",
+      "Common Washroom (Indian & Western)",
+      "Nature View",
+      "Mountain View",
+      "Sunset Views",
     ],
+
     activities: [
-      "Romantic Bonfire",
-      "Stargazing Session",
-      "Live Band Music (Saturday Night)",
-      "Guitar Serenade",
-      "Archery & Boating Discount",
+      "DJ Night",
+      "Bonfire",
+      "Movie Screening",
+      "Live Music (Weekends)",
+      "Indoor Games",
+      "Outdoor Games",
     ],
-    tentType: "Boho Glamping Bell Tent",
-    occupancy: "Strictly 2 Adults Only",
-    checkIn: "3:30 PM",
+
+    tentType: "Premium Cozy Camping Tent",
+    occupancy: "2, 3, or 4 Adults Sharing",
+
+    checkIn: "4:00 PM",
     checkOut: "11:00 AM",
+
     description:
-      "Designed for couples wanting absolute comfort and serene romance. A private spacious bell tent adorned with fairy lights, dual mattresses, beautiful local flowers, and front-row seats to the tranquil Pawna sunset.",
-    // image: "/src/assets/images/premium_glamping_tent_1781554215882.jpg"
+      "A cozy camping experience designed for couples and guests looking for peace and relaxation. Surrounded by nature and scenic mountain views, enjoy comfortable camping, delicious food, bonfire evenings, live entertainment, and beautiful sunset moments.",
+
+    highlights: [
+      "Peaceful Nature Camping",
+      "Mountain & Sunset Views",
+      "Premium Cozy Tent Setup",
+      "Charging Point Nearby",
+      "Unlimited Dinner (Veg/Non-Veg)",
+      "DJ Night & Bonfire",
+      "Movie Screening",
+      "Live Music on Weekends",
+      "Indoor & Outdoor Games",
+    ],
+
     images: [
       "/images/pawna/white-luxury-cottage/white-luxury-cottage-1.webp",
       "/images/pawna/white-luxury-cottage/white-luxury-cottage-2.webp",
@@ -254,43 +287,69 @@ export const PACKAGES: CampPackage[] = [
     ],
   },
   {
-    id: "pw-group-bonanza",
-    name: "Pawna White Luxury Pods",
-    pricePerPerson: 1199,
-    originalPricePerPerson: 1799,
+    id: "pw-luxury-safari-tent",
+    name: "Luxury Safari Tent",
+
+    pricePerPerson: 1800,
+    originalPricePerPerson: 2000,
+
+    couplePrice: 3200,
+    groupPricePerPerson: 1600,
+
     duration: "1 Night / 2 Days",
-    rating: 4.7,
-    reviewsCount: 390,
+
+    rating: 4.9,
+    reviewsCount: 280,
+
     destination: "pawna",
-    tags: ["Best Price for Groups", "Active Fun"],
+
+    tags: ["Premium Stay", "Couple Favorite", "Safari Tent"],
+
     meals: [
-      "Lakeside Hi-Tea",
-      "Veg/Chicken BBQ Starters",
-      "Jumbo Unlimited Multi-cuisine Buffet",
-      "Puri Bhaji Breakfast",
+      "Evening Snacks",
+      "Limited BBQ",
+      "Unlimited Dinner (Veg/Non-Veg)",
+      "Morning Breakfast",
     ],
+
     amenities: [
-      "Waterproof Standard Dome Tents",
-      "Pillows & Sleeping Bags",
-      "Mobile Charging Rails",
-      "Locker Room access",
-      "24/7 Security Patrol",
+      "Spacious Safari-Style Tent",
+      "King/Queen Size Bed",
+      "Air Cooler",
+      "Premium Mattress & Bedding",
+      "Side Tables",
+      "Charging Points",
+      "Aesthetic Interior Decor",
+      "Fairy Lights",
+      "Common Washroom",
+      "Nature & Mountain Views",
     ],
-    activities: [
-      "Common Bonfire",
-      "Live DJ Party Night",
-      "Kayaking (15-min trial)",
-      "Volleyball Tourney",
-      "Tug of War",
-      "Foosball",
-    ],
-    tentType: "4-Person Sturdy Dome Tents",
-    occupancy: "Min 4 to 8 Adults per group",
+
+    activities: ["DJ Night", "Bonfire", "Movie Screening"],
+
+    addOns: ["Birthday Decoration", "Anniversary Decoration"],
+
+    tentType: "Luxury Safari Tent",
+
+    occupancy: "2 to 4 Guests",
+
     checkIn: "4:00 PM",
     checkOut: "11:00 AM",
+
     description:
-      "Specially discounted pricing package perfect for corporate outings, college groups, and large families. Included features are a lakeside DJ dance floor, competitive lawn games, and a full-size barbecue feast.",
-    // image: "/src/assets/images/bonfire_barbecue_night_1781554229242.jpg"
+      "Experience premium camping in a spacious safari-style tent designed for couples, special occasions, and guests seeking extra comfort. Enjoy a cozy king-size bed, aesthetic interiors, mountain views, delicious meals, and memorable evenings around the bonfire.",
+
+    highlights: [
+      "Premium Safari Tent Experience",
+      "Nature & Mountain Views",
+      "Spacious Safari-Style Tent",
+      "King/Queen Bed Setup",
+      "Air Cooler Included",
+      "Fairy Lights & Aesthetic Decor",
+      "Unlimited Dinner (Veg/Non-Veg)",
+      "DJ Night & Bonfire",
+      "Birthday & Anniversary Decor Available",
+    ],
 
     images: [
       "/images/pawna/white-luxury-pods/white-luxury-pods-1.webp",
@@ -306,41 +365,378 @@ export const PACKAGES: CampPackage[] = [
     ],
   },
   {
-    id: "pn-backwater-sports",
-    name: "Panshet Camping Tent",
-    pricePerPerson: 1499,
-    originalPricePerPerson: 2299,
+    id: "pw-the-glass-haven",
+    name: "The Glass Haven",
+
+    pricePerPerson: 6499,
+    originalPricePerPerson: 7999,
+
+    couplePrice: 6499,
+    threeGuestPrice: 7500,
+    fourGuestPrice: 8800,
+
     duration: "1 Night / 2 Days",
+
+    rating: 5.0,
+    reviewsCount: 120,
+
+    destination: "pawna",
+
+    tags: [
+      "Luxury Stay",
+      "Private Dome",
+      "Couple Favorite",
+      "Premium Experience",
+    ],
+
+    badge: "✨ Private AC Glass Dome",
+    subtitle: "🌄 Mountain & Sunset Views",
+
+    meals: [
+      "Evening Snacks",
+      "Limited BBQ",
+      "Unlimited Dinner (Veg/Non-Veg)",
+      "Morning Breakfast",
+    ],
+
+    amenities: [
+      "Private Glass Dome Cabin",
+      "Panoramic Mountain Views",
+      "Valley Views",
+      "Fully Air Conditioned",
+      "Queen Size Bed",
+      "Fresh Linen",
+      "Private Attached Washroom",
+      "Charging Points",
+      "Modern Glass Architecture",
+      "Aesthetic Decor",
+      "Ambient Lighting",
+      "Large Glass Panels",
+    ],
+
+    activities: [
+      "DJ Night",
+      "Bonfire",
+      "Movie Screening",
+      "Live Music (Weekends)",
+      "Indoor Games",
+      "Outdoor Games",
+    ],
+
+    tentType: "Private AC Glass Dome",
+
+    occupancy: "2 to 4 Guests",
+
+    checkIn: "4:00 PM",
+    checkOut: "11:00 AM",
+
+    description:
+      "Experience luxury camping in a private glass dome surrounded by breathtaking mountain and valley views. Designed for couples, honeymooners, and guests seeking an exclusive nature retreat, The Glass Haven combines modern comfort, stunning architecture, and unforgettable sunsets.",
+
+    highlights: [
+      "Private AC Glass Dome",
+      "Attached Private Washroom",
+      "Panoramic Mountain Views",
+      "Beautiful Valley Views",
+      "Queen Size Bed",
+      "Premium Couple Experience",
+      "Modern Glass Architecture",
+      "Breathtaking Sunset Views",
+      "Unlimited Dinner (Veg/Non-Veg)",
+      "Live Music on Weekends",
+    ],
+
+    pricing: {
+      couplePackage: {
+        guests: 2,
+        totalPrice: 6499,
+        label: "❤️ Couple Package",
+      },
+      threeGuests: {
+        guests: 3,
+        totalPrice: 7500,
+        label: "👨‍👩‍👦 3 Guests",
+      },
+      fourGuests: {
+        guests: 4,
+        totalPrice: 8800,
+        label: "👨‍👩‍👧‍👦 4 Guests",
+      },
+    },
+
+    images: [
+      "/images/pawna/the-glass-haven/the-glass-haven-1.webp",
+      "/images/pawna/the-glass-haven/the-glass-haven-2.webp",
+      "/images/pawna/the-glass-haven/the-glass-haven-3.webp",
+      "/images/pawna/the-glass-haven/the-glass-haven-4.webp",
+      "/images/pawna/the-glass-haven/the-glass-haven-5.webp",
+      "/images/pawna/the-glass-haven/the-glass-haven-6.webp",
+      "/images/pawna/the-glass-haven/the-glass-haven-7.webp",
+      "/images/pawna/the-glass-haven/the-glass-haven-8.webp",
+    ],
+  },
+  {
+    id: "pw-white-cottage",
+
+    name: "The White Cottage",
+
+    pricePerPerson: 2000,
+    originalPricePerPerson: 2500,
+
+    couplePrice: 4000,
+
+    duration: "1 Night / 2 Days",
+
+    rating: 4.8,
+    reviewsCount: 210,
+
+    destination: "pawna",
+
+    tags: ["Private Stay", "Couple Favorite", "Budget Friendly", "Nature View"],
+
+    badge: "🏡 Cozy Wooden White Cottage",
+    subtitle: "🌄 Mountain & Sunset Views",
+
+    meals: [
+      "Evening Snacks",
+      "Limited BBQ",
+      "Unlimited Dinner (Veg/Non-Veg)",
+      "Morning Breakfast",
+    ],
+
+    amenities: [
+      "Private Wooden White Cottage",
+      "Comfortable Floor Mattress",
+      "Blanket & Pillow",
+      "Fan",
+      "Charging Points",
+      "Common Washroom (Indian & Western)",
+      "Mountain Views",
+      "Nature Surroundings",
+      "Sunset Views",
+    ],
+
+    activities: [
+      "DJ Night",
+      "Bonfire",
+      "Movie Screening",
+      "Live Music (Weekends)",
+      "Indoor Games",
+      "Outdoor Games",
+    ],
+
+    tentType: "Private Wooden Cottage",
+
+    occupancy: "2 Guests",
+
+    checkIn: "4:00 PM",
+    checkOut: "11:00 AM",
+
+    description:
+      "A cozy and budget-friendly private cottage perfect for couples seeking a peaceful getaway. Enjoy beautiful mountain views, comfortable accommodation, delicious meals, and relaxing evenings surrounded by nature.",
+
+    highlights: [
+      "Private Wooden Cottage",
+      "Mountain & Sunset Views",
+      "Budget-Friendly Couple Stay",
+      "Peaceful Nature Surroundings",
+      "Charging Points Available",
+      "Unlimited Dinner (Veg/Non-Veg)",
+      "DJ Night & Bonfire",
+      "Movie Screening",
+      "Live Music on Weekends",
+    ],
+
+    pricing: {
+      couplePackage: {
+        guests: 2,
+        totalPrice: 4000,
+        label: "❤️ Couple Package",
+      },
+    },
+
+    images: [
+      "/images/pawna/white-cottage/white-cottage-1.webp",
+      "/images/pawna/white-cottage/white-cottage-2.webp",
+      "/images/pawna/white-cottage/white-cottage-3.webp",
+      "/images/pawna/white-cottage/white-cottage-4.webp",
+      "/images/pawna/white-cottage/white-cottage-5.webp",
+      "/images/pawna/white-cottage/white-cottage-6.webp",
+    ],
+  },
+  {
+    id: "pw-cozy-cabin",
+
+    name: "The Cozy Cabin",
+
+    pricePerPerson: 3200,
+    originalPricePerPerson: 3800,
+
+    couplePrice: 6400,
+    threeGuestPrice: 8400,
+
+    duration: "1 Night / 2 Days",
+
+    rating: 4.9,
+    reviewsCount: 185,
+
+    destination: "pawna",
+
+    tags: [
+      "Premium Stay",
+      "Family Friendly",
+      "Couple Favorite",
+      "Private Cabin",
+    ],
+
+    badge: "🏡 Premium AC Cabin",
+    subtitle: "🌄 Mountain & Sunset Views",
+
+    meals: [
+      "Evening Snacks",
+      "Limited BBQ",
+      "Unlimited Dinner (Veg/Non-Veg)",
+      "Morning Breakfast",
+    ],
+
+    amenities: [
+      "Premium Wooden-Glass Cabin",
+      "King Size Bed",
+      "Fully Air Conditioned",
+      "Fresh Linen",
+      "Private Attached Washroom",
+      "Charging Points",
+      "Cozy Wooden Interiors",
+      "Aesthetic Lighting",
+      "Large Glass Windows",
+      "Mountain Views",
+      "Nature Surroundings",
+      "Sunset Views",
+    ],
+
+    activities: [
+      "DJ Night",
+      "Bonfire",
+      "Movie Screening",
+      "Live Music (Weekends)",
+      "Indoor Games",
+      "Outdoor Games",
+    ],
+
+    tentType: "Premium AC Wooden-Glass Cabin",
+
+    occupancy: "2 to 3 Guests",
+
+    checkIn: "4:00 PM",
+    checkOut: "11:00 AM",
+
+    description:
+      "A premium wooden-glass cabin designed for couples, honeymooners, and small families seeking a peaceful nature retreat. Enjoy modern comforts, stunning mountain views, private facilities, and a cozy atmosphere surrounded by nature.",
+
+    highlights: [
+      "Premium AC Cabin",
+      "Private Attached Washroom",
+      "King Size Bed",
+      "Mountain & Sunset Views",
+      "Large Glass Windows",
+      "Cozy Wooden Interiors",
+      "Perfect for Couples & Families",
+      "Unlimited Dinner (Veg/Non-Veg)",
+      "DJ Night & Bonfire",
+      "Live Music on Weekends",
+    ],
+
+    pricing: {
+      couplePackage: {
+        guests: 2,
+        totalPrice: 6400,
+        label: "❤️ Couple Package",
+      },
+      threeGuests: {
+        guests: 3,
+        totalPrice: 8400,
+        label: "👨‍👩‍👦 Family Package",
+      },
+    },
+
+    images: [
+      "/images/pawna/cozy-cabin/cozy-cabin-1.webp",
+      "/images/pawna/cozy-cabin/cozy-cabin-2.webp",
+      "/images/pawna/cozy-cabin/cozy-cabin-3.webp",
+      "/images/pawna/cozy-cabin/cozy-cabin-4.webp",
+      "/images/pawna/cozy-cabin/cozy-cabin-5.webp",
+      "/images/pawna/cozy-cabin/cozy-cabin-6.webp",
+      "/images/pawna/cozy-cabin/cozy-cabin-7.webp",
+      "/images/pawna/cozy-cabin/cozy-cabin-8.webp",
+    ],
+  },
+
+  {
+    id: "pn-dam-camping",
+
+    name: "Panshet Dam Camping",
+
+    pricePerPerson: 1099,
+    originalPricePerPerson: 1399,
+
+    duration: "1 Night / 2 Days",
+
     rating: 4.8,
     reviewsCount: 310,
+
     destination: "panshet",
-    tags: ["Water Sports Included", "Trending"],
+
+    tags: ["Best Seller", "Dam View", "Nature Stay", "Budget Friendly"],
+
+    badge: "✨ Special Offer Price",
+    subtitle: "🏕️ Lakeside Camping Experience",
+
     meals: [
-      "Hi-Tea with Hot Bhajji",
-      "Charcoal BBQ (Veg/Chicken)",
-      "Unlimited Chulivarchi Dinner",
-      "Maharashtrian Breakfast",
+      "Evening Snacks",
+      "Limited BBQ",
+      "Unlimited Dinner (Veg/Non-Veg)",
+      "Morning Breakfast",
     ],
+
     amenities: [
-      "Premium Coated Dome Tents",
-      "Cotton Sheets & Thick Quilts",
-      "Modern Western Restrooms",
-      "Water Purifier Water Station",
-      "First Aid Kit",
+      "Waterproof Camping Tent",
+      "Floor Mattress",
+      "Blanket & Pillow",
+      "Common Washroom (Indian & Western)",
+      "Dam View",
+      "Mountain View",
+      "Sunrise & Sunset Views",
     ],
+
     activities: [
-      "Guided Kayaking Session",
-      "Speed Boat Round Trip",
-      "Safe Backwater Swimming with Lifejacket",
-      "Archery",
-      "Night Jungle Trail Trekking",
+      "DJ Night",
+      "Bonfire",
+      "Live Music (Weekends)",
+      "Indoor Games",
+      "Outdoor Games",
     ],
-    tentType: "Luxe Backwater Dome Tent",
+
+    tentType: "Waterproof Dam View Tent",
+
     occupancy: "2, 3, or 4 Adults Sharing",
-    checkIn: "3:00 PM",
+
+    checkIn: "4:00 PM",
     checkOut: "11:00 AM",
+
     description:
-      "Get wet and wild! This package fully includes high-quality kayaking, exhilarating high-speed boating, and swimming under strict supervision of certified lifeguards on Panshet backwaters.",
+      "Wake up to beautiful views of Panshet Dam surrounded by hills and nature. Enjoy comfortable camping, delicious meals, bonfire evenings, live music, and a relaxing outdoor experience perfect for friends, families, and groups.",
+
+    highlights: [
+      "Lakeside Camping Experience",
+      "Dam View & Nature Surroundings",
+      "Mountain & Sunrise Views",
+      "Bonfire & Music Night",
+      "Unlimited Dinner (Veg/Non-Veg)",
+      "Breakfast Included",
+      "Indoor & Outdoor Games",
+      "Budget-Friendly Camping",
+    ],
+
     images: [
       "/images/panshet/camping-tent/camping-tent-1.webp",
       "/images/panshet/camping-tent/camping-tent-2.webp",
@@ -356,41 +752,101 @@ export const PACKAGES: CampPackage[] = [
     ],
   },
   {
-    id: "pn-rustic-nature",
-    name: "Panshet Swiss Tent",
-    pricePerPerson: 1299,
-    originalPricePerPerson: 1899,
+    id: "pn-swiss-luxury-rooms",
+
+    name: "Swiss Luxury Rooms",
+
+    pricePerPerson: 1500,
+    originalPricePerPerson: 1700,
+
     duration: "1 Night / 2 Days",
-    rating: 4.6,
-    reviewsCount: 220,
+
+    rating: 4.8,
+    reviewsCount: 240,
+
     destination: "panshet",
-    tags: ["Organic Food", "Eco Friendly"],
+
+    tags: [
+      "Luxury Stay",
+      "Family Friendly",
+      "Couple Favorite",
+      "Mountain View",
+    ],
+
+    badge: "🏕️ Swiss Luxury Rooms",
+    subtitle: "🌿 Luxury Stay Amidst Nature",
+
     meals: [
-      "Herbal High-Tea",
-      "Farm-fresh Grill BBQ",
-      "Traditional Organic Firewood Buffet",
-      "Ragi Malt & Kanda Pohe Breakfast",
+      "Evening Snacks",
+      "Limited BBQ",
+      "Unlimited Dinner (Veg/Non-Veg)",
+      "Morning Breakfast",
     ],
+
     amenities: [
-      "Clean Weatherproof Tents",
-      "Cotton sleeping mats & blankets",
-      "Eco dry-composting & Western toilets",
-      "Solar-powered charging lamps",
-      "Insect repellents provided",
+      "Premium Swiss Safari Tent",
+      "Comfortable Bed",
+      "Fresh Linen",
+      "Charging Points",
+      "Common Washroom",
+      "Mountain Views",
+      "Valley Views",
+      "Nature Surroundings",
     ],
+
     activities: [
-      "Bird Watching Trail",
-      "Organic Farm Harvest Walk",
-      "Traditional Chulivarchi Cooking Class",
-      "Silent Bonfire & Flute Music",
-      "Badminton",
+      "DJ Night",
+      "Bonfire",
+      "Live Music (Weekends)",
+      "Indoor Games",
+      "Outdoor Games",
     ],
-    tentType: "Sturdy Triangular Wilderness Tent",
-    occupancy: "2 to 4 Adults Sharing",
+
+    tentType: "Premium Swiss Safari Room",
+
+    occupancy: "2 to 6 Guests",
+
     checkIn: "4:00 PM",
-    checkOut: "12:00 PM",
+    checkOut: "11:00 AM",
+
     description:
-      "Unplug from screen strain and heal in nature. Situated within an organic mango grove, enjoy guided early morning bird spotting, organic farming demonstrations, and slow woodfired Maharashtrian dishes.",
+      "Experience luxury, comfort, and nature together at Panshet Dam. These spacious Swiss-style rooms offer beautiful mountain views, peaceful surroundings, delicious meals, and premium accommodation perfect for couples, families, and groups.",
+
+    highlights: [
+      "Luxury Stay Amidst Nature",
+      "Mountain & Valley Views",
+      "Premium Swiss Safari Room",
+      "Perfect for Couples & Families",
+      "Unlimited Dinner (Veg/Non-Veg)",
+      "Bonfire & Live Music",
+      "Meals Included",
+      "Perfect Weekend Getaway",
+    ],
+
+    swissRoomPricing: {
+      withoutPool: {
+        groupWeekend: 1700,
+        groupWeekday: 1500,
+
+        coupleWeekendPerPerson: 2500,
+        coupleWeekendTotal: 5000,
+
+        coupleWeekdayPerPerson: 2000,
+        coupleWeekdayTotal: 4000,
+      },
+
+      withPool: {
+        groupWeekend: 1900,
+        groupWeekday: 1700,
+
+        coupleWeekendPerPerson: 2700,
+        coupleWeekendTotal: 5400,
+
+        coupleWeekdayPerPerson: 2200,
+        coupleWeekdayTotal: 4400,
+      },
+    },
+
     images: [
       "/images/panshet/swiss-tent/swiss-tent-1.webp",
       "/images/panshet/swiss-tent/swiss-tent-2.webp",
@@ -400,42 +856,88 @@ export const PACKAGES: CampPackage[] = [
     ],
   },
   {
-    id: "pn-luxury-safari",
-    name: "Panshet Wooden Cottages",
-    pricePerPerson: 2299,
-    originalPricePerPerson: 3499,
+    id: "pn-wooden-bamboo-pods",
+
+    name: "Wooden Bamboo Pods",
+
+    pricePerPerson: 1700,
+    originalPricePerPerson: 1900,
+
     duration: "1 Night / 2 Days",
-    rating: 4.9,
+
+    rating: 4.8,
     reviewsCount: 150,
+
     destination: "panshet",
-    tags: ["Peak Luxury", "Forest Cabin Vibe"],
+
+    tags: ["Couple Favorite", "Romantic Stay", "Private Pod", "Nature Retreat"],
+
+    badge: "🏡 Wooden Bamboo Pods",
+    subtitle: "🌄 Romantic Nature Stay",
+
     meals: [
-      "Fresh Fruit Welcome Cooler",
-      "Premium Hi-Tea",
-      "Assorted Sizzling Bbq Skewers",
-      "Unlimited Royal Multi-cuisine Dinner",
-      "Buffet Breakfast & Dessert",
+      "Evening Snacks",
+      "Limited BBQ",
+      "Unlimited Dinner (Veg/Non-Veg)",
+      "Morning Breakfast",
     ],
+
     amenities: [
-      "Semi-Permanent Safari Canvas Cabin",
-      "Raised Wooden Deck Patio",
-      "En-suite Attached Washroom",
-      "Plush King Size Bed",
-      "Stand Fan & Tea Kettle",
+      "Premium Wooden Pod",
+      "Queen Size Mattress",
+      "Comfortable Interiors",
+      "Fan",
+      "Charging Points",
+      "Common Washroom",
+      "Mountain Views",
+      "Valley Views",
+      "Nature Surroundings",
     ],
+
     activities: [
-      "Private Campfire Ring",
-      "Sunset Kayak Experience",
-      "Rifle Shooting",
-      "Star-observation Telescope session",
-      "Board Games Club",
+      "DJ Night",
+      "Bonfire",
+      "Live Music (Weekends)",
+      "Indoor Games",
+      "Outdoor Games",
     ],
-    tentType: "Raised Safari Canvas Cabin",
-    occupancy: "2 to 3 Adults Max",
-    checkIn: "2:00 PM",
+
+    tentType: "Premium Wooden Bamboo Pod",
+
+    occupancy: "2 Guests",
+
+    checkIn: "4:00 PM",
     checkOut: "11:00 AM",
+
     description:
-      "The pinnacle of comfortable wilderness living. Enjoy semi-permanent high-canopy safari luxury tents built on sturdy wooden decks with attached clean private western washrooms, comfortable wood furniture, and unmatched privacy.",
+      "Experience comfort, privacy, and nature together at Panshet Dam. These premium wooden bamboo pods are designed especially for couples seeking a peaceful getaway with scenic mountain views, delicious meals, and cozy accommodations.",
+
+    highlights: [
+      "Private Wooden Pod Stay",
+      "Perfect for Couples",
+      "Mountain & Valley Views",
+      "Peaceful Nature Surroundings",
+      "Unlimited Dinner (Veg/Non-Veg)",
+      "Bonfire & Live Music",
+      "Birthday & Anniversary Friendly",
+      "Romantic Weekend Getaway",
+    ],
+
+    // pricing: [
+    //   {
+    //     guests: 2,
+    //     totalPrice: 3400,
+    //     label: "❤️ Couple Package",
+    //   },
+    //   {
+    //     guests: 2,
+    //     totalPrice: 3800,
+    //     label: "🏊 Couple Package With Pool Access",
+    //   },
+    // ],
+    couplePrice: 3400,
+    couplePriceWithPool: 3800,
+
     images: [
       "/images/panshet/wooden-cottages/wooden-cottages-1.webp",
       "/images/panshet/wooden-cottages/wooden-cottages-2.webp",

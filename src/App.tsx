@@ -188,11 +188,34 @@ export default function App() {
             </a>
 
             {/* Booking */}
-            <button
+            {/* <button
               onClick={() => openBookingWithParams()}
-              className="flex-1 bg-orange-50 hover:bg-orange-100 active:bg-orange-200 text-orange-800 border border-orange-200 font-extrabold text-[11px] py-3 rounded-xl uppercase tracking-wider transition-all"
+              // className="flex-1 bg-orange-50 hover:bg-orange-100 active:bg-orange-200 text-orange-800 border border-orange-200 font-extrabold text-[11px] py-3 rounded-xl uppercase tracking-wider transition-all"
+              // className="flex-1 bg-blue-50 hover:bg-blue-100 active:bg-blue-200 text-blue-800 border border-blue-200 font-extrabold text-[11px] py-3 rounded-xl uppercase tracking-wider transition-all"
+              className="flex-1 bg-blue-600 hover:bg-blue-500 active:bg-blue-700 text-white border border-blue-500 font-extrabold text-[11px] py-3 rounded-xl uppercase tracking-wider shadow-md hover:shadow-lg transition-all duration-200"
             >
               Book Online
+            </button> */}
+            <button
+              onClick={() => openBookingWithParams()}
+              // className="flex-1 bg-orange-50 hover:bg-orange-100 active:bg-orange-200 text-orange-800 border border-orange-200 font-extrabold text-[11px] py-3 rounded-xl uppercase tracking-wider transition-all"
+              // className="flex-1 bg-blue-50 hover:bg-blue-100 active:bg-blue-200 text-blue-800 border border-blue-200 font-extrabold text-[11px] py-3 rounded-xl uppercase tracking-wider transition-all"
+              className="flex-1 flex-1 flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-500 active:bg-blue-700 text-white border border-blue-500 font-extrabold text-[11px] py-3 rounded-xl uppercase tracking-wider shadow-md hover:shadow-lg transition-all duration-200"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                fill="currentColor"
+                className="bi bi-telephone-fill"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  fillRule="evenodd"
+                  d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.68.68 0 0 0 .178.643l2.457 2.457a.68.68 0 0 0 .644.178l2.189-.547a1.75 1.75 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.6 18.6 0 0 1-7.01-4.42 18.6 18.6 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877z"
+                />
+              </svg>
+              <span className="inline max-sm:text-xs">Call</span>
             </button>
 
           </div>

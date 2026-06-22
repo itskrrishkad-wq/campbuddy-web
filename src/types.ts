@@ -1,21 +1,79 @@
+export type Destination = "pawna" | "panshet";
+
+export interface PackagePricingTier {
+  guests: number;
+  totalPrice: number;
+  label: string;
+}
+
+export interface PackagePricing {
+  couplePackage?: PackagePricingTier;
+  threeGuests?: PackagePricingTier;
+  fourGuests?: PackagePricingTier;
+}
+
+export interface SwissRoomPricingTier {
+  groupWeekend: number;
+  groupWeekday: number;
+
+  coupleWeekendPerPerson: number;
+  coupleWeekendTotal: number;
+
+  coupleWeekdayPerPerson: number;
+  coupleWeekdayTotal: number;
+}
+
+export interface SwissRoomPricing {
+  withoutPool: SwissRoomPricingTier;
+  withPool: SwissRoomPricingTier;
+}
+
 export interface CampPackage {
   id: string;
   name: string;
+
+  destination: Destination;
+
   pricePerPerson: number;
   originalPricePerPerson: number;
+
+  couplePrice?: number;
+  threeGuestPrice?: number;
+  fourGuestPrice?: number;
+  groupPricePerPerson?: number;
+
+  couplePriceWithPool?: number;
+
+  badge?: string;
+  subtitle?: string;
+
   duration: string;
   rating: number;
   reviewsCount: number;
-  destination: "pawna" | "panshet";
+
   tags: string[];
+
   meals: string[];
   amenities: string[];
   activities: string[];
+
+  highlights?: string[];
+  addOns?: string[];
+
   tentType: string;
   occupancy: string;
+
   checkIn: string;
   checkOut: string;
+
   description: string;
+
+  // Glass Haven, White Cottage, Cozy Cabin, Safari Tent
+  pricing?: PackagePricing;
+
+  // Swiss Luxury Rooms only
+  swissRoomPricing?: SwissRoomPricing;
+
   images: string[];
 }
 
