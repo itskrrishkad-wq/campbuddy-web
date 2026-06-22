@@ -76,6 +76,7 @@ export default function PackageCard({
                                     {/* eslint-disable-next-line @next/next/no-img-element */}
                                     <img
                                         src={image}
+                                        loading="lazy"
                                         alt={`${image} - Image ${imageIndex + 1}`}
                                         className="w-full h-72 object-cover object-center group-hover:scale-105 transition-transform duration-700"
                                     />
@@ -151,6 +152,7 @@ export default function PackageCard({
                         >
                             <img
                                 src={image}
+                                loading="lazy"
                                 alt={`${pkg.name}-${index + 2}`}
                                 className="h-full w-full object-cover"
                             />
