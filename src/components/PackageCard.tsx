@@ -6,6 +6,7 @@ import {
     Users,
 } from "lucide-react";
 import { PACKAGES } from "../refactored-packages";
+import { useBookingStore } from "../zustand/bookingStore";
 
 interface PackageCardProps {
     pkg: (typeof PACKAGES)[number];
@@ -14,6 +15,7 @@ interface PackageCardProps {
 export default function PackageCard({
     pkg,
 }: PackageCardProps) {
+    const { openBooking } = useBookingStore()
     const folderName =
         pkg.imageFolder.split("/").pop() || "";
 
@@ -59,7 +61,6 @@ export default function PackageCard({
         return acc;
     }, undefined);
 
-    console.log({ pkg_images })
 
     return (
         <div className="group flex h-full flex-col overflow-hidden rounded-3xl border border-neutral-200 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl">
@@ -383,6 +384,7 @@ export default function PackageCard({
 
                     <button
                         id={`package-book-btn-${pkg.id}`}
+                        onClick={() => openBooking(pkg.destination as "pawna" | "panshet", pkg.id)}
                         className="w-full bg-orange-600 hover:bg-orange-700 active:bg-orange-850 text-white font-sans font-bold text-sm py-3.5 rounded-xl transition-all cursor-pointer flex items-center justify-center gap-1.5 shadow-sm hover:shadow"
                     >
                         <span>Instant Booking Inquiry</span>

@@ -144,7 +144,7 @@ export default function DayTimeline() {
 
                                 {/* Dot */}
                                 <div
-                                    className={`w-8 h-8 rounded-full border-4 border-white shadow-lg z-10 transition-colors duration-300 ${activeEvent === index ? event.color : "bg-moss"
+                                    className={`w-8 h-8 rounded-full border-4 border-white shadow-lg z-10 transition-colors duration-300 ${activeEvent === index ? event.color : "bg-green-600"
                                         }`}
                                 />
 
@@ -185,7 +185,7 @@ export default function DayTimeline() {
                                         src={event.image}
                                         alt={event.title}
                                         sizes="100vw"
-                                        className="object-cover"
+                                        className="w-full h-full object-cover"
                                     />
                                 </div>
                             </div>

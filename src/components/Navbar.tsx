@@ -2,22 +2,13 @@ import { Sheet, SheetClose, SheetContent, SheetTrigger } from "@/components/ui/s
 import { cn } from "@/lib/utils";
 import { Calendar, Image as ImageIcon, Menu, Phone, Tent } from "lucide-react";
 import { useEffect, useState } from "react";
+import { Link, useLocation } from "react-router-dom";
 
-interface NavbarProps {
-  currentPage: string;
-  setCurrentPage: (page: string) => void;
-  openBookingWithParams: (destination?: "pawna" | "panshet", packageId?: string) => void;
-  bookingInquiriesCount: number;
-}
 
-export default function Navbar({
-  currentPage,
-  setCurrentPage,
-  openBookingWithParams,
-  bookingInquiriesCount
-}: NavbarProps) {
+
+export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
-
+  const pathname = useLocation()
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 20) {
@@ -31,15 +22,14 @@ export default function Navbar({
   }, []);
 
   const navItems = [
-    { id: "pawna", label: "Pawna Lake", icon: Tent },
-    { id: "panshet", label: "Panshet Camping", icon: Tent },
-    { id: "packages", label: "Packages", icon: Calendar },
-    { id: "tents", label: "Book Online", icon: Calendar },
-    { id: "gallery", label: "Gallery", icon: ImageIcon },
+    { id: "pawna-lake-camping", label: "Pawna Lake", icon: Tent },
+    { id: "panshet-camping", label: "Panshet Camping", icon: Tent },
+    { id: "camping-packages", label: "Packages", icon: Calendar },
+    { id: "booking-online", label: "Book Online", icon: Calendar },
+    { id: "camping-gallery", label: "Gallery", icon: ImageIcon },
   ];
 
   const handleNavClick = (pageId: string) => {
-    setCurrentPage(pageId);
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
@@ -55,9 +45,8 @@ export default function Navbar({
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between">
             {/* Logo and Business Branding: Camp Buddy */}
-            <div
-              id="header-logo-div"
-              onClick={() => handleNavClick("home")}
+            <Link
+              to={"/"}
               className="flex items-center gap-2.5 group cursor-pointer focus:outline-none"
             >
               {/* <div className="bg-orange-500 p-2.5 rounded-xl group-hover:bg-orange-600 transition-colors shadow-sm">
@@ -70,7 +59,7 @@ export default function Navbar({
                   alt="campbuddy-logo"
                 />
               </div>
-              <div className="text-left"> 
+              <div className="text-left">
                 <span className="block font-sans font-black tracking-tight text-xl text-stone-900 transition-colors uppercase">
                   Camp Buddy
                 </span>
@@ -78,42 +67,27 @@ export default function Navbar({
                   Premium Resorts
                 </span>
               </div>
-            </div>
+            </Link>
 
             {/* Desktop Navigation links */}
             <nav id="desktop-navigation-links" className="hidden lg:flex items-center gap-1">
               {navItems.map((item) => {
-                const isActive = currentPage === item.id;
+                const isActive = pathname.pathname.split("/")[1] === item.id;
                 return (
-                  <div
+                  <Link
                     key={item.id}
-                    onClick={() => handleNavClick(item.id)}
+                    to={`/${item.id}`}
                     className={`px-4 py-2 rounded-full font-sans font-semibold text-sm transition-all duration-200 cursor-pointer ${isActive
                       ? "bg-orange-50 text-orange-800 border border-orange-200"
                       : "text-stone-600 hover:text-stone-900 hover:bg-stone-50"
                       }`}
                   >
                     {item.label}
-                  </div>
+                  </Link>
                 );
               })}
 
-              {/* My Inquiries Portal */}
-              <div
-                id="my-bookings-nav-btn"
-                onClick={() => handleNavClick("bookings")}
-                className={`ml-2 px-4 py-2 rounded-full font-sans font-semibold text-sm transition-all relative cursor-pointer ${currentPage === "bookings"
-                  ? "bg-amber-50 text-amber-700 border border-amber-200/60"
-                  : "text-stone-600 hover:text-stone-900 hover:bg-stone-50"
-                  }`}
-              >
-                <span>My Bookings</span>
-                {bookingInquiriesCount > 0 && (
-                  <span className="absolute -top-1 -right-1 bg-amber-500 text-stone-950 text-[10px] font-black w-5 h-5 rounded-full flex items-center justify-center animate-bounce shadow-smScale">
-                    {bookingInquiriesCount}
-                  </span>
-                )}
-              </div>
+
             </nav>
 
             {/* Right Side CTAs on Desktop */}
@@ -143,18 +117,7 @@ export default function Navbar({
 
             {/* Mobile Sheet triggered Hamburger Menu (Premium shadcn Component) */}
             <div id="mobile-navigation-actions" className="flex items-center gap-2 lg:hidden">
-              <div
-                id="mobile-inquiries-badge-trigger"
-                onClick={() => handleNavClick("bookings")}
-                className="relative p-2.5 text-stone-600 hover:text-stone-900"
-              >
-                <Calendar className="w-5 h-5" />
-                {bookingInquiriesCount > 0 && (
-                  <span className="absolute top-1 right-1 bg-amber-400 text-stone-950 text-[8px] font-black w-4 h-4 rounded-full flex items-center justify-center">
-                    {bookingInquiriesCount}
-                  </span>
-                )}
-              </div>
+
 
               <Sheet>
                 <SheetTrigger >
@@ -187,19 +150,19 @@ export default function Navbar({
                     <nav id="mobile-nav-items-drawer" className="flex flex-col gap-2">
                       {navItems.map((item) => {
                         const IconComponent = item.icon;
-                        const isActive = currentPage === item.id;
+                        // const isActive = currentPage === item.id;
                         return (
                           <SheetClose key={item.id} >
-                            <div
-                              onClick={() => handleNavClick(item.id)}
-                              className={`w-full flex items-center gap-3.5 px-4 py-3 rounded-xl font-sans font-bold text-sm text-left transition-colors cursor-pointer ${isActive
+                            <Link
+                              to={`/${item.id}`}
+                              className={`w-full flex items-center gap-3.5 px-4 py-3 rounded-xl font-sans font-bold text-sm text-left transition-colors cursor-pointer ${false
                                 ? "bg-orange-50 text-orange-850 border border-orange-100 font-extrabold"
                                 : "text-stone-600 hover:bg-stone-50"
                                 }`}
                             >
                               <IconComponent className="w-4.5 h-4.5 opacity-70" />
                               <span>{item.label}</span>
-                            </div>
+                            </Link>
                           </SheetClose>
                         );
                       })}
@@ -207,7 +170,7 @@ export default function Navbar({
                       <SheetClose>
                         <div
                           onClick={() => handleNavClick("bookings")}
-                          className={`w-full flex items-center justify-between px-4 py-3 rounded-xl font-sans font-bold text-sm text-left transition-colors cursor-pointer ${currentPage === "bookings"
+                          className={`w-full flex items-center justify-between px-4 py-3 rounded-xl font-sans font-bold text-sm text-left transition-colors cursor-pointer ${"bookings" === "bookings"
                             ? "bg-amber-50 text-amber-700 border border-amber-100 font-extrabold"
                             : "text-stone-600 hover:bg-stone-50"
                             }`}
@@ -216,11 +179,7 @@ export default function Navbar({
                             <Calendar className="w-4.5 h-4.5 opacity-70" />
                             <span>My Booking Inquiries</span>
                           </div>
-                          {bookingInquiriesCount > 0 && (
-                            <span className="bg-amber-400 text-stone-950 text-[10px] font-black px-2 py-0.5 rounded-full">
-                              {bookingInquiriesCount} Active
-                            </span>
-                          )}
+
                         </div>
                       </SheetClose>
                     </nav>
@@ -238,7 +197,7 @@ export default function Navbar({
 
                     <SheetClose className={"w-full"}>
                       <div
-                        onClick={() => openBookingWithParams()}
+                        // onClick={() => openBookingWithParams()}
                         className="w-full block bg-orange-600 hover:bg-orange-700 text-white font-sans font-extrabold py-3.5 rounded-xl text-center shadow-sm cursor-pointer text-sm"
                       >
                         Book Camp Now

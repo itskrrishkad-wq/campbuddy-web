@@ -1,14 +1,13 @@
 import { cn } from "@/lib/utils";
 import { Heart, Mail, MapPin, Phone, Shield, Tent } from "lucide-react";
+import { useLocation, Link } from "react-router-dom";
 
-interface FooterProps {
-  setCurrentPage: (page: string) => void;
-  openBookingWithParams: () => void;
-}
 
-export default function Footer({ setCurrentPage, openBookingWithParams }: FooterProps) {
+
+
+export default function Footer() {
+  const location = useLocation()
   const handleNav = (pageId: string) => {
-    setCurrentPage(pageId);
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
@@ -54,28 +53,28 @@ export default function Footer({ setCurrentPage, openBookingWithParams }: Footer
             </h4>
             <ul className="space-y-3.5 text-sm font-sans">
               <li>
-                <button
-                  onClick={() => handleNav("pawna")}
+                <Link
+                  to={"/pawna-lake-camping"}
                   className="hover:text-orange-700 transition-colors text-stone-600 cursor-pointer text-left font-semibold"
                 >
                   Pawna Lake Camping (Lonavala)
-                </button>
+                </Link>
               </li>
               <li>
-                <button
-                  onClick={() => handleNav("panshet")}
+                <Link
+                  to={"/panshet-camping"}
                   className="hover:text-orange-700 transition-colors text-stone-600 cursor-pointer text-left font-semibold"
                 >
                   Panshet Backwaters Camping (Pune)
-                </button>
+                </Link>
               </li>
               <li>
-                <button
-                  onClick={() => handleNav("packages")}
+                <Link
+                  to={"/camping-packages"}
                   className="hover:text-orange-700 transition-colors text-stone-600 cursor-pointer text-left font-semibold"
                 >
                   Browse Camping Packages
-                </button>
+                </Link>
               </li>
             </ul>
           </div>
@@ -87,12 +86,12 @@ export default function Footer({ setCurrentPage, openBookingWithParams }: Footer
             </h4>
             <ul className="space-y-3.5 text-sm font-sans">
               <li>
-                <button
-                  onClick={() => handleNav("bookings")}
+                <Link
+                  to={"/booking-online"}
                   className="hover:text-orange-700 transition-colors text-stone-600 cursor-pointer text-left font-bold"
                 >
                   My Booking Inquiries
-                </button>
+                </Link>
               </li>
               <li>
                 <a
@@ -115,7 +114,13 @@ export default function Footer({ setCurrentPage, openBookingWithParams }: Footer
             <ul className="space-y-4 text-sm text-stone-600 font-sans">
               <li className="flex items-start gap-2.5">
                 <MapPin className="w-5 h-5 text-orange-600 shrink-0 mt-0.5" />
-                <span>Thakursai Village, Pawna Dam, Lonavala / Shirkoli Village, Panshet backwaters, Pune, MH.</span>
+                {/* <span>Thakursai Village, Pawna Dam, Lonavala / Shirkoli Village, Panshet backwaters, Pune, MH.</span> */}
+
+                <span>
+                  {location.pathname.includes("panshet")
+                    ? "Velhe-Panshet Rd, Panshet, Kadve, Maharashtra 412107"
+                    : "Thakursai-Aajiwali Rd, Gevhande Khadak, Maharashtra 410406"}
+                </span>
               </li>
               <li className="flex items-center gap-2.5">
                 <Phone className="w-4 h-4 text-orange-600 shrink-0" />

@@ -12,7 +12,6 @@ import {
   X
 } from "lucide-react";
 import React, { useEffect, useState } from "react";
-import { PACKAGES } from "../data";
 import { BookingInquiry } from "../types";
 import {
   Dialog,
@@ -22,13 +21,13 @@ import {
   DialogTitle,
 } from "@/components/ui/dialog";
 import { ScrollArea } from "@/components/ui/scroll-area";
+import { PACKAGES } from "../refactored-packages";
 
 interface BookingFormProps {
   open: boolean;
   onClose: () => void;
   destinationParam?: "pawna" | "panshet";
   packageIdParam?: string;
-  addBookingInquiry: (inquiry: BookingInquiry) => void;
 }
 
 export default function BookingForm({
@@ -36,7 +35,6 @@ export default function BookingForm({
   onClose,
   destinationParam,
   packageIdParam,
-  addBookingInquiry
 }: BookingFormProps) {
   // Form Fields
   const [name, setName] = useState("");
@@ -87,7 +85,7 @@ export default function BookingForm({
       );
 
       if (pkg) {
-        setDestination(pkg.destination);
+        setDestination(pkg.destination as "pawna" | "panshet");
         setPackageId(pkg.id);
       }
 
@@ -144,9 +142,9 @@ export default function BookingForm({
     PACKAGES.find((p) => p.id === packageId) || availablePackages[0];
 
   // Dynamic cost math
-  const priceExponent = selectedPackage ? selectedPackage.pricePerPerson : 1290;
+  const priceExponent = selectedPackage ? selectedPackage.pricing[0].price : 1290;
   const originalExponent = selectedPackage
-    ? selectedPackage.originalPricePerPerson
+    ? selectedPackage.pricing[0].price
     : 1990;
 
   const baseCost = priceExponent * guestsCount;
@@ -201,7 +199,6 @@ export default function BookingForm({
       })
     };
 
-    addBookingInquiry(newInquiry);
     setSubmittedInquiry(newInquiry);
     setIsSubmitted(true);
   };
@@ -421,7 +418,7 @@ Cost: ₹${submittedInquiry.totalCost}`;
                         >
                           {availablePackages.map((p) => (
                             <option key={p.id} value={p.id}>
-                              {p.name} (₹{p.pricePerPerson}/person)
+                              {p.name} (₹{p.pricing[0].price}/person)
                             </option>
                           ))}
                         </select>
@@ -442,13 +439,13 @@ Cost: ₹${submittedInquiry.totalCost}`;
                         <p className="font-extrabold text-stone-800 font-sans border-b border-stone-100 pb-1.5 mb-2 flex items-center justify-between">
                           <span>{selectedPackage.name} Key Features</span>
                           <span className="text-orange-700 font-mono font-black">
-                            ₹{selectedPackage.pricePerPerson}/head
+                            ₹{selectedPackage.pricing[0].price}/head
                           </span>
                         </p>
                         <ul className="grid grid-cols-2 gap-x-4 gap-y-1 text-stone-605">
-                          <li>• Tent Type: {selectedPackage.tentType}</li>
+                          <li>• Tent Type: {selectedPackage.category}</li>
                           <li>• Occupancy: {selectedPackage.occupancy}</li>
-                          <li>• Access: {selectedPackage.checkIn} check-in</li>
+                          <li>• Access: {"3: 00 PM"} check-in</li>
                           <li className="truncate">
                             • Meals: {selectedPackage.meals[1] || selectedPackage.meals[0]}
                           </li>

@@ -1,14 +1,13 @@
 import { ArrowRight, MapPin, ShieldCheck, Sparkles, Star } from "lucide-react";
 import { AnimatePresence, motion } from "motion/react";
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 // import pawnaHero from "@/src/assets/images/pawna_lake_hero_1781554186715.";
 import pawnaHero from "@/src/assets/images/pawna_lake_hero_1781554186715.jpg"
 import panshetHero from "@/src/assets/images/panshet_lake_hero_1781554201017.jpg"
+import { useBookingStore } from "../zustand/bookingStore";
 
-interface HeroProps {
-  setCurrentPage: (page: string) => void;
-  openBookingWithParams: () => void;
-}
+
 
 const slides = [
   {
@@ -19,7 +18,8 @@ const slides = [
     desc: "Wake up to cold lakeside winds, glowing morning mists, and the majestic sight of ancient mountain forts. Perfect Saturday acoustic nights.",
     tagline: "WET BANK TOUCHING PRIVATE GROUNDS",
     pageId: "pawna",
-    stats: "840+ Daily Booked Spots"
+    stats: "840+ Daily Booked Spots",
+    href: "/pawna-lake-camping"
   },
   {
     // image: "/src/assets/images/panshet_lake_hero_1781554201017.jpg",
@@ -29,11 +29,13 @@ const slides = [
     desc: "Unplug from screen exhaustion inside a serene mango orchard farm. Enjoy adrenaline-fueled kayaking, speedboats, and traditional wood-cooked culinary plates.",
     tagline: "UNLIMITED WATER SPORTS INCLUDED",
     pageId: "panshet",
-    stats: "620+ Active Campers Weekly"
+    stats: "620+ Active Campers Weekly",
+    href: "/panshet-camping"
   }
 ];
 
-export default function Hero({ setCurrentPage, openBookingWithParams }: HeroProps) {
+export default function Hero() {
+  const { openBooking } = useBookingStore()
   const [currentSlide, setCurrentSlide] = useState(0);
 
   useEffect(() => {
@@ -124,24 +126,21 @@ export default function Hero({ setCurrentPage, openBookingWithParams }: HeroProp
           <div className="flex flex-wrap items-center gap-4">
             <button
               id="hero-reserve-booking-cta"
-              onClick={openBookingWithParams}
+              onClick={() => openBooking(slides[currentSlide].pageId as "pawna" | "panshet", undefined)}
               className="bg-orange-600 text-white hover:bg-orange-700 active:bg-orange-800 font-sans font-extrabold text-base px-8 py-4 rounded-full shadow-md hover:shadow transition-all flex items-center gap-2 group cursor-pointer"
             >
               <span>Instant Online Booking</span>
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1.5 transition-transform" />
             </button>
 
-            <button
+            <Link
               id="hero-explore-destination-cta"
-              onClick={() => {
-                setCurrentPage(slides[currentSlide].pageId);
-                window.scrollTo({ top: 0, behavior: "smooth" });
-              }}
+              to={slides[currentSlide].href}
               className="bg-white/10 hover:bg-white/20 text-white font-sans font-bold text-base px-6 py-4 rounded-full border border-white/25 hover:border-white/50 backdrop-blur-md shadow-sm transition-all flex items-center gap-2 cursor-pointer"
             >
               <MapPin className="w-4.5 h-4.5 text-orange-400" />
               <span>Explore {slides[currentSlide].accent.split(",")[0]}</span>
-            </button>
+            </Link>
           </div>
         </div>
 

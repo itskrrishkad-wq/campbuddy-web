@@ -20,6 +20,12 @@ import { DESTINATIONS_INFO, TENTS } from "../data";
 import { PACKAGES } from "../refactored-packages";
 import { CampPackage } from "../types";
 import PackageCard from "./PackageCard";
+import NearbyAttractions from "./NearByAttraction";
+import HowToReachSection from "./HowToReach";
+import ActivitiesSection from "./ActivitesSection";
+import InlineBookingSection from "./InlineBookingSection";
+import DayTimeline from "./DayTimeline";
+import GallerySection from "./GallerySection";
 
 
 const timelineEvents = [
@@ -101,14 +107,11 @@ const timelineEvents = [
 
 interface LocationDetailsProps {
   destinationId: "pawna" | "panshet";
-  openBookingWithParams: (destination: "pawna" | "panshet", packageId?: string) => void;
-  setCurrentPage: (page: string) => void;
+
 }
 
 export default function LocationDetails({
   destinationId,
-  openBookingWithParams,
-  setCurrentPage
 }: LocationDetailsProps) {
   const info = DESTINATIONS_INFO[destinationId];
   const [activeEvent, setActiveEvent] = useState<number | null>(null);
@@ -188,198 +191,202 @@ export default function LocationDetails({
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="w-full">
         <div className="w-full gap-12 py-16">
 
           {/* LEFT COLUMN: DESCRIPTION, HIGHLIGHTS, FOOD TIMELINE, GUIDE DIRECTIONS */}
           <div className=" space-y-16">
 
-            <h2 className="text-2xl font-sans font-extrabold text-stone-900 tracking-tight border-b border-stone-200 pb-3 mb-5">
-              Stay Options
-            </h2>
-            <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 ">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-              {filteredAndSortedPackages.map((pkg) => {
-                const isCompared = compareList.some((item) => item.id === pkg.id);
-                return (
-                  // <div
-                  //   id={`package-card-${pkg.id}`}
-                  //   key={pkg.id}
-                  //   className="group relative bg-white border rounded-3xl overflow-hidden shadow-sm hover:shadow-xl border-orange-500/30 transition-all duration-300 flex flex-col justify-between"
-                  // >
-                  //   {/* Image on top */}
-                  //   {pkg.images?.length && pkg.images.length > 0 && (
-                  //     <div className="relative h-64 w-full overflow-hidden bg-stone-100">
-                  //       {/* <img
-                  //     id={`package-image-${pkg.id}`}
-                  //     src={pkg.images[0]}
-                  //     alt={pkg.name}
-                  //     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                  //     referrerPolicy="no-referrer"
-                  //   /> */}
-                  //       <Carousel
-                  //         className="w-full h-64"
-                  //         opts={{ align: "start", loop: true }}
-                  //       >
-                  //         <CarouselContent className="h-full">
-                  //           {pkg.images.map((image, imageIndex) => (
-                  //             <CarouselItem key={imageIndex} className="h-full">
-                  //               <div className="relative w-full h-full">
-                  //                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                  //                 <img
-                  //                   src={image}
-                  //                   loading="lazy"
-                  //                   alt={`${image} - Image ${imageIndex + 1
-                  //                     }`}
-                  //                   className={cn(
-                  //                     "w-full h-64 object-cover object-center group-hover:scale-105 transition-transform duration-700",
-                  //                     // image.imageClassName,
-                  //                   )}
-                  //                 />
 
-                  //                 <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                  //               </div>
-                  //             </CarouselItem>
-                  //           ))}
-                  //         </CarouselContent>
+              <h2 className="text-2xl font-sans font-extrabold text-stone-900 tracking-tight border-b border-stone-200 pb-3 mb-5">
+                Stay Options
+              </h2>
+              <div className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 ">
 
-                  //         {/* Carousel Navigation */}
-                  //         <CarouselPrevious className="absolute left-2 inset-y-0  bg-white/20 backdrop-blur-sm border-white/30 text-white hover:bg-white/30  transition-all duration-300 w-8 h-8" />
-                  //         <CarouselNext className="absolute right-2 inset-y-0 bg-white/20 backdrop-blur-sm border-white/30 text-white hover:bg-white/30  transition-all duration-300 w-8 h-8" />
+                {filteredAndSortedPackages.map((pkg) => {
+                  const isCompared = compareList.some((item) => item.id === pkg.id);
+                  return (
+                    // <div
+                    //   id={`package-card-${pkg.id}`}
+                    //   key={pkg.id}
+                    //   className="group relative bg-white border rounded-3xl overflow-hidden shadow-sm hover:shadow-xl border-orange-500/30 transition-all duration-300 flex flex-col justify-between"
+                    // >
+                    //   {/* Image on top */}
+                    //   {pkg.images?.length && pkg.images.length > 0 && (
+                    //     <div className="relative h-64 w-full overflow-hidden bg-stone-100">
+                    //       {/* <img
+                    //     id={`package-image-${pkg.id}`}
+                    //     src={pkg.images[0]}
+                    //     alt={pkg.name}
+                    //     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    //     referrerPolicy="no-referrer"
+                    //   /> */}
+                    //       <Carousel
+                    //         className="w-full h-64"
+                    //         opts={{ align: "start", loop: true }}
+                    //       >
+                    //         <CarouselContent className="h-full">
+                    //           {pkg.images.map((image, imageIndex) => (
+                    //             <CarouselItem key={imageIndex} className="h-full">
+                    //               <div className="relative w-full h-full">
+                    //                 {/* eslint-disable-next-line @next/next/no-img-element */}
+                    //                 <img
+                    //                   src={image}
+                    //                   loading="lazy"
+                    //                   alt={`${image} - Image ${imageIndex + 1
+                    //                     }`}
+                    //                   className={cn(
+                    //                     "w-full h-64 object-cover object-center group-hover:scale-105 transition-transform duration-700",
+                    //                     // image.imageClassName,
+                    //                   )}
+                    //                 />
 
-                  //         {/* Dot Indicators */}
-                  //         <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex space-x-1  transition-opacity duration-300">
-                  //           {pkg.images.map((_, dotIndex) => (
-                  //             <div
-                  //               key={dotIndex}
-                  //               className="w-2 h-2 rounded-full bg-white/60 backdrop-blur-sm"
-                  //             />
-                  //           ))}
-                  //         </div>
-                  //       </Carousel>
+                    //                 <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                    //               </div>
+                    //             </CarouselItem>
+                    //           ))}
+                    //         </CarouselContent>
 
-                  //     </div>
-                  //   )}
+                    //         {/* Carousel Navigation */}
+                    //         <CarouselPrevious className="absolute left-2 inset-y-0  bg-white/20 backdrop-blur-sm border-white/30 text-white hover:bg-white/30  transition-all duration-300 w-8 h-8" />
+                    //         <CarouselNext className="absolute right-2 inset-y-0 bg-white/20 backdrop-blur-sm border-white/30 text-white hover:bg-white/30  transition-all duration-300 w-8 h-8" />
 
-                  //   {/* Visual Label Tags */}
-                  //   <div className="absolute top-4 left-4 z-10 flex flex-col gap-1.5">
-                  //     {pkg.tags.map((tag, i) => (
-                  //       <span
-                  //         key={i}
-                  //         className="bg-orange-600/90 text-white w-max text-[10px] font-mono font-black px-2.5 py-1 rounded-full uppercase tracking-wider shadow-sm"
-                  //       >
-                  //         {tag}
-                  //       </span>
-                  //     ))}
-                  //   </div>
+                    //         {/* Dot Indicators */}
+                    //         <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex space-x-1  transition-opacity duration-300">
+                    //           {pkg.images.map((_, dotIndex) => (
+                    //             <div
+                    //               key={dotIndex}
+                    //               className="w-2 h-2 rounded-full bg-white/60 backdrop-blur-sm"
+                    //             />
+                    //           ))}
+                    //         </div>
+                    //       </Carousel>
 
-                  //   {/* Compare Checkbox */}
-                  //   <button
-                  //     id={`compare-toggle-btn-${pkg.id}`}
-                  //     onClick={() => toggleCompare(pkg)}
-                  //     className="absolute top-4 right-4 z-10 bg-white/95 backdrop-blur border border-stone-200 text-stone-700 hover:text-stone-900 p-2 rounded-2xl cursor-pointer flex items-center justify-center gap-1.5 shadow-sm hover:bg-stone-50 transition-colors"
-                  //     title="Compare package highlights"
-                  //   >
-                  //     <div
-                  //       className={`w-4 h-4 rounded border flex items-center justify-center transition-all ${isCompared ? "bg-amber-500 border-amber-500 text-stone-900" : "border-stone-300"
-                  //         }`}
-                  //     >
-                  //       {isCompared && <Check className="w-3 h-3 stroke-[3]" />}
-                  //     </div>
-                  //     <span className="text-[10px] font-mono font-extrabold pr-1">COMPARE</span>
-                  //   </button>
+                    //     </div>
+                    //   )}
 
-                  //   {/* Body Content */}
-                  //   <div className="p-6 flex-grow flex flex-col">
-                  //     {/* Destination stamp */}
-                  //     <span className="text-[10px] uppercase tracking-widest font-mono font-black text-orange-600">
-                  //       {pkg.destination === "pawna" ? "Pawna Lake Camping" : "Panshet Eco Backwaters"}
-                  //     </span>
+                    //   {/* Visual Label Tags */}
+                    //   <div className="absolute top-4 left-4 z-10 flex flex-col gap-1.5">
+                    //     {pkg.tags.map((tag, i) => (
+                    //       <span
+                    //         key={i}
+                    //         className="bg-orange-600/90 text-white w-max text-[10px] font-mono font-black px-2.5 py-1 rounded-full uppercase tracking-wider shadow-sm"
+                    //       >
+                    //         {tag}
+                    //       </span>
+                    //     ))}
+                    //   </div>
 
-                  //     <h3 className="text-xl font-sans font-extrabold text-stone-900 mt-1 mb-2 group-hover:text-orange-600 transition-colors">
-                  //       {pkg.name}
-                  //     </h3>
+                    //   {/* Compare Checkbox */}
+                    //   <button
+                    //     id={`compare-toggle-btn-${pkg.id}`}
+                    //     onClick={() => toggleCompare(pkg)}
+                    //     className="absolute top-4 right-4 z-10 bg-white/95 backdrop-blur border border-stone-200 text-stone-700 hover:text-stone-900 p-2 rounded-2xl cursor-pointer flex items-center justify-center gap-1.5 shadow-sm hover:bg-stone-50 transition-colors"
+                    //     title="Compare package highlights"
+                    //   >
+                    //     <div
+                    //       className={`w-4 h-4 rounded border flex items-center justify-center transition-all ${isCompared ? "bg-amber-500 border-amber-500 text-stone-900" : "border-stone-300"
+                    //         }`}
+                    //     >
+                    //       {isCompared && <Check className="w-3 h-3 stroke-[3]" />}
+                    //     </div>
+                    //     <span className="text-[10px] font-mono font-extrabold pr-1">COMPARE</span>
+                    //   </button>
 
-                  //     {/* Reviews rating */}
-                  //     <div className="flex items-center gap-1.5 mb-4 text-xs text-stone-500">
-                  //       <div className="flex">
-                  //         {[1, 2, 3, 4, 5].map((s) => (
-                  //           <Star
-                  //             key={s}
-                  //             className={`w-3.5 h-3.5 ${s <= pkg.rating ? "fill-amber-400 text-amber-400" : "text-stone-200"
-                  //               }`}
-                  //           />
-                  //         ))}
-                  //       </div>
-                  //       <span className="text-stone-800 font-bold font-mono">{pkg.rating}</span>
-                  //       <span>({pkg.reviewsCount} reviews)</span>
-                  //     </div>
+                    //   {/* Body Content */}
+                    //   <div className="p-6 flex-grow flex flex-col">
+                    //     {/* Destination stamp */}
+                    //     <span className="text-[10px] uppercase tracking-widest font-mono font-black text-orange-600">
+                    //       {pkg.destination === "pawna" ? "Pawna Lake Camping" : "Panshet Eco Backwaters"}
+                    //     </span>
 
-                  //     {/* Pricing and savings */}
-                  //     <div className="bg-stone-50 rounded-2xl p-4 mb-6 border border-stone-200/60 flex items-center justify-between">
-                  //       <div>
-                  //         <div className="flex items-baseline gap-2">
-                  //           <span className="text-2xl font-black font-mono text-orange-600">
-                  //             ₹{pkg.pricePerPerson}
-                  //           </span>
-                  //           <span className="text-sm line-through text-stone-400 font-mono">
-                  //             ₹{pkg.originalPricePerPerson}
-                  //           </span>
-                  //         </div>
-                  //         <span className="text-[10px] text-stone-500">Inclusive of meals & guides *</span>
-                  //       </div>
-                  //       <div className="bg-orange-50 border border-orange-200/50 text-orange-850 text-[10px] font-mono font-bold px-2.5 py-1 rounded-lg">
-                  //         Save {Math.round((1 - pkg.pricePerPerson / pkg.originalPricePerPerson) * 100)}%
-                  //       </div>
-                  //     </div>
+                    //     <h3 className="text-xl font-sans font-extrabold text-stone-900 mt-1 mb-2 group-hover:text-orange-600 transition-colors">
+                    //       {pkg.name}
+                    //     </h3>
 
-                  //     {/* Highlights Bullet list */}
-                  //     <div className="space-y-3 font-sans text-xs text-stone-600 mb-6 border-b border-stone-100 pb-5">
-                  //       <div className="flex items-center gap-2">
-                  //         <span className="text-[10px] font-bold font-mono bg-stone-100 text-orange-800 border border-stone-200 px-1.5 py-0.5 rounded uppercase">
-                  //           Meals
-                  //         </span>
-                  //         <span className="truncate text-stone-750" title={pkg.meals.join(", ")}>
-                  //           {pkg.meals[1] || pkg.meals[0]} BBQ included
-                  //         </span>
-                  //       </div>
+                    //     {/* Reviews rating */}
+                    //     <div className="flex items-center gap-1.5 mb-4 text-xs text-stone-500">
+                    //       <div className="flex">
+                    //         {[1, 2, 3, 4, 5].map((s) => (
+                    //           <Star
+                    //             key={s}
+                    //             className={`w-3.5 h-3.5 ${s <= pkg.rating ? "fill-amber-400 text-amber-400" : "text-stone-200"
+                    //               }`}
+                    //           />
+                    //         ))}
+                    //       </div>
+                    //       <span className="text-stone-800 font-bold font-mono">{pkg.rating}</span>
+                    //       <span>({pkg.reviewsCount} reviews)</span>
+                    //     </div>
 
-                  //       <div className="flex items-center gap-2">
-                  //         <span className="text-[10px] font-bold font-mono bg-stone-100 text-orange-800 border border-stone-200 px-1.5 py-0.5 rounded uppercase">
-                  //           Tents
-                  //         </span>
-                  //         <span className="text-stone-750">{pkg.tentType} ({pkg.occupancy})</span>
-                  //       </div>
+                    //     {/* Pricing and savings */}
+                    //     <div className="bg-stone-50 rounded-2xl p-4 mb-6 border border-stone-200/60 flex items-center justify-between">
+                    //       <div>
+                    //         <div className="flex items-baseline gap-2">
+                    //           <span className="text-2xl font-black font-mono text-orange-600">
+                    //             ₹{pkg.pricePerPerson}
+                    //           </span>
+                    //           <span className="text-sm line-through text-stone-400 font-mono">
+                    //             ₹{pkg.originalPricePerPerson}
+                    //           </span>
+                    //         </div>
+                    //         <span className="text-[10px] text-stone-500">Inclusive of meals & guides *</span>
+                    //       </div>
+                    //       <div className="bg-orange-50 border border-orange-200/50 text-orange-850 text-[10px] font-mono font-bold px-2.5 py-1 rounded-lg">
+                    //         Save {Math.round((1 - pkg.pricePerPerson / pkg.originalPricePerPerson) * 100)}%
+                    //       </div>
+                    //     </div>
 
-                  //       <div className="flex items-center gap-2">
-                  //         <span className="text-[10px] font-bold font-mono bg-stone-100 text-orange-800 border border-stone-200 px-1.5 py-0.5 rounded uppercase">
-                  //           Acts
-                  //         </span>
-                  //         <span className="truncate text-stone-750">{pkg.activities.slice(0, 3).join(", ")}...</span>
-                  //       </div>
-                  //     </div>
+                    //     {/* Highlights Bullet list */}
+                    //     <div className="space-y-3 font-sans text-xs text-stone-600 mb-6 border-b border-stone-100 pb-5">
+                    //       <div className="flex items-center gap-2">
+                    //         <span className="text-[10px] font-bold font-mono bg-stone-100 text-orange-800 border border-stone-200 px-1.5 py-0.5 rounded uppercase">
+                    //           Meals
+                    //         </span>
+                    //         <span className="truncate text-stone-750" title={pkg.meals.join(", ")}>
+                    //           {pkg.meals[1] || pkg.meals[0]} BBQ included
+                    //         </span>
+                    //       </div>
 
-                  //     <p className="text-xs text-stone-600 leading-relaxed font-sans mt-auto">{pkg.description}</p>
-                  //   </div>
+                    //       <div className="flex items-center gap-2">
+                    //         <span className="text-[10px] font-bold font-mono bg-stone-100 text-orange-800 border border-stone-200 px-1.5 py-0.5 rounded uppercase">
+                    //           Tents
+                    //         </span>
+                    //         <span className="text-stone-750">{pkg.tentType} ({pkg.occupancy})</span>
+                    //       </div>
 
-                  //   {/* Lower Action buttons */}
-                  //   <div className="p-6 pt-0 mt-auto">
-                  //     <button
-                  //       id={`package-book-btn-${pkg.id}`}
-                  //       onClick={() => openBookingWithParams(pkg.destination, pkg.id)}
-                  //       className="w-full bg-orange-600 hover:bg-orange-700 active:bg-orange-850 text-white font-sans font-bold text-sm py-3.5 rounded-xl transition-all cursor-pointer flex items-center justify-center gap-1.5 shadow-sm hover:shadow"
-                  //     >
-                  //       <span>Instant Booking Inquiry</span>
-                  //     </button>
-                  //   </div>
-                  // </div>
-                  <PackageCard key={pkg.id} pkg={pkg} />
-                );
-              })}
+                    //       <div className="flex items-center gap-2">
+                    //         <span className="text-[10px] font-bold font-mono bg-stone-100 text-orange-800 border border-stone-200 px-1.5 py-0.5 rounded uppercase">
+                    //           Acts
+                    //         </span>
+                    //         <span className="truncate text-stone-750">{pkg.activities.slice(0, 3).join(", ")}...</span>
+                    //       </div>
+                    //     </div>
+
+                    //     <p className="text-xs text-stone-600 leading-relaxed font-sans mt-auto">{pkg.description}</p>
+                    //   </div>
+
+                    //   {/* Lower Action buttons */}
+                    //   <div className="p-6 pt-0 mt-auto">
+                    //     <button
+                    //       id={`package-book-btn-${pkg.id}`}
+                    //       onClick={() => openBookingWithParams(pkg.destination, pkg.id)}
+                    //       className="w-full bg-orange-600 hover:bg-orange-700 active:bg-orange-850 text-white font-sans font-bold text-sm py-3.5 rounded-xl transition-all cursor-pointer flex items-center justify-center gap-1.5 shadow-sm hover:shadow"
+                    //     >
+                    //       <span>Instant Booking Inquiry</span>
+                    //     </button>
+                    //   </div>
+                    // </div>
+                    <PackageCard key={pkg.id} pkg={pkg} />
+                  );
+                })}
+              </div>
             </div>
 
             {/* Overview */}
-            <div id="overview-content-block">
+            <div id="overview-content-block" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
               <h2 className="text-2xl font-sans font-extrabold text-stone-900 tracking-tight border-b border-stone-200 pb-3 mb-5">
                 Overview & Experience
               </h2>
@@ -393,7 +400,7 @@ export default function LocationDetails({
             </div>
 
             {/* Stay Highlights checklist */}
-            <div id="highlights-content-block">
+            <div id="highlights-content-block" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
               <h2 className="text-2xl font-sans font-extrabold text-stone-900 tracking-tight border-b border-stone-200 pb-3 mb-6">
                 Camping Experience Highlights
               </h2>
@@ -411,97 +418,22 @@ export default function LocationDetails({
 
 
 
-            {/* Food Schedule Timeline */}
-            <div id="meals-timeline-block">
-              <h2 className="text-2xl font-sans font-extrabold text-stone-900 tracking-tight border-b border-stone-200 pb-3 mb-6">
-                Your Adventure & Culinary Timeline
-              </h2>
-              <p className="text-xs sm:text-sm text-stone-605 mb-10 max-w-xl leading-relaxed">
-                Every single moment is carefully crafted for beautiful memories. Enjoy hot water-filtered meals, live BBQ, starlit campfire circles, and delightful adventure activities during your stay.
-              </p>
 
-
-
-              {/* DayTimeline view */}
-              <div id="timeline" className="relative space-y-12 max-w-lg">
-                <div className="absolute left-[23px] sm:left-[31px] top-6 bottom-6 w-0.5 bg-gradient-to-b from-orange-400 via-amber-400 to-orange-650 rounded-full z-0" />
-
-                {timelineEvents.map((event, index) => {
-                  const EventIcon = event.icon;
-                  const isHovered = activeEvent === index;
-                  return (
-                    <div
-                      key={index}
-                      className="relative pl-14 sm:pl-20 group text-left cursor-default"
-                      onMouseEnter={() => setActiveEvent(index)}
-                      onMouseLeave={() => setActiveEvent(null)}
-                    >
-                      {/* Timeline Dot Indicator */}
-                      <div
-                        className={`absolute left-0 sm:left-2 top-0 w-12 h-12 rounded-full flex items-center justify-center text-white shadow-md transition-all duration-300 z-10 ${isHovered
-                          ? "scale-110 shadow-lg ring-4 ring-orange-100"
-                          : ""
-                          } ${event.color}`}
-                      >
-                        <EventIcon className="w-5.5 h-5.5" />
-                      </div>
-
-                      {/* Content Card */}
-                      <div
-                        className={`bg-white border rounded-[32px] p-6 shadow-xl hover:shadow-xl transition-all duration-350 ${isHovered
-                          ? "border-orange-500/30 -translate-y-0.5 bg-stone-50/20"
-                          : "border-stone-200"
-                          }`}
-                      >
-                        <div className="flex flex-wrap items-baseline justify-between gap-2.5 mb-3">
-                          <h3 className="text-base sm:text-lg font-sans font-extrabold text-stone-900">
-                            {event.title}
-                          </h3>
-                          <span className="text-xs font-mono font-bold text-orange-700 bg-orange-50 border border-orange-150 px-3 py-1 rounded-full uppercase tracking-wider">
-                            {event.time}
-                          </span>
-                        </div>
-
-                        <p className="text-xs sm:text-sm text-stone-605 leading-relaxed font-sans mb-5 font-normal">
-                          {event.description}
-                        </p>
-
-                        {/* Image Showcase */}
-                        <div className="relative h-44 sm:h-56 w-full overflow-hidden rounded-2xl bg-stone-100 border border-stone-150 shadow-inner">
-                          <img
-                            src={event.image}
-                            alt={event.title}
-                            className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-103"
-                            referrerPolicy="no-referrer"
-                          />
-                          <div className="absolute inset-0 bg-gradient-to-t from-black/25 via-transparent to-transparent pointer-events-none" />
-                        </div>
-                      </div>
-                    </div>
-                  );
-                })}
-              </div>
+            <div className="w-full">
+              <DayTimeline />
+              <ActivitiesSection />
+              <InlineBookingSection preSelectedDestination={info.id} />
+              <GallerySection />
+              <NearbyAttractions location={info.id} />
+              {info.id === "pawna" && <HowToReachSection />}
             </div>
 
 
             {/* How to Reach section */}
-            <div id="directions-block">
-              <h2 className="text-2xl font-sans font-extrabold text-stone-900 tracking-tight border-b border-stone-200 pb-3 mb-5">
-                Directions & Travel Guide
-              </h2>
+            <div id="directions-block" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
               <div className="space-y-4">
-                <div className="bg-stone-50 p-6 rounded-3xl border border-stone-200 shadow-sm">
-                  <h4 className="text-sm font-sans font-extrabold text-stone-900 flex items-center gap-2 mb-2">
-                    <Navigation className="w-4 h-4 text-orange-600" />
-                    <span>How to Reach</span>
-                  </h4>
-                  <p className="text-xs text-stone-600 leading-relaxed font-sans mb-4">
-                    {info.locationDetails.directions}
-                  </p>
-                  <p className="text-xs font-mono font-bold text-amber-600">
-                    Need Private Pickups? Contact us under the booking wizard to arrange standard local taxis directly from Kamshet / Pune station.
-                  </p>
-                </div>
+
 
                 {/* Google Maps Embed iframe */}
                 <div className="rounded-[28px] border border-stone-200 overflow-hidden h-[300px] w-full shadow-sm relative bg-stone-50">
@@ -717,10 +649,10 @@ export default function LocationDetails({
                       <td key={pkg.id} className="py-5 px-4">
                         <button
                           id={`modal-compare-book-btn-${pkg.id}`}
-                          onClick={() => {
-                            setShowCompareModal(false);
-                            openBookingWithParams(pkg.destination, pkg.id);
-                          }}
+                          // onClick={() => {
+                          //   setShowCompareModal(false);
+                          //   openBookingWithParams(pkg.destination, pkg.id);
+                          // }}
                           className="bg-orange-600 hover:bg-orange-700 text-white font-sans font-extrabold text-xs px-4 py-2.5 rounded-xl cursor-pointer w-full text-center shadow-sm"
                         >
                           Inquire Stay

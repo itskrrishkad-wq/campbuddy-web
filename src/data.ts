@@ -48,7 +48,7 @@ export const DESTINATIONS_INFO = {
     shortDesc:
       "Experience premium lakeside camping near Lonavala with breathtaking sunset views, bonfire nights, and cozy tent stays.",
     longDesc:
-      "Experience the best Pawna Lake Camping near Pune and Mumbai with Camp Buddy — a perfect blend of nature, adventure, and unforgettable lakeside experiences. Nestled along the pristine shores of Pawna Lake near Lonavala, our campsite offers breathtaking waterfront views, peaceful surroundings, and spectacular sunsets, making it one of the most sought-after destinations for camping near Pune, Mumbai, and Lonavala. Whether you're planning a weekend getaway near Pune, a romantic lakeside camping experience for couples, a family vacation, or a group outing, Camp Buddy provides comfortable tent stays, delicious hot meals, bonfire nights with live music, barbecue sessions, and stargazing. Discover why thousands choose Camp Buddy for the ultimate getaway.",
+      "Experience the beauty of nature with Camp Buddy's Pawna Lake Camping. Located beside the scenic Pawna Lake, our campsite offers comfortable tent stays, delicious BBQ dinner, live music, bonfire, indoor-outdoor games, and breathtaking lake views. Whether you're planning a weekend getaway with friends, family outing, corporate event, or couple camping trip, Camp Buddy provides one of the best Pawna Lake Camping experiences near Pune and Mumbai.",
     highlights: [
       "Secured, sanitised beach touching campsite with gorgeous waterfront view",
       "Saturday Live Acoustic Jamming & unplugged music programs",
@@ -1104,6 +1104,54 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     category: "food",
     locationLabel: "Food Court Starters",
     description: "Sizzling smoky marinated tikkas cooked live",
+  },
+  {
+    id: "g-gallery-1",
+    src: "/images/gallery/gallery-1.webp",
+    alt: "Gallery image 1",
+    category: "activities",
+    locationLabel: "Gallery",
+    description: "Camping experience highlights",
+  },
+  {
+    id: "g-gallery-2",
+    src: "/images/gallery/gallery-2.webp",
+    alt: "Gallery image 2",
+    category: "activities",
+    locationLabel: "Gallery",
+    description: "Camping experience highlights",
+  },
+  {
+    id: "g-gallery-3",
+    src: "/images/gallery/gallery-3.webp",
+    alt: "Gallery image 3",
+    category: "activities",
+    locationLabel: "Gallery",
+    description: "Camping experience highlights",
+  },
+  {
+    id: "g-gallery-4",
+    src: "/images/gallery/gallery-4.webp",
+    alt: "Gallery image 4",
+    category: "activities",
+    locationLabel: "Gallery",
+    description: "Camping experience highlights",
+  },
+  {
+    id: "g-gallery-5",
+    src: "/images/gallery/gallery-5.webp",
+    alt: "Gallery image 5",
+    category: "activities",
+    locationLabel: "Gallery",
+    description: "Camping experience highlights",
+  },
+  {
+    id: "g-gallery-6",
+    src: "/images/gallery/gallery-6.webp",
+    alt: "Gallery image 6",
+    category: "activities",
+    locationLabel: "Gallery",
+    description: "Camping experience highlights",
   },
 ];
 

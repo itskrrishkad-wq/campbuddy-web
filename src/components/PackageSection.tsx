@@ -6,11 +6,10 @@ import { CampPackage } from "../types";
 import PackageCard from "./PackageCard";
 
 interface PackageSectionProps {
-  openBookingWithParams: (destination: "pawna" | "panshet", packageId: string) => void;
   preSelectedDestination?: "pawna" | "panshet" | "all";
 }
 
-export default function PackageSection({ openBookingWithParams, preSelectedDestination = "all" }: PackageSectionProps) {
+export default function PackageSection({ preSelectedDestination = "all" }: PackageSectionProps) {
   // Search state
   const [searchQuery, setSearchQuery] = useState("");
   // Destination filter state
@@ -33,9 +32,9 @@ export default function PackageSection({ openBookingWithParams, preSelectedDesti
       const q = searchQuery.toLowerCase();
       result = result.filter(
         (p) =>
-          p.name.toLowerCase().includes(q) 
-          // p.description.toLowerCase().includes(q) ||
-          // p.tentType.toLowerCase().includes(q)
+          p.name.toLowerCase().includes(q)
+        // p.description.toLowerCase().includes(q) ||
+        // p.tentType.toLowerCase().includes(q)
       );
     }
 
@@ -226,45 +225,45 @@ export default function PackageSection({ openBookingWithParams, preSelectedDesti
               //         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
               //         referrerPolicy="no-referrer"
               //       /> */}
-                    // <Carousel
-                    //   className="w-full h-64"
-                    //   opts={{ align: "start", loop: true }}
-                    // >
-                    //   <CarouselContent className="h-full">
-                    //     {pkg.images.map((image, imageIndex) => (
-                    //       <CarouselItem key={imageIndex} className="h-full">
-                    //         <div className="relative w-full h-full">
-                    //           {/* eslint-disable-next-line @next/next/no-img-element */}
-                    //           <img
-                    //             src={image}
-                    //             alt={`${image} - Image ${imageIndex + 1
-                    //               }`}
-                    //             className={cn(
-                    //               "w-full h-64 object-cover object-center group-hover:scale-105 transition-transform duration-700",
-                    //               // image.imageClassName,
-                    //             )}
-                    //           />
+              // <Carousel
+              //   className="w-full h-64"
+              //   opts={{ align: "start", loop: true }}
+              // >
+              //   <CarouselContent className="h-full">
+              //     {pkg.images.map((image, imageIndex) => (
+              //       <CarouselItem key={imageIndex} className="h-full">
+              //         <div className="relative w-full h-full">
+              //           {/* eslint-disable-next-line @next/next/no-img-element */}
+              //           <img
+              //             src={image}
+              //             alt={`${image} - Image ${imageIndex + 1
+              //               }`}
+              //             className={cn(
+              //               "w-full h-64 object-cover object-center group-hover:scale-105 transition-transform duration-700",
+              //               // image.imageClassName,
+              //             )}
+              //           />
 
-                    //           <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                    //         </div>
-                    //       </CarouselItem>
-                    //     ))}
-                    //   </CarouselContent>
+              //           <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              //         </div>
+              //       </CarouselItem>
+              //     ))}
+              //   </CarouselContent>
 
-                    //   {/* Carousel Navigation */}
-                    //   <CarouselPrevious className="absolute left-2 inset-y-0  bg-white/20 backdrop-blur-sm border-white/30 text-white hover:bg-white/30  transition-all duration-300 w-8 h-8" />
-                    //   <CarouselNext className="absolute right-2 inset-y-0 bg-white/20 backdrop-blur-sm border-white/30 text-white hover:bg-white/30  transition-all duration-300 w-8 h-8" />
+              //   {/* Carousel Navigation */}
+              //   <CarouselPrevious className="absolute left-2 inset-y-0  bg-white/20 backdrop-blur-sm border-white/30 text-white hover:bg-white/30  transition-all duration-300 w-8 h-8" />
+              //   <CarouselNext className="absolute right-2 inset-y-0 bg-white/20 backdrop-blur-sm border-white/30 text-white hover:bg-white/30  transition-all duration-300 w-8 h-8" />
 
-                    //   {/* Dot Indicators */}
-                    //   <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex space-x-1  transition-opacity duration-300">
-                    //     {pkg.images.map((_, dotIndex) => (
-                    //       <div
-                    //         key={dotIndex}
-                    //         className="w-2 h-2 rounded-full bg-white/60 backdrop-blur-sm"
-                    //       />
-                    //     ))}
-                    //   </div>
-                    // </Carousel>
+              //   {/* Dot Indicators */}
+              //   <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex space-x-1  transition-opacity duration-300">
+              //     {pkg.images.map((_, dotIndex) => (
+              //       <div
+              //         key={dotIndex}
+              //         className="w-2 h-2 rounded-full bg-white/60 backdrop-blur-sm"
+              //       />
+              //     ))}
+              //   </div>
+              // </Carousel>
 
               //     </div>
               //   )}
@@ -599,7 +598,6 @@ export default function PackageSection({ openBookingWithParams, preSelectedDesti
                               id={`modal-compare-book-btn-${pkg.id}`}
                               onClick={() => {
                                 setShowCompareModal(false);
-                                openBookingWithParams(pkg.destination, pkg.id);
                               }}
                               className="bg-orange-600 hover:bg-orange-700 text-white font-sans font-extrabold text-xs px-4 py-2.5 rounded-xl cursor-pointer w-full text-center shadow-sm"
                             >

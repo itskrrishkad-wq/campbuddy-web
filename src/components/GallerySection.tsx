@@ -4,11 +4,10 @@ import { GALLERY_ITEMS } from "../data";
 import { GalleryItem } from "../types";
 
 interface GallerySectionProps {
-  openBookingWithParams: (destination: "pawna" | "panshet") => void;
   preSelectedDestination?: "pawna" | "panshet" | "all";
 }
 
-export default function GallerySection({ openBookingWithParams, preSelectedDestination = "all" }: GallerySectionProps) {
+export default function GallerySection({ preSelectedDestination = "all" }: GallerySectionProps) {
   const [selectedCategory, setSelectedCategory] = useState<string>("all");
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
 
@@ -57,7 +56,7 @@ export default function GallerySection({ openBookingWithParams, preSelectedDesti
   return (
     <section id="gallery-main-section" className="py-24 bg-white text-stone-900 border-t border-stone-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
+
         {/* Header */}
         <div className="text-center mb-16">
           <span className="text-xs font-bold font-mono tracking-[0.2em] text-orange-600 uppercase">
@@ -77,11 +76,10 @@ export default function GallerySection({ openBookingWithParams, preSelectedDesti
             <button
               key={cat.id}
               onClick={() => setSelectedCategory(cat.id)}
-              className={`px-4 py-2.5 rounded-2xl text-xs sm:text-sm font-sans font-extrabold transition-all cursor-pointer ${
-                selectedCategory === cat.id
-                  ? "bg-orange-600 text-white shadow-sm"
-                  : "bg-stone-50 text-stone-600 hover:text-stone-900 border border-stone-200 hover:bg-stone-100"
-              }`}
+              className={`px-4 py-2.5 rounded-2xl text-xs sm:text-sm font-sans font-extrabold transition-all cursor-pointer ${selectedCategory === cat.id
+                ? "bg-orange-600 text-white shadow-sm"
+                : "bg-stone-50 text-stone-600 hover:text-stone-900 border border-stone-200 hover:bg-stone-100"
+                }`}
             >
               {cat.label}
             </button>
@@ -89,7 +87,7 @@ export default function GallerySection({ openBookingWithParams, preSelectedDesti
         </div>
 
         {/* Masonry-like Grid Layout with highly rounded cards */}
-        <div id="gallery-items-column-layout" className="columns-1 sm:columns-2 md:columns-3 lg:columns-4 gap-6 space-y-6">
+        <div id="gallery-items-column-layout" className="columns-2 sm:columns-2 md:columns-3 lg:columns-4 gap-2 sm:gap-6 space-y-2 sm:space-y-6">
           {filteredItems.map((item) => (
             <div
               key={item.id}
@@ -105,7 +103,7 @@ export default function GallerySection({ openBookingWithParams, preSelectedDesti
                   referrerPolicy="no-referrer"
                   loading="lazy"
                 />
-                
+
                 {/* Floating overlay visible on hover */}
                 <div className="absolute inset-0 bg-stone-900/60 opacity-0 group-hover:opacity-100 !z-30 transition-opacity flex items-center justify-center">
                   <div className="bg-white/90 border border-stone-200 p-3 rounded-full text-orange-600 shadow-sm">
@@ -115,7 +113,7 @@ export default function GallerySection({ openBookingWithParams, preSelectedDesti
               </div>
 
               {/* Title Card lower details */}
-              <div className="p-4 bg-stone-50 z-10 relative">
+              <div className="max-sm:hidden p-4 bg-stone-50 z-10 relative">
                 <div className="flex items-center justify-between gap-2">
                   <span className="text-[10px] font-mono tracking-wider bg-white border border-stone-200 text-stone-605 px-2.5 py-1 rounded-xl uppercase font-bold shadow-xs">
                     {item.locationLabel}
@@ -139,7 +137,7 @@ export default function GallerySection({ openBookingWithParams, preSelectedDesti
         {/* Lightbox Modal overlay - keep dark and premium background for photography immersion */}
         {currentLightboxItem && (
           <div className="fixed inset-0 bg-stone-950/95 backdrop-blur-md z-50 flex items-center justify-center p-4">
-            
+
             {/* Close trigger */}
             <button
               onClick={closeLightbox}
@@ -197,7 +195,6 @@ export default function GallerySection({ openBookingWithParams, preSelectedDesti
                   onClick={() => {
                     const dest = currentLightboxItem.category === "panshet" ? "panshet" : "pawna";
                     closeLightbox();
-                    openBookingWithParams(dest);
                   }}
                   className="bg-orange-600 hover:bg-orange-700 text-white font-sans font-bold text-xs px-5 py-3 rounded-xl transition-all cursor-pointer shrink-0 uppercase tracking-wider flex items-center gap-1.5"
                 >

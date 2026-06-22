@@ -13,18 +13,15 @@ import {
   Utensils
 } from "lucide-react";
 import React, { useEffect, useState } from "react";
-import { PACKAGES } from "../data";
+// import { PACKAGES } from "../data";
 import { BookingInquiry } from "../types";
+import { PACKAGES } from "../refactored-packages";
 
 interface InlineBookingSectionProps {
-  addBookingInquiry: (inquiry: BookingInquiry) => void;
-  setCurrentPage?: (page: string) => void;
   preSelectedDestination?: "pawna" | "panshet";
 }
 
 export default function InlineBookingSection({
-  addBookingInquiry,
-  setCurrentPage,
   preSelectedDestination
 }: InlineBookingSectionProps) {
   // Form Fields State
@@ -80,9 +77,9 @@ export default function InlineBookingSection({
     PACKAGES.find((p) => p.id === packageId) || availablePackages[0];
 
   // Price calculations
-  const priceExponent = selectedPackage ? selectedPackage.pricePerPerson : 1290;
+  const priceExponent = selectedPackage ? selectedPackage.pricing[0].price : 1290;
   const originalExponent = selectedPackage
-    ? selectedPackage.originalPricePerPerson
+    ? selectedPackage.pricing[0].price
     : 1990;
 
   const baseCost = priceExponent * guestsCount;
@@ -136,7 +133,6 @@ export default function InlineBookingSection({
       })
     };
 
-    addBookingInquiry(newInquiry);
     setSubmittedInquiry(newInquiry);
     setIsSubmitted(true);
   };
@@ -414,8 +410,8 @@ Please confirm slot availability so I can make standard 50% secured UPI booking 
                             type="button"
                             onClick={() => setDestination("pawna")}
                             className={`py-3 px-3 rounded-xl text-xs font-sans font-black text-center border cursor-pointer transition-all ${destination === "pawna"
-                                ? "bg-orange-50 border-orange-500 text-orange-800 font-bold"
-                                : "bg-white border-stone-200 text-stone-500 hover:text-stone-800"
+                              ? "bg-orange-50 border-orange-500 text-orange-800 font-bold"
+                              : "bg-white border-stone-200 text-stone-500 hover:text-stone-800"
                               }`}
                           >
                             Pawna Lonavala
@@ -424,8 +420,8 @@ Please confirm slot availability so I can make standard 50% secured UPI booking 
                             type="button"
                             onClick={() => setDestination("panshet")}
                             className={`py-3 px-3 rounded-xl text-xs font-sans font-black text-center border cursor-pointer transition-all ${destination === "panshet"
-                                ? "bg-orange-50 border-orange-500 text-orange-800 font-bold"
-                                : "bg-white border-stone-200 text-stone-500 hover:text-stone-800"
+                              ? "bg-orange-50 border-orange-500 text-orange-800 font-bold"
+                              : "bg-white border-stone-200 text-stone-500 hover:text-stone-800"
                               }`}
                           >
                             Panshet Pune
@@ -445,7 +441,7 @@ Please confirm slot availability so I can make standard 50% secured UPI booking 
                           >
                             {availablePackages.map((p) => (
                               <option key={p.id} value={p.id}>
-                                {p.name} (₹{p.pricePerPerson}/head)
+                                {p.name} (₹{p.pricing[0].price}/head)
                               </option>
                             ))}
                           </select>
@@ -468,15 +464,15 @@ Please confirm slot availability so I can make standard 50% secured UPI booking 
                         <p className="font-extrabold text-stone-800 font-sans border-b border-stone-100 pb-1.5 mb-2 flex items-center justify-between">
                           <span>{selectedPackage.name} Summary Inclusions</span>
                           <span className="text-orange-700 font-mono font-black">
-                            ₹{selectedPackage.pricePerPerson}/person
+                            ₹{selectedPackage.pricing[0].price}/person
                           </span>
                         </p>
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-1 text-stone-600">
-                          <p>• Tent Accommodation: {selectedPackage.tentType}</p>
+                          <p>• Tent Accommodation: {selectedPackage.category}</p>
                           <p>• Built Occupancy: {selectedPackage.occupancy}</p>
                           <p>
-                            • Schedule: {selectedPackage.checkIn} check-in,{" "}
-                            {selectedPackage.checkOut} out
+                            • Schedule: {"3: 00 PM"} check-in,{" "}
+                            {"11: 00 AM"} out
                           </p>
                           <p>
                             • Meals: {selectedPackage.meals[1] || selectedPackage.meals[0]} (Tea,

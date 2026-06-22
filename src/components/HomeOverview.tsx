@@ -1,14 +1,14 @@
 import { Activity, ArrowRight, Award, CheckCircle, Heart, MapPin, Shield, Utensils } from "lucide-react";
 import { STATS } from "../data";
+import { Link } from "react-router-dom";
 import pawnaHero from "@/src/assets/images/pawna_lake_hero_1781554186715.jpg"
 import panshetHero from "@/src/assets/images/panshet_lake_hero_1781554201017.jpg"
+import { useBookingStore } from "../zustand/bookingStore";
 
-interface HomeOverviewProps {
-  setCurrentPage: (page: string) => void;
-  openBookingWithParams: (destination: "pawna" | "panshet") => void;
-}
 
-export default function HomeOverview({ setCurrentPage, openBookingWithParams }: HomeOverviewProps) {
+
+export default function HomeOverview() {
+  const { openBooking } = useBookingStore()
   const whyChooseUsData = [
     {
       icon: MapPin,
@@ -141,17 +141,14 @@ export default function HomeOverview({ setCurrentPage, openBookingWithParams }: 
               </div>
             </div>
             <div className="p-8 pt-0 border-t border-stone-200_half flex gap-4 mt-auto">
-              <button
-                onClick={() => {
-                  setCurrentPage("pawna");
-                  window.scrollTo({ top: 0, behavior: "smooth" });
-                }}
+              <Link
+                to={"/pawna-lake-camping"}
                 className="flex-1 bg-white hover:bg-stone-100 text-stone-700 font-bold border border-stone-200 text-sm py-3.5 rounded-xl transition-all cursor-pointer text-center shadow-xs"
               >
                 Explore Details
-              </button>
+              </Link>
               <button
-                onClick={() => openBookingWithParams("pawna")}
+                onClick={() => openBooking("pawna")}
                 className="flex-1 bg-orange-600 hover:bg-orange-700 text-white text-sm font-extrabold py-3.5 rounded-xl transition-all shadow-xs cursor-pointer flex items-center justify-center gap-1 hover:shadow"
               >
                 <span>Book Pawna</span>
@@ -205,17 +202,18 @@ export default function HomeOverview({ setCurrentPage, openBookingWithParams }: 
               </div>
             </div>
             <div className="p-8 pt-0 border-t border-stone-200_half flex gap-4 mt-auto">
-              <button
-                onClick={() => {
-                  setCurrentPage("panshet");
-                  window.scrollTo({ top: 0, behavior: "smooth" });
-                }}
+              <Link
+                // onClick={() => {
+                //   setCurrentPage("panshet");
+                //   window.scrollTo({ top: 0, behavior: "smooth" });
+                // }}
+                to={"/panshet-camping"}
                 className="flex-1 bg-white hover:bg-stone-100 text-stone-700 font-bold border border-stone-200 text-sm py-3.5 rounded-xl transition-all cursor-pointer text-center shadow-xs"
               >
                 Explore Details
-              </button>
+              </Link>
               <button
-                onClick={() => openBookingWithParams("panshet")}
+                 onClick={() => openBooking("panshet")}
                 className="flex-1 bg-orange-600 hover:bg-orange-700 text-white text-sm font-extrabold py-3.5 rounded-xl transition-all shadow-xs cursor-pointer flex items-center justify-center gap-1 hover:shadow"
               >
                 <span>Book Panshet</span>
