@@ -59,7 +59,7 @@ export const PACKAGES = [
       {
         type: "perPerson",
         label: "Per Person",
-        price: 1299,
+        price: 1199,
         originalPrice: 1800,
       },
     ],
