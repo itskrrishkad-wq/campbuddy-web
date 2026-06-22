@@ -332,7 +332,7 @@ export default function PackageCard({
                                             <div className="flex items-center gap-2">
                                                 <span className="text-3xl font-bold text-green-600">
                                                     ₹
-                                                    {lowestPrice.toLocaleString()}
+                                                    {pkg.pricing[0].price}
                                                 </span>
 
                                                 {originalPrice && (

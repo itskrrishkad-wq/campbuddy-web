@@ -92,10 +92,10 @@ export const PACKAGES = [
       {
         type: "perPerson",
         label: "Per Person",
-        price: 1800,
-        originalPrice: 2000,
+        price: 2000,
+        originalPrice: 2400,
       },
-      { type: "fixed", guests: 2, label: "Couple Package", price: 3200 },
+      { type: "fixed", guests: 2, label: "Couple Package", price: 4000 },
       { type: "perPerson", label: "Group Package", price: 1600 },
     ],
     amenities: [
