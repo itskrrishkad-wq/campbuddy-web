@@ -470,7 +470,7 @@ Please confirm slot availability so I can make standard 50% secured UPI booking 
                           <p>• Tent Accommodation: {selectedPackage.category}</p>
                           <p>• Built Occupancy: {selectedPackage.occupancy}</p>
                           <p>
-                            • Schedule: {"3: 00 PM"} check-in,{" "}
+                            • Schedule: {"4: 00 PM"} check-in,{" "}
                             {"11: 00 AM"} out
                           </p>
                           <p>

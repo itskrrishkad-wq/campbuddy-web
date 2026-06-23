@@ -444,7 +444,7 @@ Cost: ₹${submittedInquiry.totalCost}`;
                         <ul className="grid grid-cols-2 gap-x-4 gap-y-1 text-stone-605">
                           <li>• Tent Type: {selectedPackage.category}</li>
                           <li>• Occupancy: {selectedPackage.occupancy}</li>
-                          <li>• Access: {"3: 00 PM"} check-in</li>
+                          <li>• Access: {"4: 00 PM"} check-in</li>
                           <li className="truncate">
                             • Meals: {selectedPackage.meals[1] || selectedPackage.meals[0]}
                           </li>
