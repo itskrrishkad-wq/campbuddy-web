@@ -11,26 +11,24 @@ import { useBookingStore } from "../zustand/bookingStore";
 
 const slides = [
   {
-    // image: "/src/assets/images/pawna_lake_hero_1781554186715.jpg",
     image: pawnaHero,
-    title: "Eco Glamping & Lakeside Camping",
+    title: "Pawna Lake Camping with CampBuddy",
     accent: "Pawna Lake, Lonavala",
-    desc: "Wake up to cold lakeside winds, glowing morning mists, and the majestic sight of ancient mountain forts. Perfect Saturday acoustic nights.",
+    desc: "Experience lakeside camping at Pawna Lake with CampBuddy. Enjoy scenic mountain views, comfortable tents, campfire nights, live music, BBQ, delicious meals, and unforgettable sunrise moments near Lonavala.",
     tagline: "WET BANK TOUCHING PRIVATE GROUNDS",
     pageId: "pawna",
     stats: "840+ Daily Booked Spots",
-    href: "/pawna-lake-camping"
+    href: "/pawna-lake-camping",
   },
   {
-    // image: "/src/assets/images/panshet_lake_hero_1781554201017.jpg",
     image: panshetHero,
-    title: "Adventure Valleys & Watersports",
+    title: "Panshet Camping with CampBuddy",
     accent: "Panshet Backwaters, Pune",
-    desc: "Unplug from screen exhaustion inside a serene mango orchard farm. Enjoy adrenaline-fueled kayaking, speedboats, and traditional wood-cooked culinary plates.",
+    desc: "Escape to Panshet with CampBuddy for a perfect camping getaway. Enjoy lakeside tents, kayaking, boating, water sports, tasty meals, and breathtaking backwater views just a short drive from Pune.",
     tagline: "UNLIMITED WATER SPORTS INCLUDED",
     pageId: "panshet",
     stats: "620+ Active Campers Weekly",
-    href: "/panshet-camping"
+    href: "/panshet-camping",
   }
 ];
 
