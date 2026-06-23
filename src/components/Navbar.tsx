@@ -3,10 +3,12 @@ import { cn } from "@/lib/utils";
 import { Calendar, Image as ImageIcon, Menu, Phone, Tent } from "lucide-react";
 import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
+import { useBookingStore } from "../zustand/bookingStore";
 
 
 
 export default function Navbar() {
+  const { openBooking } = useBookingStore()
   const [isScrolled, setIsScrolled] = useState(false);
   const pathname = useLocation()
   useEffect(() => {
@@ -149,13 +151,14 @@ export default function Navbar() {
                     {/* Navigation Items */}
                     <nav id="mobile-nav-items-drawer" className="flex flex-col gap-2">
                       {navItems.map((item) => {
+                        const isActive = pathname.pathname.split("/")[1] === item.id;
                         const IconComponent = item.icon;
                         // const isActive = currentPage === item.id;
                         return (
                           <SheetClose key={item.id} >
                             <Link
                               to={`/${item.id}`}
-                              className={`w-full flex items-center gap-3.5 px-4 py-3 rounded-xl font-sans font-bold text-sm text-left transition-colors cursor-pointer ${false
+                              className={`w-full flex items-center gap-3.5 px-4 py-3 rounded-xl font-sans font-bold text-sm text-left transition-colors cursor-pointer ${isActive
                                 ? "bg-orange-50 text-orange-850 border border-orange-100 font-extrabold"
                                 : "text-stone-600 hover:bg-stone-50"
                                 }`}
@@ -167,7 +170,7 @@ export default function Navbar() {
                         );
                       })}
 
-                      <SheetClose>
+                      {/* <SheetClose>
                         <div
                           onClick={() => handleNavClick("bookings")}
                           className={`w-full flex items-center justify-between px-4 py-3 rounded-xl font-sans font-bold text-sm text-left transition-colors cursor-pointer ${"bookings" === "bookings"
@@ -181,7 +184,7 @@ export default function Navbar() {
                           </div>
 
                         </div>
-                      </SheetClose>
+                      </SheetClose> */}
                     </nav>
                   </div>
 
@@ -197,7 +200,7 @@ export default function Navbar() {
 
                     <SheetClose className={"w-full"}>
                       <div
-                        // onClick={() => openBookingWithParams()}
+                        onClick={() => openBooking()}
                         className="w-full block bg-orange-600 hover:bg-orange-700 text-white font-sans font-extrabold py-3.5 rounded-xl text-center shadow-sm cursor-pointer text-sm"
                       >
                         Book Camp Now

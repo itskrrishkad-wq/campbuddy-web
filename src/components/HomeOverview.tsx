@@ -28,7 +28,7 @@ export default function HomeOverview() {
     {
       icon: Activity,
       title: "Exciting Adventure Activities",
-      desc: "Go kayaking, speedboating, and swimming with high-standard lifejackets under certified lifeguards. Enjoy archery, volleyball, and Saturday evening acoustic live bands."
+      desc: "Go kayaking, speedboating with high-standard lifejackets. Enjoy archery, volleyball, and Saturday evening with live music."
     },
     {
       icon: Heart,
@@ -122,7 +122,7 @@ export default function HomeOverview() {
                   <span>Kamshet/Thakursai Village, near Lonavala</span>
                 </div>
                 <p className="text-sm text-stone-605 leading-relaxed mb-6 font-sans">
-                  Perfect weekend getaway for music lovers and couples. Enjoy clear stargazing nights beside peaceful waves, delicious tandoor barbecue starters, and historic mountain fortress horizon views (Tikona, Lohagad).
+                  Experience lakeside camping at Pawna Lake near Lonavala with scenic sunset views, live music, campfire, BBQ snacks, unlimited dinner, and comfortable tent stays surrounded by mountains and nature.
                 </p>
                 <div className="space-y-2.5 mb-4 font-sans">
                   <div className="flex items-center gap-2 text-xs text-stone-700 font-semibold">
@@ -183,12 +183,12 @@ export default function HomeOverview() {
                   <span>Velhe Taluka, near Pune backwaters</span>
                 </div>
                 <p className="text-sm text-stone-605 leading-relaxed mb-6 font-sans">
-                  Ideal for adventure enthusiasts seeking silence and direct watersports access. Sprawled inside mango orchards with wooden decks, traditional Chulivarchi food cooking, and guided morning forest trekking.
+                  Enjoy camping at Panshet Backwaters near Pune with exciting water sports, kayaking, boating, lakeside tent stays, delicious local meals, and breathtaking views of the surrounding hills and reservoir.
                 </p>
                 <div className="space-y-2.5 mb-4 font-sans">
                   <div className="flex items-center gap-2 text-xs text-stone-700 font-semibold">
                     <CheckCircle className="w-4 h-4 text-orange-600 shrink-0" />
-                    <span>Kayaking, speed boats & safe lake swimming</span>
+                    <span>Kayaking, speed boats & outdoor games</span>
                   </div>
                   <div className="flex items-center gap-2 text-xs text-stone-700 font-semibold">
                     <CheckCircle className="w-4 h-4 text-orange-600 shrink-0" />
@@ -213,7 +213,7 @@ export default function HomeOverview() {
                 Explore Details
               </Link>
               <button
-                 onClick={() => openBooking("panshet")}
+                onClick={() => openBooking("panshet")}
                 className="flex-1 bg-orange-600 hover:bg-orange-700 text-white text-sm font-extrabold py-3.5 rounded-xl transition-all shadow-xs cursor-pointer flex items-center justify-center gap-1 hover:shadow"
               >
                 <span>Book Panshet</span>

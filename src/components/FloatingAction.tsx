@@ -1,4 +1,4 @@
-import { cn } from '@/lib/utils'
+import { cn, handleCall } from '@/lib/utils'
 import { Tent } from 'lucide-react'
 import React from 'react'
 
@@ -55,6 +55,7 @@ const FloatingAction = () => {
                         // className="flex-1 bg-orange-50 hover:bg-orange-100 active:bg-orange-200 text-orange-800 border border-orange-200 font-extrabold text-[11px] py-3 rounded-xl uppercase tracking-wider transition-all"
                         // className="flex-1 bg-blue-50 hover:bg-blue-100 active:bg-blue-200 text-blue-800 border border-blue-200 font-extrabold text-[11px] py-3 rounded-xl uppercase tracking-wider transition-all"
                         className="flex-1 flex-1 flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-500 active:bg-blue-700 text-white border border-blue-500 font-extrabold text-[11px] py-3 rounded-xl uppercase tracking-wider shadow-md hover:shadow-lg transition-all duration-200"
+                        onClick={handleCall}
                     >
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
