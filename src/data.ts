@@ -1226,7 +1226,7 @@ export const TESTIMONIALS: Testimonial[] = [
   },
 ];
 
-export const FAQS: FAQItem[] = [
+export const FAQS_PAWNA: FAQItem[] = [
   {
     id: "faq-1",
     question:
@@ -1300,5 +1300,83 @@ export const FAQS: FAQItem[] = [
     answer:
       "Prior booking is mandatory, and 50% of the total amount must be paid in advance to confirm your booking. The remaining 50% can be paid on arrival at the campsite. If a booking is canceled 7 days or more before the event date, 50% of the booking amount will be refunded. No refunds will be provided for cancellations made within 5 days of the event date. Please note that only bookings with the advance payment completed are considered confirmed.",
     category: "booking",
+  },
+];
+
+
+export const FAQS_PANSHET: FAQItem[] = [
+  {
+    id: "faq-1",
+    question:
+      "Is Panshet Camping safe for couples, families, and solo female travelers?",
+    answer:
+      "Absolutely. Our Panshet campsite is fully secured, family-friendly, and monitored by on-site staff. The camping area is safe for couples, families, and solo female travelers. We maintain a peaceful atmosphere and do not tolerate nuisance behavior, ensuring a comfortable stay for all guests.",
+    category: "general",
+  },
+  {
+    id: "faq-2",
+    question: "Are toilets clean? Do you have western flushing washrooms?",
+    answer:
+      "Yes. We provide separate washroom facilities for ladies and gentlemen with western-style flushing toilets, clean wash basins, mirrors, and continuous water supply. Washrooms are cleaned and sanitized regularly throughout the day.",
+    category: "food-amenities",
+  },
+  {
+    id: "faq-3",
+    question:
+      "How much barbecue (BBQ) starter do we get? Can we request Jain or pure veg options?",
+    answer:
+      "Our standard packages include approximately 250 grams of BBQ starters per person. Vegetarian options include paneer and assorted vegetables, while non-vegetarian options include marinated chicken starters. We also provide Jain and pure vegetarian meals prepared separately upon prior request.",
+    category: "food-amenities",
+  },
+  {
+    id: "faq-4",
+    question:
+      "What is your booking registration process? Do we pay full or partial deposit?",
+    answer:
+      "Booking is simple. Select your preferred package and contact us through the inquiry form or WhatsApp. To confirm your reservation, a partial advance payment is required, while the remaining balance can be paid during check-in at the campsite.",
+    category: "booking",
+  },
+  {
+    id: "faq-5",
+    question: "How is cellular network connectivity at the campsite?",
+    answer:
+      "Panshet Camping generally has good Airtel network coverage. Jio and Vi networks may work in certain areas but can be intermittent due to the surrounding hills and valley terrain. Many guests enjoy the location as a peaceful getaway from constant connectivity.",
+    category: "location",
+  },
+  {
+    id: "faq-6",
+    question: "Are pets allowed at the campsite?",
+    answer:
+      "Pets are allowed with prior approval. Since the campsite is located close to natural surroundings, we recommend keeping pets on a leash and under supervision at all times for their safety and comfort.",
+    category: "general",
+  },
+  {
+    id: "faq-7",
+    question:
+      "Do you offer private transportation services from Pune railway station or city areas?",
+    answer:
+      "Yes. Transportation is not included in the camping package, but we can help arrange private vehicles from Pune Railway Station, Shivajinagar, Kothrud, or nearby areas at standard local taxi charges.",
+    category: "booking",
+  },
+  {
+    id: "faq-8",
+    question: "What is your cancellation and refund policy?",
+    answer:
+      "Advance booking is mandatory to confirm your reservation. If a cancellation is made at least 7 days before the camping date, a partial refund may be applicable. Cancellations made closer to the event date are generally non-refundable. Please contact us for specific cancellation terms applicable to your booking.",
+    category: "booking",
+  },
+  {
+    id: "faq-9",
+    question: "What should I carry for the camping trip?",
+    answer:
+      "We recommend carrying a light jacket, comfortable clothing, personal medicines, toiletries, a power bank, flashlight, and mosquito repellent. During monsoon and winter seasons, additional warm clothing is advisable.",
+    category: "general",
+  },
+  {
+    id: "faq-10",
+    question: "What are the campsite guidelines and important advisories?",
+    answer:
+      "In case of rain, tents may be shifted to covered areas for guest comfort. Tent allocation is done on a first-come, first-served basis. Common washrooms, dining areas, and bonfire spaces are shared by all guests. Charging points are available in designated common areas. Guests are requested to avoid littering, follow staff instructions, and respect the natural environment. Indoor and outdoor games may be available depending on weather and campsite conditions.",
+    category: "general",
   },
 ];

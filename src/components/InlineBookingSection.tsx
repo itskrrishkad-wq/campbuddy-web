@@ -16,6 +16,7 @@ import React, { useEffect, useState } from "react";
 // import { PACKAGES } from "../data";
 import { BookingInquiry } from "../types";
 import { PACKAGES } from "../refactored-packages";
+import { useLocation } from "react-router-dom";
 
 interface InlineBookingSectionProps {
   preSelectedDestination?: "pawna" | "panshet";
@@ -24,6 +25,8 @@ interface InlineBookingSectionProps {
 export default function InlineBookingSection({
   preSelectedDestination
 }: InlineBookingSectionProps) {
+  const { pathname } = useLocation();
+
   // Form Fields State
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
@@ -409,9 +412,10 @@ Please confirm slot availability so I can make standard 50% secured UPI booking 
                             type="button"
                             onClick={() => setDestination("pawna")}
                             className={`py-3 px-3 rounded-xl text-xs font-sans font-black text-center border cursor-pointer transition-all ${destination === "pawna"
-                              ? "bg-orange-50 border-orange-500 text-orange-800 font-bold"
-                              : "bg-white border-stone-200 text-stone-500 hover:text-stone-800"
+                              ? "bg-orange-50 border-orange-500 text-orange-800 font-bold" : pathname.includes("panshet-camping") && destination === "panshet" ? "bg-gray-100 text-gray-500 cursor-not-allowed opacity-60"
+                                : "bg-white border-stone-200 text-stone-500 hover:text-stone-800"
                               }`}
+                            disabled={pathname.includes("panshet-camping") && destination === "panshet"}
                           >
                             Pawna Lonavala
                           </button>
@@ -419,9 +423,10 @@ Please confirm slot availability so I can make standard 50% secured UPI booking 
                             type="button"
                             onClick={() => setDestination("panshet")}
                             className={`py-3 px-3 rounded-xl text-xs font-sans font-black text-center border cursor-pointer transition-all ${destination === "panshet"
-                              ? "bg-orange-50 border-orange-500 text-orange-800 font-bold"
-                              : "bg-white border-stone-200 text-stone-500 hover:text-stone-800"
+                              ? "bg-orange-50 border-orange-500 text-orange-800 font-bold" : pathname.includes("pawna-lake-camping") && destination === "pawna" ? "bg-gray-100 text-gray-500 cursor-not-allowed opacity-60"
+                                : "bg-white border-stone-200 text-stone-500 hover:text-stone-800"
                               }`}
+                            disabled={pathname.includes("pawna-lake-camping") && destination === "pawna"}
                           >
                             Panshet Pune
                           </button>

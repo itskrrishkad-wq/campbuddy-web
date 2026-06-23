@@ -1,15 +1,17 @@
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { HelpCircle, Star } from "lucide-react";
 import { useState } from "react";
-import { FAQS, TESTIMONIALS } from "../data";
+import { FAQS_PAWNA, FAQS_PANSHET, TESTIMONIALS } from "../data";
 
-export default function FAQAndReviews() {
+export default function FAQAndReviews({ destination = "pawna" }: { destination?: "pawna" | "panshet" }) {
   // Frequently asked questions
   const [activeFaq, setActiveFaq] = useState<string | null>(null);
 
   const toggleFaq = (id: string) => {
     setActiveFaq(activeFaq === id ? null : id);
   };
+
+  const FAQS = destination === "pawna" ? FAQS_PAWNA : FAQS_PANSHET;
 
   return (
     <section id="faq-reviews-section" className="py-24 bg-stone-50 text-stone-900 border-t border-stone-200">
@@ -30,7 +32,7 @@ export default function FAQAndReviews() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {TESTIMONIALS.map((review) => {
+            {TESTIMONIALS.filter((testi) => testi.destination.toLowerCase().includes(destination)).map((review) => {
               return (
                 <div
                   id={`review-card-${review.id}`}

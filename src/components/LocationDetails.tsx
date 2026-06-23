@@ -26,6 +26,7 @@ import ActivitiesSection from "./ActivitesSection";
 import InlineBookingSection from "./InlineBookingSection";
 import DayTimeline from "./DayTimeline";
 import GallerySection from "./GallerySection";
+import FAQAndReviews from "./FAQAndReviews";
 
 
 const timelineEvents = [
@@ -425,6 +426,7 @@ export default function LocationDetails({
               <InlineBookingSection preSelectedDestination={info.id} />
               <GallerySection />
               <NearbyAttractions location={info.id} />
+              <FAQAndReviews destination={info.id} />
               {info.id === "pawna" && <HowToReachSection />}
             </div>
 
