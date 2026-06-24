@@ -1297,8 +1297,14 @@ export const FAQS_PAWNA: FAQItem[] = [
   {
     id: "faq-8",
     question: "What is your cancellation and refund policy?",
-    answer:
-      "Prior booking is mandatory, and 50% of the total amount must be paid in advance to confirm your booking. The remaining 50% can be paid on arrival at the campsite. If a booking is canceled 7 days or more before the event date, 50% of the booking amount will be refunded. No refunds will be provided for cancellations made within 5 days of the event date. Please note that only bookings with the advance payment completed are considered confirmed.",
+    answer: `Prior booking is mandatory,  50% needs to be paid in advance for confirmation of booking & Balance 50%  On the spot cash
+
+If the booking is cancelled 7 days or before the event date then 50% of the booking amount will be refunded.
+
+No refund if canceled 5 days before the event.
+
+
+Only advance paid bookings will be confirmed.`,
     category: "booking",
   },
 ];
@@ -1360,8 +1366,14 @@ export const FAQS_PANSHET: FAQItem[] = [
   {
     id: "faq-8",
     question: "What is your cancellation and refund policy?",
-    answer:
-      "Advance booking is mandatory to confirm your reservation. If a cancellation is made at least 7 days before the camping date, a partial refund may be applicable. Cancellations made closer to the event date are generally non-refundable. Please contact us for specific cancellation terms applicable to your booking.",
+    answer: `Prior booking is mandatory,  50% needs to be paid in advance for confirmation of booking & Balance 50%  On the spot cash
+
+If the booking is cancelled 7 days or before the event date then 50% of the booking amount will be refunded.
+
+No refund if canceled 5 days before the event.
+
+
+Only advance paid bookings will be confirmed.`,
     category: "booking",
   },
   {
