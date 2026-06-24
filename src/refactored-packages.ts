@@ -269,35 +269,55 @@ export const PACKAGES = [
     reviewsCount: 240,
     tags: ["Luxury Stay", "Family Friendly"],
     variants: [{ name: "Without Pool" }, { name: "With Pool" }],
-    pricing: [
-      { type: "fixed", guests: 1, label: "Without Pool Weekend", price: 1700 },
-      { type: "fixed", guests: 1, label: "Without Pool Weekday", price: 1500 },
-      {
-        type: "fixed",
-        guests: 2,
-        label: "Without Pool Couple Weekend",
-        price: 5000,
-      },
-      {
-        type: "fixed",
-        guests: 2,
-        label: "Without Pool Couple Weekday",
-        price: 4000,
-      },
+    // pricing: [
+    //   { type: "fixed", guests: 1, label: "Without Pool Weekend", price: 1700 },
+    //   { type: "fixed", guests: 1, label: "Without Pool Weekday", price: 1500 },
+    //   {
+    //     type: "fixed",
+    //     guests: 2,
+    //     label: "Without Pool Couple Weekend",
+    //     price: 5000,
+    //   },
+    //   {
+    //     type: "fixed",
+    //     guests: 2,
+    //     label: "Without Pool Couple Weekday",
+    //     price: 4000,
+    //   },
 
-      { type: "fixed", guests: 1, label: "With Pool Weekend", price: 1900 },
-      { type: "fixed", guests: 1, label: "With Pool Weekday", price: 1700 },
+    //   { type: "fixed", guests: 1, label: "With Pool Weekend", price: 1900 },
+    //   { type: "fixed", guests: 1, label: "With Pool Weekday", price: 1700 },
+    //   {
+    //     type: "fixed",
+    //     guests: 2,
+    //     label: "With Pool Couple Weekend",
+    //     price: 5400,
+    //   },
+    //   {
+    //     type: "fixed",
+    //     guests: 2,
+    //     label: "With Pool Couple Weekday",
+    //     price: 4400,
+    //   },
+    // ],
+    pricing: [
       {
         type: "fixed",
         guests: 2,
-        label: "With Pool Couple Weekend",
-        price: 5400,
+        label: "Couple",
+        price: 4400,
       },
       {
         type: "fixed",
-        guests: 2,
-        label: "With Pool Couple Weekday",
-        price: 4400,
+        guests: 3,
+        label: "3 Person Sharing",
+        price: 5700,
+      },
+      {
+        type: "fixed",
+        guests: 4,
+        label: "4 Person Sharing",
+        price: 7200,
       },
     ],
     amenities: [

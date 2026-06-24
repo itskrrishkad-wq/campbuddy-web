@@ -3,7 +3,7 @@ import { HelpCircle, Star } from "lucide-react";
 import { useState } from "react";
 import { FAQS_PAWNA, FAQS_PANSHET, TESTIMONIALS } from "../data";
 
-export default function FAQAndReviews({ destination = "pawna" }: { destination?: "pawna" | "panshet" }) {
+export default function FAQAndReviews({ destination }: { destination?: "pawna" | "panshet" }) {
   // Frequently asked questions
   const [activeFaq, setActiveFaq] = useState<string | null>(null);
 
@@ -32,7 +32,7 @@ export default function FAQAndReviews({ destination = "pawna" }: { destination?:
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {TESTIMONIALS.filter((testi) => testi.destination.toLowerCase().includes(destination)).map((review) => {
+            {(destination ? TESTIMONIALS.filter((testi) => testi.destination.toLowerCase().includes(destination)) : TESTIMONIALS).map((review) => {
               return (
                 <div
                   id={`review-card-${review.id}`}

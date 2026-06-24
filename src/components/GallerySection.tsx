@@ -2,22 +2,18 @@ import { ChevronLeft, ChevronRight, MapPin, Tent, X, ZoomIn } from "lucide-react
 import { useState } from "react";
 import { GALLERY_ITEMS } from "../data";
 import { GalleryItem } from "../types";
+import { useBookingStore } from "../zustand/bookingStore";
 
-interface GallerySectionProps {
-  preSelectedDestination?: "pawna" | "panshet" | "all";
-}
 
-export default function GallerySection({ preSelectedDestination = "all" }: GallerySectionProps) {
-  const [selectedCategory, setSelectedCategory] = useState<string>("all");
+
+export default function GallerySection() {
+  const { openBooking } = useBookingStore()
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
 
 
 
   // Filtering gallery items
-  const filteredItems = GALLERY_ITEMS.filter((item) => {
-    if (selectedCategory === "all") return true;
-    return item.category === selectedCategory;
-  });
+  const filteredItems = GALLERY_ITEMS
 
   const openLightbox = (item: GalleryItem) => {
     const idx = GALLERY_ITEMS.findIndex((gi) => gi.id === item.id);
@@ -61,7 +57,7 @@ export default function GallerySection({ preSelectedDestination = "all" }: Galle
           </p>
         </div>
 
-       
+
 
         {/* Masonry-like Grid Layout with highly rounded cards */}
         <div id="gallery-items-column-layout" className="columns-2 sm:columns-2 md:columns-3 lg:columns-4 gap-2 sm:gap-6 space-y-2 sm:space-y-6">
@@ -172,6 +168,7 @@ export default function GallerySection({ preSelectedDestination = "all" }: Galle
                   onClick={() => {
                     const dest = currentLightboxItem.category === "panshet" ? "panshet" : "pawna";
                     closeLightbox();
+                    openBooking(dest)
                   }}
                   className="bg-orange-600 hover:bg-orange-700 text-white font-sans font-bold text-xs px-5 py-3 rounded-xl transition-all cursor-pointer shrink-0 uppercase tracking-wider flex items-center gap-1.5"
                 >

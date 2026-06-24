@@ -48,7 +48,7 @@ export const DESTINATIONS_INFO = {
     shortDesc:
       "Experience premium lakeside camping near Lonavala with breathtaking sunset views, bonfire nights, and cozy tent stays.",
     longDesc:
-      "Experience the beauty of nature with Camp Buddy's Pawna Lake Camping. Located beside the scenic Pawna Lake, our campsite offers comfortable tent stays, delicious BBQ dinner, live music, bonfire, indoor-outdoor games, and breathtaking lake views. Whether you're planning a weekend getaway with friends, family outing, corporate event, or couple camping trip, Camp Buddy provides one of the best Pawna Lake Camping experiences near Pune and Mumbai.",
+      "Experience the best Pawna Lake Camping with Camp Buddy, located beside the scenic Pawna Lake near Pune and Mumbai. Our lakeside campsite offers comfortable tent stays, BBQ dinner, live music, bonfire, indoor and outdoor games, and breathtaking sunset views. Whether you're planning a weekend getaway, family outing, couple camping trip, corporate event, or group camping experience, Camp Buddy provides one of the most memorable Pawna Camping and Pawna Lake Tent Stay experiences. Enjoy nature, adventure, and relaxation at one of the best camping destinations near Pune and Mumbai.",
     highlights: [
       "Secured, sanitised beach touching campsite with gorgeous waterfront view",
       "Saturday Live Acoustic Jamming & unplugged music programs",
@@ -103,7 +103,7 @@ export const DESTINATIONS_INFO = {
     shortDesc:
       "Immerse in nature with majestic backwater valleys, exciting water sports adventure, and authentic village cooking.",
     longDesc:
-      "Tucked inside the serene valleys of Velhe, Panshet Camping overlooks the magnificent, sprawling backwaters of the Panshet Dam. This campsite is tailor-made for those who seek solace and true nature-immersion away from city traffic. Flanked by deep green hills of the Western Ghats, this camp offers an array of adrenaline-pumping water sports including kayaking, speed boats, swimming with life jackets, and a beautiful forest nature trail. In the evening, the camp comes alive with the aroma of 'Chulivarchi Jevan'—traditional local Maharashtrian dishes cooked slowly over wood-fired earthen stoves, preserving absolute rich field flavors. Unwind, listen to whispering leaves, gaze at the glowing moon, and enjoy peaceful rustic glamping.",
+      "Panshet Camping Near Pune is the perfect destination for nature lovers, adventure seekers, and weekend travelers looking to escape the city. Located beside the beautiful backwaters of Panshet Dam, our campsite offers stunning lake views, comfortable tent stays, exciting water activities like kayaking, boating, and swimming, along with campfire experiences under the stars. Surrounded by the lush greenery of the Western Ghats, guests can enjoy peaceful nature trails and authentic Maharashtrian Chulivarchi Jevan. Whether you're planning a family outing, couple getaway, group trip, or corporate outing, Camp Buddy Panshet Camping offers one of the best Panshet Dam Camping experiences near Pune.",
     highlights: [
       "Peaceful, off-grid atmosphere deeply sheltered by rising Sahyadri valley mountains",
       "Direct backwater access featuring Kayaking, Speed Boat Rides, and safe Lake Swimming with safety jackets",
@@ -1186,9 +1186,9 @@ export const TESTIMONIALS: Testimonial[] = [
     location: "Pune, Maharashtra",
     rating: 5,
     date: "May 2026",
-    text: "Pawna Lake camping exceeded all my expectations! The food was incredibly delicious—especially the unlimited barbecue. But the highlight was the live music on Saturday. The singer played beautiful acoustic Hindi and Marathi songs while we sat around the bonfire. Clean toilets, safe for family, cooperative staff. Very reliable booking system!",
+    text: "We booked Pawna Lake camping for a weekend with friends, and it turned out to be one of the most relaxing trips we've had in a long time. The lakeside view was beautiful, the barbecue was delicious, and the live music around the bonfire created such a great atmosphere. The campsite was clean, well-managed, and the staff were genuinely helpful throughout our stay.",
     avatar:
-      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=120&q=80",
+      "https://images.unsplash.com/photo-1608978897687-26a1a0730135?q=80&w=1160&auto=format&fit=crop",
     destination: "Pawna Lake Camping",
   },
   {
@@ -1197,9 +1197,9 @@ export const TESTIMONIALS: Testimonial[] = [
     location: "Mumbai, Maharashtra",
     rating: 5,
     date: "June 2026",
-    text: "We booked the couple's bell tent package for our anniversary at Pawna Lake. The tents were absolutely gorgeous, beautifully decorated with cozy fairy lights and dynamic lanterns, making it look incredibly magical. Absolute privacy, clean private-feeling washrooms nearby, and breathtaking mountain-fort sunset views. A highly recommended romantic getaway!",
+    text: "We were looking for a peaceful Pawna Lake camping near Lonavala experience for our anniversary, and this place was perfect. The tent was beautifully arranged, the sunset over the lake was stunning, and the entire setting felt calm and private. Waking up to the view of the water and surrounding hills was easily the highlight of our trip.",
     avatar:
-      "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=120&q=80",
+      "https://images.unsplash.com/photo-1708534246051-7f47b279e94b?q=80&w=774&auto=format&fit=crop",
     destination: "Pawna Lake Camping",
   },
   {
@@ -1208,20 +1208,20 @@ export const TESTIMONIALS: Testimonial[] = [
     location: "Thane",
     rating: 5,
     date: "April 2026",
-    text: "If you love peaceful nature trails and exciting water sports, Panshet is the place. We spent hours kayaking on the calm backwaters and riding speed boats. Best part? The authentic 'Chulivarchi Jevan' village food cooked over wood stows was unbelievable, tasted just like rural Grandma's kitchen. Very safe environment for kids too.",
+    text: "Our family recently visited Panshet camping near Pune, and everyone had a fantastic time. The kids loved the boating activities, while the adults enjoyed the peaceful surroundings and fresh air. The local-style food was surprisingly good, and the campsite felt safe and family-friendly. We'd definitely visit again.",
     avatar:
-      "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=120&q=80",
+      "https://images.unsplash.com/photo-1613299790268-7c17f6880363?q=80&w=774&auto=format&fit=crop",
     destination: "Panshet Camping",
   },
   {
     id: "t-4",
     name: "Ananya Iyer",
     location: "Mumbai",
-    rating: 4,
+    rating: 5,
     date: "April 2026",
-    text: "Awesome experience. Panshet was super green even in late April, surrounded by lush tall valleys and birds chirping in the morning. The booking customer service on WhatsApp was so fast—they prefilled everything, answered all our safety queries, and guided us patiently on route details. Highly premium setups!",
+    text: "A friend recommended this Panshet camping near Pune location, and I'm glad we went. The greenery around the lake was beautiful, especially in the morning, and the tents were much more comfortable than we expected. The booking process was smooth, and the team was quick to answer all our questions before the trip.",
     avatar:
-      "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=120&q=80",
+      "https://images.unsplash.com/photo-1666243184792-11c8f820a551?q=80&w=774&auto=format&fit=crop",
     destination: "Panshet Camping",
   },
 ];
@@ -1302,7 +1302,6 @@ export const FAQS_PAWNA: FAQItem[] = [
     category: "booking",
   },
 ];
-
 
 export const FAQS_PANSHET: FAQItem[] = [
   {
