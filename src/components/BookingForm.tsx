@@ -329,21 +329,25 @@ Thank you!
                   </div>
 
                   {selectedPackage && (
-                    <div className="bg-white border border-stone-150 rounded-xl p-3 text-[11px] leading-relaxed">
+                    <div className="bg-white border border-stone-150 rounded-xl p-4 text-[11px] leading-relaxed">
                       <p className="font-extrabold text-stone-800 font-sans border-b border-stone-100 pb-1.5 mb-2 flex items-center justify-between">
-                        <span>{selectedPackage.name} Key Features</span>
+                        <span>{selectedPackage.name} Summary Inclusions</span>
                         <span className="text-orange-700 font-mono font-black">
-                          ₹{selectedPackage.pricing[0].price}/head
+                          ₹{selectedPackage.pricing[0].price}/person
                         </span>
                       </p>
-                      <ul className="grid grid-cols-2 gap-x-4 gap-y-1 text-stone-605">
-                        <li>• Tent Type: {selectedPackage.category}</li>
-                        <li>• Occupancy: {selectedPackage.occupancy}</li>
-                        <li>• Access: {"4: 00 PM"} check-in</li>
-                        <li className="truncate">
-                          • Meals: {selectedPackage.meals[1] || selectedPackage.meals[0]}
-                        </li>
-                      </ul>
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-1 text-stone-600">
+                        <p>• Tent Accommodation: {selectedPackage.category}</p>
+                        <p>• Built Occupancy: {selectedPackage.occupancy}</p>
+                        <p>
+                          • Schedule: {"4: 00 PM"} check-in,{" "}
+                          {"11: 00 AM"} out
+                        </p>
+                        <p>
+                          • Meals: {selectedPackage.meals[1] || selectedPackage.meals[0]} (Tea,
+                          Snacks, BBQ, Dinner, Breakfast)
+                        </p>
+                      </div>
                     </div>
                   )}
                 </div>
