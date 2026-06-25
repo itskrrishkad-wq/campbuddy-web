@@ -28,20 +28,20 @@ export default function PackageCard({
                 3
             ),
         },
-        (_, i) =>
-            `${pkg.imageFolder}/${folderName}-${i + 1}.webp`
+        (url, i) =>
+            `${url}`
     );
 
-    const pkg_images = Array.from(
-        {
-            length: Math.min(
-                Math.max(pkg.imageCount - 1, 0),
-                pkg.imageCount
-            ),
-        },
-        (_, i) =>
-            `${pkg.imageFolder}/${folderName}-${i + 1}.webp`
-    );
+    // const pkg_images = Array.from(
+    //     {
+    //         length: Math.min(
+    //             Math.max(pkg.imageCount - 1, 0),
+    //             pkg.imageCount
+    //         ),
+    //     },
+    //     (_, i) =>
+    //         `${pkg.imageFolder}/${folderName}-${i + 1}.webp`
+    // );
 
     const lowestPrice =
         pkg.pricing?.length
@@ -144,9 +144,9 @@ export default function PackageCard({
             </div>
 
             {/* Gallery Preview */}
-            {pkg.images.length > 0 && (
+            {galleryImages.length > 0 && (
                 <div className="flex gap-2 px-4 pt-4">
-                    {pkg.images.map((image, index) => (
+                    {galleryImages.map((image, index) => (
                         <div
                             key={index}
                             className="h-16 flex-1 overflow-hidden rounded-xl"
