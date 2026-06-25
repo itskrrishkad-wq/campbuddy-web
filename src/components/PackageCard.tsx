@@ -144,9 +144,9 @@ export default function PackageCard({
             </div>
 
             {/* Gallery Preview */}
-            {galleryImages.length > 0 && (
+            {pkg.images.length > 0 && (
                 <div className="flex gap-2 px-4 pt-4">
-                    {galleryImages.map((image, index) => (
+                    {pkg.images.map((image, index) => (
                         <div
                             key={index}
                             className="h-16 flex-1 overflow-hidden rounded-xl"
