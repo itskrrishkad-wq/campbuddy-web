@@ -28,20 +28,20 @@ export default function PackageCard({
                 3
             ),
         },
-        (url, i) =>
-            `${url}`
+        (_, i) =>
+            pkg.images[i]
     );
 
-    // const pkg_images = Array.from(
-    //     {
-    //         length: Math.min(
-    //             Math.max(pkg.imageCount - 1, 0),
-    //             pkg.imageCount
-    //         ),
-    //     },
-    //     (_, i) =>
-    //         `${pkg.imageFolder}/${folderName}-${i + 1}.webp`
-    // );
+    const pkg_images = Array.from(
+        {
+            length: Math.min(
+                Math.max(pkg.imageCount - 1, 0),
+                pkg.imageCount
+            ),
+        },
+        (_, i) =>
+            `${pkg.imageFolder}/${folderName}-${i + 1}.webp`
+    );
 
     const lowestPrice =
         pkg.pricing?.length
@@ -61,7 +61,7 @@ export default function PackageCard({
         return acc;
     }, undefined);
 
-
+    console.log({ galleryImages })
     return (
         <div className="group flex h-full flex-col overflow-hidden rounded-3xl border border-neutral-200 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl">
             {/* Hero Image */}
