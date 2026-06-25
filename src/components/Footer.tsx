@@ -20,7 +20,7 @@ export default function Footer() {
             <div className="flex items-center gap-2.5">
               <div className={cn(" bg-transparent rounded-xl  transition-colors")}>
                 <img
-                  src="/images/campbuddy/campbuddy-logo-nobg.png"
+                  src="https://26q8s2ga0k.ufs.sh/f/II9VNliNyEeiJgs5OVpza4VqfmS26l0CyorAQ9b5OIxXcNZj"
                   className="w-9.5 h-9.5 shrink-0"
                   alt="campbuddy-logo"
                 />

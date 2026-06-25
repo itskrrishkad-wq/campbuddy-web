@@ -3,15 +3,15 @@ import { AnimatePresence, motion } from "motion/react";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 // import pawnaHero from "@/src/assets/images/pawna_lake_hero_1781554186715.";
-import pawnaHero from "@/src/assets/images/pawna_lake_hero_1781554186715.jpg"
-import panshetHero from "@/src/assets/images/panshet_lake_hero_1781554201017.jpg"
+
+
 import { useBookingStore } from "../zustand/bookingStore";
 
 
 
 const slides = [
   {
-    image: pawnaHero,
+    image: "https://26q8s2ga0k.ufs.sh/f/II9VNliNyEeizW5TZt8p0AfZyzgWnX5uLoN79wTUB8VjmcFH",
     title: "Pawna Lake Camping with CampBuddy",
     accent: "Pawna Lake, Lonavala",
     desc: "Experience lakeside camping at Pawna Lake with CampBuddy. Enjoy scenic mountain views, comfortable tents, campfire nights, live music, BBQ, delicious meals, and unforgettable sunrise moments near Lonavala.",
@@ -21,7 +21,7 @@ const slides = [
     href: "/pawna-lake-camping",
   },
   {
-    image: panshetHero,
+    image: "https://26q8s2ga0k.ufs.sh/f/II9VNliNyEeifJFbWyBXLdFhgPlyaA9nm2ZKouVJeQb5OBGN",
     title: "Panshet Camping with CampBuddy",
     accent: "Panshet Backwaters, Pune",
     desc: "Escape to Panshet with CampBuddy for a perfect camping getaway. Enjoy lakeside tents, kayaking, boating, water sports, tasty meals, and breathtaking backwater views just a short drive from Pune.",

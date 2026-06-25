@@ -1,8 +1,7 @@
 import { Activity, ArrowRight, Award, CheckCircle, Heart, MapPin, Shield, Utensils } from "lucide-react";
 import { STATS } from "../data";
 import { Link } from "react-router-dom";
-import pawnaHero from "@/src/assets/images/pawna_lake_hero_1781554186715.jpg"
-import panshetHero from "@/src/assets/images/panshet_lake_hero_1781554201017.jpg"
+
 import { useBookingStore } from "../zustand/bookingStore";
 
 
@@ -101,7 +100,7 @@ export default function HomeOverview() {
             <div>
               <div className="relative aspect-video overflow-hidden">
                 <img
-                  src={pawnaHero}
+                  src={"https://26q8s2ga0k.ufs.sh/f/II9VNliNyEeizW5TZt8p0AfZyzgWnX5uLoN79wTUB8VjmcFH"}
                   alt="Pawna lakeside sunset"
                   className="w-full h-full object-cover group-hover:scale-103 transition-transform duration-700"
                   referrerPolicy="no-referrer"
@@ -162,7 +161,7 @@ export default function HomeOverview() {
             <div>
               <div className="relative aspect-video overflow-hidden">
                 <img
-                  src={panshetHero}
+                  src={"https://26q8s2ga0k.ufs.sh/f/II9VNliNyEeifJFbWyBXLdFhgPlyaA9nm2ZKouVJeQb5OBGN"}
                   alt="Panshet backwaters landscape"
                   className="w-full h-full object-cover group-hover:scale-103 transition-transform duration-700"
                   referrerPolicy="no-referrer"

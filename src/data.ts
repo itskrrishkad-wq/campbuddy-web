@@ -5,13 +5,8 @@ import {
   Testimonial,
   FAQItem,
 } from "./types";
-import pawnaLakeHero from "@/src/assets/images/pawna_lake_hero_1781554186715.jpg";
-import premiumGlampingTent from "@/src/assets/images/premium_glamping_tent_1781554215882.jpg";
-import bonfireBarbecueNight from "@/src/assets/images/bonfire_barbecue_night_1781554229242.jpg";
-// import pawnaLakeHero from "@/src/assets/images/pawna_lake_hero_1781554186715.jpg";
-import panshetLakeHero from "@/src/assets/images/panshet_lake_hero_1781554201017.jpg";
-// import premiumGlampingTent from "@/src/assets/images/premium_glamping_tent_1781554215882.jpg";
-// import bonfireBarbecueNight from "@/src/assets/images/bonfire_barbecue_night_1781554229242.jpg";
+
+
 
 export const STATS = [
   {
@@ -44,7 +39,8 @@ export const DESTINATIONS_INFO = {
     distance: "110-120 km from Mumbai | 55-70 km from Pune",
     rating: 4.8,
     reviews: 1980,
-    bannerImage: pawnaLakeHero,
+    bannerImage:
+      "https://26q8s2ga0k.ufs.sh/f/II9VNliNyEeizW5TZt8p0AfZyzgWnX5uLoN79wTUB8VjmcFH",
     shortDesc:
       "Experience premium lakeside camping near Lonavala with breathtaking sunset views, bonfire nights, and cozy tent stays.",
     longDesc:
@@ -99,7 +95,7 @@ export const DESTINATIONS_INFO = {
     distance: "180 km from Mumbai | 42 km from Pune",
     rating: 4.7,
     reviews: 1220,
-    bannerImage: panshetLakeHero,
+    bannerImage: "https://26q8s2ga0k.ufs.sh/f/II9VNliNyEeifJFbWyBXLdFhgPlyaA9nm2ZKouVJeQb5OBGN",
     shortDesc:
       "Immerse in nature with majestic backwater valleys, exciting water sports adventure, and authentic village cooking.",
     longDesc:
@@ -972,7 +968,7 @@ export const TENTS: TentType[] = [
       "External Solar Lanterns",
     ],
     destinations: ["pawna", "panshet"],
-    image: premiumGlampingTent, // Our beautiful bespoke boho glamping tent photo!
+    image: "https://26q8s2ga0k.ufs.sh/f/II9VNliNyEeijWlpoXwRriV1cg3GDzeMLvNU2FEqZYnJXQw4", // Our beautiful bespoke boho glamping tent photo!
   },
   {
     id: "tent-glamping-bell",
@@ -1131,7 +1127,7 @@ export const GALLERY_ITEMS: GalleryItem[] = [
   },
   {
     id: "g-gallery-1",
-    src: "/images/gallery/gallery-1.webp",
+    src: "https://26q8s2ga0k.ufs.sh/f/II9VNliNyEei9p57w4efmHubXVqWJ1NLDUilA0e7hK6avYkx", // gallery-1.webp
     alt: "Gallery image 1",
     category: "activities",
     locationLabel: "Gallery",
@@ -1139,7 +1135,7 @@ export const GALLERY_ITEMS: GalleryItem[] = [
   },
   {
     id: "g-gallery-2",
-    src: "/images/gallery/gallery-2.webp",
+    src: "https://26q8s2ga0k.ufs.sh/f/II9VNliNyEei56OTMykTeRJmBS4iKNu6oEX8O2WClbazAZQv", // gallery-2.webp
     alt: "Gallery image 2",
     category: "activities",
     locationLabel: "Gallery",
@@ -1147,7 +1143,7 @@ export const GALLERY_ITEMS: GalleryItem[] = [
   },
   {
     id: "g-gallery-3",
-    src: "/images/gallery/gallery-3.webp",
+    src: "https://26q8s2ga0k.ufs.sh/f/II9VNliNyEeiOV9gRjIds0K1FnQjW7I6a4rDh9VotZTUyfC2", // gallery-3.webp
     alt: "Gallery image 3",
     category: "activities",
     locationLabel: "Gallery",
@@ -1155,7 +1151,7 @@ export const GALLERY_ITEMS: GalleryItem[] = [
   },
   {
     id: "g-gallery-4",
-    src: "/images/gallery/gallery-4.webp",
+    src: "https://26q8s2ga0k.ufs.sh/f/II9VNliNyEei2i0d5ZtSqjFGWL8Cc31VRyiOvwnQorbBHZmI", // gallery-4.webp
     alt: "Gallery image 4",
     category: "activities",
     locationLabel: "Gallery",
@@ -1163,7 +1159,7 @@ export const GALLERY_ITEMS: GalleryItem[] = [
   },
   {
     id: "g-gallery-5",
-    src: "/images/gallery/gallery-5.webp",
+    src: "https://26q8s2ga0k.ufs.sh/f/II9VNliNyEeiz5TIhq8p0AfZyzgWnX5uLoN79wTUB8VjmcFH", // gallery-5.webp
     alt: "Gallery image 5",
     category: "activities",
     locationLabel: "Gallery",
@@ -1171,7 +1167,7 @@ export const GALLERY_ITEMS: GalleryItem[] = [
   },
   {
     id: "g-gallery-6",
-    src: "/images/gallery/gallery-6.webp",
+    src: "https://26q8s2ga0k.ufs.sh/f/II9VNliNyEeitIm2BCysXlHR0g3IzAZ8CymNevtM6rVaxfYT", // gallery-6.webp
     alt: "Gallery image 6",
     category: "activities",
     locationLabel: "Gallery",
