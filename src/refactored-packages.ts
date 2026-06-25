@@ -54,6 +54,18 @@ export const PACKAGES = [
     activities: DEFAULT_ACTIVITIES,
     imageFolder: "/images/pawna/camping-tent",
     imageCount: 10,
+    images: [
+      "https://26q8s2ga0k.ufs.sh/f/II9VNliNyEeiFCc3zS44JwVbzCa9t1QuOWgXom2c3hIL7qdl", // camping-tent-1
+      "https://26q8s2ga0k.ufs.sh/f/II9VNliNyEeiImzbREiNyEeifCJm5RlT03MqkQGdpjgLWur6", // camping-tent-2
+      "https://26q8s2ga0k.ufs.sh/f/II9VNliNyEeiJcWs5qqpza4VqfmS26l0CyorAQ9b5OIxXcNZ", // camping-tent-3
+      "https://26q8s2ga0k.ufs.sh/f/II9VNliNyEeiF0Eria44JwVbzCa9t1QuOWgXom2c3hIL7qdl", // camping-tent-4
+      "https://26q8s2ga0k.ufs.sh/f/II9VNliNyEeiu470xTWIW5fYqPl8wR9nS62gst4JmhekTAdN", // camping-tent-5
+      "https://26q8s2ga0k.ufs.sh/f/II9VNliNyEei914xhB2efmHubXVqWJ1NLDUilA0e7hK6avYk", // camping-tent-6
+      "https://26q8s2ga0k.ufs.sh/f/II9VNliNyEei7rKhLXldyOE8foxlaQwKCLqptUVjrBPcYnsS", // camping-tent-7
+      "https://26q8s2ga0k.ufs.sh/f/II9VNliNyEeiyw6KKwyPcan2J1udUvK0xTyGfPhQ9jNrqtlH", // camping-tent-8
+      "https://26q8s2ga0k.ufs.sh/f/II9VNliNyEeid0v8sEJ1QNS2ayWfm89TGAY1I4UunLFBi0qh", // camping-tent-9
+      "https://26q8s2ga0k.ufs.sh/f/II9VNliNyEeiWeziqQbW0KOYxjC13w8ASsH6orgGiLcXmzV4", // camping-tent-10
+    ],
   },
   {
     id: "pw-cozy-vibes-camping",
@@ -87,6 +99,15 @@ export const PACKAGES = [
     activities: DEFAULT_ACTIVITIES,
     imageFolder: "/images/pawna/pawna-cozy-vibes-camping",
     imageCount: 7,
+    images: [
+      "https://26q8s2ga0k.ufs.sh/f/II9VNliNyEei740oaDldyOE8foxlaQwKCLqptUVjrBPcYnsS", // pawna-cozy-vibes-camping-1
+      "https://26q8s2ga0k.ufs.sh/f/II9VNliNyEeigugqq9ElYCXQ2yAuRq4VvZILn68BmWhUxbFa",
+      "https://26q8s2ga0k.ufs.sh/f/II9VNliNyEei4NAFinMnMc8mpZdAyqlgj7UVa5DOF960XWTQ",
+      "https://26q8s2ga0k.ufs.sh/f/II9VNliNyEeiFSNGy44JwVbzCa9t1QuOWgXom2c3hIL7qdlv",
+      "https://26q8s2ga0k.ufs.sh/f/II9VNliNyEeiOHBRHdIds0K1FnQjW7I6a4rDh9VotZTUyfC2",
+      "https://26q8s2ga0k.ufs.sh/f/II9VNliNyEeiB4p65R9vnfI3ApaRbXsTLkFHxdMtJeuyc7oY",
+      "https://26q8s2ga0k.ufs.sh/f/II9VNliNyEeiuPhRCnWIW5fYqPl8wR9nS62gst4JmhekTAdN",
+    ],
   },
   {
     id: "pw-luxury-safari-tent",
@@ -124,6 +145,17 @@ export const PACKAGES = [
     activities: ["DJ Night", "Bonfire", "Movie Screening"],
     imageFolder: "/images/pawna/luxury-safari-tent",
     imageCount: 10,
+    images: [
+      "https://26q8s2ga0k.ufs.sh/f/II9VNliNyEeiDaaYuOdrm8HQagrIOv6ZtGhYpwB92KPiReL3",
+      "https://26q8s2ga0k.ufs.sh/f/II9VNliNyEeioBMZJjCN9PRUfQDbmo5lqZuF7JipLKkrvh8N",
+      "https://26q8s2ga0k.ufs.sh/f/II9VNliNyEeiHWntL6KTWt52DQ9shoVBIiZvrqdkKF7C63pc",
+      "https://26q8s2ga0k.ufs.sh/f/II9VNliNyEeiy3EYQSPcan2J1udUvK0xTyGfPhQ9jNrqtlHD",
+      "https://26q8s2ga0k.ufs.sh/f/II9VNliNyEei2P9A8zGtSqjFGWL8Cc31VRyiOvwnQorbBHZm",
+      "https://26q8s2ga0k.ufs.sh/f/II9VNliNyEeiIlXKXsPiNyEeifCJm5RlT03MqkQGdpjgLWur",
+      "https://26q8s2ga0k.ufs.sh/f/II9VNliNyEeiiY9LDuV7FLch15Rz0ZEqPCoBdpi7K6TI8v2D",
+      "https://26q8s2ga0k.ufs.sh/f/II9VNliNyEeil4KoWvYdqCDK4bXyYRtiTLZ8onfzWUN5JhQA",
+      "https://26q8s2ga0k.ufs.sh/f/II9VNliNyEeihg1mGVJSp6tmfygYTsPI03HLceqAGu12N48d",
+    ],
   },
   {
     id: "pw-the-glass-haven",
@@ -164,6 +196,14 @@ export const PACKAGES = [
     activities: DEFAULT_ACTIVITIES,
     imageFolder: "/images/pawna/the-glass-haven",
     imageCount: 6,
+    images: [
+      "https://26q8s2ga0k.ufs.sh/f/II9VNliNyEeiz6yOtf8p0AfZyzgWnX5uLoN79wTUB8VjmcFH",
+      "https://26q8s2ga0k.ufs.sh/f/II9VNliNyEeinZrvGMexGLhraXYwDIgmlP4xUkytc2OTZSJp",
+      "https://26q8s2ga0k.ufs.sh/f/II9VNliNyEei1XXCFf3s47JFyhQRKnNUaWAGujMHq8zYxdif",
+      "https://26q8s2ga0k.ufs.sh/f/II9VNliNyEeiyw0KEA4Pcan2J1udUvK0xTyGfPhQ9jNrqtlH",
+      "https://26q8s2ga0k.ufs.sh/f/II9VNliNyEeilUCIR4YdqCDK4bXyYRtiTLZ8onfzWUN5JhQA",
+      "https://26q8s2ga0k.ufs.sh/f/II9VNliNyEeiJcHZrItpza4VqfmS26l0CyorAQ9b5OIxXcNZ",
+    ],
   },
   {
     id: "pw-white-cottage",
@@ -193,6 +233,18 @@ export const PACKAGES = [
     activities: DEFAULT_ACTIVITIES,
     imageFolder: "/images/pawna/the-white-cottage",
     imageCount: 10,
+    images: [
+      "https://26q8s2ga0k.ufs.sh/f/II9VNliNyEeiek4Gvwd76Pd2TcogJN0njUHmAeRhXaCEO4uf",
+      "https://26q8s2ga0k.ufs.sh/f/II9VNliNyEei5gVc2ekTeRJmBS4iKNu6oEX8O2WClbazAZQv",
+      "https://26q8s2ga0k.ufs.sh/f/II9VNliNyEeiNwXKCLfG40xrDZYViUCpknQRzhj6X5cIENO9",
+      "https://26q8s2ga0k.ufs.sh/f/II9VNliNyEeiXWswEfz5TBUgdsGQOZoxnVwY4yi8HEMhlv2u",
+      "https://26q8s2ga0k.ufs.sh/f/II9VNliNyEeiPRlNh6jjigv7VleSsDJpCIaBfbWwn5AqUHtc",
+      "https://26q8s2ga0k.ufs.sh/f/II9VNliNyEei8lNN9jgdM0FQmyrot4zLNX5GkUJlW27qSHpe",
+      "https://26q8s2ga0k.ufs.sh/f/II9VNliNyEeizEVoBHx8p0AfZyzgWnX5uLoN79wTUB8VjmcF",
+      "https://26q8s2ga0k.ufs.sh/f/II9VNliNyEeib9H2hvQlrVXvZe8FR6qPo7AQ9M0skgNb4GpL",
+      "https://26q8s2ga0k.ufs.sh/f/II9VNliNyEeiIzNMAYiNyEeifCJm5RlT03MqkQGdpjgLWur6",
+      "https://26q8s2ga0k.ufs.sh/f/II9VNliNyEeiulBC8iWIW5fYqPl8wR9nS62gst4JmhekTAdN",
+    ],
   },
   {
     id: "pw-cozy-cabin",
@@ -226,6 +278,15 @@ export const PACKAGES = [
     activities: DEFAULT_ACTIVITIES,
     imageFolder: "/images/pawna/the-cozy-cabin",
     imageCount: 7,
+    images: [
+      "https://26q8s2ga0k.ufs.sh/f/II9VNliNyEeiIk7E6qiNyEeifCJm5RlT03MqkQGdpjgLWur6",
+      "https://26q8s2ga0k.ufs.sh/f/II9VNliNyEeikeWyPD2ch6QG8jiCpFxmY3XPwWBb7ZqyfgL2",
+      "https://26q8s2ga0k.ufs.sh/f/II9VNliNyEeilkePdGDYdqCDK4bXyYRtiTLZ8onfzWUN5JhQ",
+      "https://26q8s2ga0k.ufs.sh/f/II9VNliNyEeiBPzJMqvnfI3ApaRbXsTLkFHxdMtJeuyc7oYi",
+      "https://26q8s2ga0k.ufs.sh/f/II9VNliNyEeiZ1GseTD38XkhDfpNH5ERPi7xwtnuYVceBjTO",
+      "https://26q8s2ga0k.ufs.sh/f/II9VNliNyEeiNovWpdfG40xrDZYViUCpknQRzhj6X5cIENO9",
+      "https://26q8s2ga0k.ufs.sh/f/II9VNliNyEeioEFRUUN9PRUfQDbmo5lqZuF7JipLKkrvh8NV",
+    ],
   },
   {
     id: "pn-dam-camping",
@@ -259,6 +320,19 @@ export const PACKAGES = [
     activities: DEFAULT_ACTIVITIES_PANSHET,
     imageFolder: "/images/panshet/camping-tent",
     imageCount: 11,
+    images: [
+      "https://26q8s2ga0k.ufs.sh/f/II9VNliNyEeiDaOmfkgrm8HQagrIOv6ZtGhYpwB92KPiReL3",
+      "https://26q8s2ga0k.ufs.sh/f/II9VNliNyEeinGCpADxGLhraXYwDIgmlP4xUkytc2OTZSJpe",
+      "https://26q8s2ga0k.ufs.sh/f/II9VNliNyEeiYxpA335FvTHw9sK27qEbP8nVzlDuBdS1UQrL",
+      "https://26q8s2ga0k.ufs.sh/f/II9VNliNyEeiYRCXQ95FvTHw9sK27qEbP8nVzlDuBdS1UQrL",
+      "https://26q8s2ga0k.ufs.sh/f/II9VNliNyEei4Epa79MnMc8mpZdAyqlgj7UVa5DOF960XWTQ",
+      "https://26q8s2ga0k.ufs.sh/f/II9VNliNyEeiiYgrmOt7FLch15Rz0ZEqPCoBdpi7K6TI8v2D",
+      "https://26q8s2ga0k.ufs.sh/f/II9VNliNyEeiypEEkRPcan2J1udUvK0xTyGfPhQ9jNrqtlHD",
+      "https://26q8s2ga0k.ufs.sh/f/II9VNliNyEeiU8ZRFacaZ4i2h6vIcK835lqWQ1VFGHpCzkXj",
+      "https://26q8s2ga0k.ufs.sh/f/II9VNliNyEeiP5ibNQjjigv7VleSsDJpCIaBfbWwn5AqUHtc",
+      "https://26q8s2ga0k.ufs.sh/f/II9VNliNyEeit3KEF5ysXlHR0g3IzAZ8CymNevtM6rVaxfYT",
+      "https://26q8s2ga0k.ufs.sh/f/II9VNliNyEeizKxoHb8p0AfZyzgWnX5uLoN79wTUB8VjmcFH",
+    ],
   },
   {
     id: "pn-swiss-luxury-rooms",
@@ -347,6 +421,13 @@ export const PACKAGES = [
     ],
     imageFolder: "/images/panshet/swiss-tent",
     imageCount: 5,
+    images: [
+      "https://26q8s2ga0k.ufs.sh/f/II9VNliNyEeiIlyzTZsiNyEeifCJm5RlT03MqkQGdpjgLWur",
+      "https://26q8s2ga0k.ufs.sh/f/II9VNliNyEeizKZQbF8p0AfZyzgWnX5uLoN79wTUB8VjmcFH",
+      "https://26q8s2ga0k.ufs.sh/f/II9VNliNyEeit8rr3RysXlHR0g3IzAZ8CymNevtM6rVaxfYT",
+      "https://26q8s2ga0k.ufs.sh/f/II9VNliNyEeiHofOrsTWt52DQ9shoVBIiZvrqdkKF7C63pcE",
+      "https://26q8s2ga0k.ufs.sh/f/II9VNliNyEeixh4LmWRaXkzefpyS7n82G0gJQOUKjqPisAI3",
+    ],
   },
   {
     id: "pn-wooden-bamboo-pods",
@@ -389,5 +470,14 @@ export const PACKAGES = [
     ],
     imageFolder: "/images/panshet/wooden-cottages",
     imageCount: 7,
+    images: [
+      "https://26q8s2ga0k.ufs.sh/f/II9VNliNyEei70sBmCldyOE8foxlaQwKCLqptUVjrBPcYnsS",
+      "https://26q8s2ga0k.ufs.sh/f/II9VNliNyEeinZioG2cxGLhraXYwDIgmlP4xUkytc2OTZSJp",
+      "https://26q8s2ga0k.ufs.sh/f/II9VNliNyEeixVeF3pRaXkzefpyS7n82G0gJQOUKjqPisAI3",
+      "https://26q8s2ga0k.ufs.sh/f/II9VNliNyEeiI24L57iNyEeifCJm5RlT03MqkQGdpjgLWur6",
+      "https://26q8s2ga0k.ufs.sh/f/II9VNliNyEeigPnmHgElYCXQ2yAuRq4VvZILn68BmWhUxbFa",
+      "https://26q8s2ga0k.ufs.sh/f/II9VNliNyEeidpuQD1QNS2ayWfm89TGAY1I4UunLFBi0qhDM",
+      "https://26q8s2ga0k.ufs.sh/f/II9VNliNyEeiOu0MxMIds0K1FnQjW7I6a4rDh9VotZTUyfC2",
+    ],
   },
 ];

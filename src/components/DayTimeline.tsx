@@ -26,7 +26,7 @@ export default function DayTimeline() {
             description:
                 "Arrive at the campsite and begin your getaway with a smooth and effortless check-in. Settle into your accommodation and soak in the natural surroundings.",
             icon: Sun,
-            image: pathname.includes("panshet") ? "/images/others/welcome-pn.webp" : "/images/others/welcome-jpg.webp",
+            image: pathname.includes("panshet") ? "https://26q8s2ga0k.ufs.sh/f/II9VNliNyEeii8FAcg7FLch15Rz0ZEqPCoBdpi7K6TI8v2Da" : "https://26q8s2ga0k.ufs.sh/f/II9VNliNyEeilEV2hFYdqCDK4bXyYRtiTLZ8onfzWUN5JhQA",
             color: "bg-gradient-to-r from-green-400 to-green-600",
         },
         {
@@ -45,7 +45,7 @@ export default function DayTimeline() {
             description:
                 "Have fun with a variety of engaging activities like badminton, cricket, carrom, and more—perfect for families, friends, and adventure lovers.",
             icon: Drum,
-            image: "/images/others/image-18.jpeg",
+            image: "https://26q8s2ga0k.ufs.sh/f/II9VNliNyEei1fZ88Q3s47JFyhQRKnNUaWAGujMHq8zYxdif",
             color: "bg-gradient-to-r from-orange-400 to-orange-600",
         },
         {
@@ -54,7 +54,7 @@ export default function DayTimeline() {
             description:
                 "Relish freshly grilled BBQ snacks while enjoying lively DJ music. The perfect mix of great food and great vibes until 9:30 PM.",
             icon: Flame,
-            image: "/images/others/image-16.webp",
+            image: "https://26q8s2ga0k.ufs.sh/f/II9VNliNyEei5KY3uwkTeRJmBS4iKNu6oEX8O2WClbazAZQv",
             color: "bg-gradient-to-r from-red-500 to-red-700",
             object_position: "object-bottom"
         },

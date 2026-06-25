@@ -124,7 +124,7 @@ export default function PanshetPage() {
                 title="CampBuddy - Best Panshet Camping Packages Near Pune | Lakeside Camping"
                 description="Book the best Panshet camping packages near Pune with CampBuddy. Enjoy lakeside camping, tent stays, BBQ dinner, bonfire, live music, outdoor games, family camping, group camping, and memorable weekend getaways at Panshet Lake."
                 keywords="panshet camping, panshet camping near pune, best panshet camping, camping near pune, lakeside camping panshet, overnight camping panshet, panshet camping packages, family camping panshet, group camping pune, weekend getaway near pune"
-                image="/images/panshet/panshet-camping.webp"
+                image="/images/panshet/camping-tent/camping-tent-3.webp"
                 url="https://campbuddy.in/panshet-camping"
             />
             <StructuredData schema={schema} />

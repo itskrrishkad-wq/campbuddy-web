@@ -71,7 +71,7 @@ export default function PackageCard({
                     opts={{ align: "start", loop: true }}
                 >
                     <CarouselContent className="h-full">
-                        {pkg_images.map((image, imageIndex) => (
+                        {pkg.images.map((image, imageIndex) => (
                             <CarouselItem key={imageIndex} className="h-full">
                                 <div className="relative w-full h-full">
                                     {/* eslint-disable-next-line @next/next/no-img-element */}
