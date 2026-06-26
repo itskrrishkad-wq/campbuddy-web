@@ -105,7 +105,7 @@ export default function PawnaPage() {
                 title="CampBuddy - Best Pawna Lake Camping Packages Near Pune | Lakeside Camping"
                 description="Book the best Pawna Lake camping packages near Pune with CampBuddy. Enjoy lakeside camping, tent stays, BBQ dinner, bonfire, live music, outdoor games, family camping, group camping, and weekend getaways at Pawna Lake."
                 keywords="pawna lake camping, pawna lake camping near pune, best pawna lake camping, camping near pune, lakeside camping pawna lake, overnight camping pawna lake, pawna camping packages, family camping pawna lake, group camping pune, weekend getaway near pune"
-                image="/images/pawna/the-white-cottage-2.webp"
+                image="https://26q8s2ga0k.ufs.sh/f/II9VNliNyEei5gVc2ekTeRJmBS4iKNu6oEX8O2WClbazAZQv"
                 url="https://campbuddy.in/pawna-lake-camping"
             />
             <StructuredData schema={schema} />

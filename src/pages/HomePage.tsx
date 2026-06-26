@@ -113,7 +113,7 @@ export default function HomePage() {
                 title="CampBuddy - Best Pawna Lake & Panshet Camping Packages Near Pune"
                 description="Discover the best camping experiences near Pune with CampBuddy. Book Pawna Lake and Panshet camping packages featuring lakeside tents, BBQ dinner, bonfires, music, games, and outdoor adventures."
                 keywords="best camping near pune, campbuddy, pawna lake camping, panshet camping, camping packages pune, lakeside camping, overnight camping pune, family camping pune, group camping pune, weekend getaway pune"
-                image="/images/pawna/the-white-cottage-2.webp"
+                image="https://26q8s2ga0k.ufs.sh/f/II9VNliNyEei5gVc2ekTeRJmBS4iKNu6oEX8O2WClbazAZQv"
                 url="https://campbuddy.in"
             />
             <StructuredData schema={schema} />
