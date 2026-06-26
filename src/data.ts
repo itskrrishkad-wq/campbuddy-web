@@ -6,8 +6,6 @@ import {
   FAQItem,
 } from "./types";
 
-
-
 export const STATS = [
   {
     value: "18,400+",
@@ -46,11 +44,11 @@ export const DESTINATIONS_INFO = {
     longDesc:
       "Experience the best Pawna Lake Camping with Camp Buddy, located beside the scenic Pawna Lake near Pune and Mumbai. Our lakeside campsite offers comfortable tent stays, BBQ dinner, live music, bonfire, indoor and outdoor games, and breathtaking sunset views. Whether you're planning a weekend getaway, family outing, couple camping trip, corporate event, or group camping experience, Camp Buddy provides one of the most memorable Pawna Camping and Pawna Lake Tent Stay experiences. Enjoy nature, adventure, and relaxation at one of the best camping destinations near Pune and Mumbai.",
     highlights: [
-      "Secured, sanitised beach touching campsite with gorgeous waterfront view",
-      "Saturday Live Acoustic Jamming & unplugged music programs",
-      "Unlimited delicious Indian buffet dinner (Veg, Non-Veg, and specialised Jain options)",
-      "Cozy fireplaces, common glowing bonfire, and outdoor activities like boating",
-      "Optional Trekking Activity: Early morning hiking to Tikona Fort (1 hour up, 1 hour down)",
+      "Sleep right next to Pawna Lake — wake up to calm water, cool breeze, and total silence",
+      "Live guitar music every Saturday night around the bonfire — pure good vibes",
+      "Hot homestyle buffet dinner every night, veg, non-veg, and Jain all covered",
+      "Kayaking and boating on the lake, followed by a big bonfire to end your evening right",
+      "Clearest night skies you'll ever see, stars reflecting on Pawna Lake with Sahyadri hills all around you",
     ],
     bestTimeToVisit:
       "Throughout the year (Monsoon offers lush green valley views, winter offers crisp 12°C chilly star-filled nights)",
@@ -95,17 +93,18 @@ export const DESTINATIONS_INFO = {
     distance: "180 km from Mumbai | 42 km from Pune",
     rating: 4.7,
     reviews: 1220,
-    bannerImage: "https://26q8s2ga0k.ufs.sh/f/II9VNliNyEeifJFbWyBXLdFhgPlyaA9nm2ZKouVJeQb5OBGN",
+    bannerImage:
+      "https://26q8s2ga0k.ufs.sh/f/II9VNliNyEeifJFbWyBXLdFhgPlyaA9nm2ZKouVJeQb5OBGN",
     shortDesc:
       "Immerse in nature with majestic backwater valleys, exciting water sports adventure, and authentic village cooking.",
     longDesc:
       "Panshet Camping Near Pune is the perfect destination for nature lovers, adventure seekers, and weekend travelers looking to escape the city. Located beside the beautiful backwaters of Panshet Dam, our campsite offers stunning lake views, comfortable tent stays, exciting water activities like kayaking, boating, and swimming, along with campfire experiences under the stars. Surrounded by the lush greenery of the Western Ghats, guests can enjoy peaceful nature trails and authentic Maharashtrian Chulivarchi Jevan. Whether you're planning a family outing, couple getaway, group trip, or corporate outing, Camp Buddy Panshet Camping offers one of the best Panshet Dam Camping experiences near Pune.",
     highlights: [
-      "Peaceful, off-grid atmosphere deeply sheltered by rising Sahyadri valley mountains",
-      "Direct backwater access featuring Kayaking, Speed Boat Rides, and safe Lake Swimming with safety jackets",
-      "Authentic rural Maharashtrian buffet lunch/dinner cooked on traditional woodfire stoves ('Chulivarchi')",
-      "Guided forest nature trail walking and bird-watching sessions early morning",
-      "Extremely spacious layout inside orchard mango farms with dedicated privacy zones for groups",
+      "Scenic Panshet backwater campsite nestled in the Sahyadri hills, just 45 km from Pune perfect weekend camping getaway near Pune",
+      "Thrilling water activities on Panshet Dam backwaters including Kayaking and Speed Boat Rides with safety life jackets provided",
+      "Authentic wood-fired Maharashtrian buffet meals ('Chulivarchi Jevan') unlimited veg & non-veg dinner and breakfast included",
+      "Magical lakeside bonfire nights, star gazing sessions, and live music under the open sky for an unforgettable outdoor experience",
+      "Breathtaking panoramic views of Panshet Dam backwaters and surrounding Sahyadri mountain valley ideal for photography and peaceful relaxation",
     ],
     bestTimeToVisit:
       "Throughout the year. Monsoon (June-Oct) is highly recommended for majestic roaring waterfalls and rich green peaks.",
@@ -968,7 +967,8 @@ export const TENTS: TentType[] = [
       "External Solar Lanterns",
     ],
     destinations: ["pawna", "panshet"],
-    image: "https://26q8s2ga0k.ufs.sh/f/II9VNliNyEeijWlpoXwRriV1cg3GDzeMLvNU2FEqZYnJXQw4", // Our beautiful bespoke boho glamping tent photo!
+    image:
+      "https://26q8s2ga0k.ufs.sh/f/II9VNliNyEeijWlpoXwRriV1cg3GDzeMLvNU2FEqZYnJXQw4", // Our beautiful bespoke boho glamping tent photo!
   },
   {
     id: "tent-glamping-bell",

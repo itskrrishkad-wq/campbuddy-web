@@ -2,15 +2,9 @@
 import {
   AlertCircle,
   CheckCircle2,
-  Coffee,
   Compass,
-  Drum,
-  Flame,
   MapPin,
   Sparkles,
-  Sun,
-  Sunrise,
-  UtensilsCrossed,
   XIcon
 } from "lucide-react";
 import { useMemo, useState } from "react";
@@ -27,82 +21,82 @@ import NearbyAttractions from "./NearByAttraction";
 import PackageCard from "./PackageCard";
 
 
-const timelineEvents = [
-  {
-    time: "4:00 PM",
-    title: "Check-in",
-    description:
-      "Arrive at the campsite and begin your getaway with a smooth and effortless check-in. Settle into your accommodation and soak in the natural surroundings.",
-    icon: Sun,
-    image: "https://26q8s2ga0k.ufs.sh/f/II9VNliNyEeifJFbWyBXLdFhgPlyaA9nm2ZKouVJeQb5OBGN",
-    color: "bg-gradient-to-r from-orange-400 to-orange-600",
-  },
-  {
-    time: "5:00 PM",
-    title: "Tea & Pakora",
-    description:
-      "Enjoy freshly prepared tea and crispy pakoras as you unwind into the evening. A perfect warm-up for a relaxing lakeside experience.",
-    icon: Coffee,
-    image:
-      "https://images.unsplash.com/photo-1604945516204-526aa4fd6425?q=80&w=1738&auto=format&fit=crop",
-    color: "bg-gradient-to-r from-amber-400 to-amber-500",
-  },
-  {
-    time: "5:30 PM",
-    title: "Outdoor Games & Activities",
-    description:
-      "Have fun with a variety of engaging activities like badminton, cricket, carrom, and more—perfect for families, friends, and adventure lovers.",
-    icon: Drum,
-    image: "https://images.unsplash.com/photo-1517649763962-0c623066013b?q=80&w=800",
-    color: "bg-gradient-to-r from-orange-400 to-orange-600",
-  },
-  {
-    time: "7:30 PM",
-    title: "BBQ & DJ Music",
-    description:
-      "Relish freshly grilled BBQ snacks while enjoying lively DJ music. The perfect mix of great food and great vibes until 9:30 PM.",
-    icon: Flame,
-    image: "https://26q8s2ga0k.ufs.sh/f/II9VNliNyEeiemY3WEd76Pd2TcogJN0njUHmAeRhXaCEO4uf",
-    color: "bg-gradient-to-r from-red-500 to-red-700",
-  },
-  {
-    time: "9:30 PM",
-    title: "Dinner",
-    description:
-      "Savor a wholesome dinner featuring local dishes prepared with authentic flavors. A comforting meal to end your adventure-filled evening.",
-    icon: UtensilsCrossed,
-    image: "https://images.unsplash.com/photo-1544025162-d76694265947?q=80&w=800",
-    color: "bg-gradient-to-r from-orange-500 to-orange-700",
-  },
-  {
-    time: "10:00 PM",
-    title: "Campfire",
-    description:
-      "Relax around the warm campfire, listen to nature’s sounds, and enjoy meaningful conversations under the night sky.",
-    icon: Flame,
-    image:
-      "https://images.unsplash.com/photo-1533243367503-0b7337004671?q=80&w=1740&auto=format&fit=crop",
-    color: "bg-gradient-to-r from-amber-500 to-orange-600",
-  },
-  {
-    time: "8:30 AM",
-    title: "Breakfast",
-    description:
-      "Start your morning with a hearty breakfast featuring fresh and local flavors—fueling you for the day’s adventures.",
-    icon: Sunrise,
-    image: "https://images.unsplash.com/photo-1673530598977-ee0eda88f0a2?q=80&w=800",
-    color: "bg-gradient-to-r from-yellow-400 to-amber-500",
-  },
-  {
-    time: "11:00 AM",
-    title: "Check-out",
-    description:
-      "Wrap up your stay with an easy check-out process and leave with unforgettable lakeside memories.",
-    icon: Sun,
-    image: "https://images.unsplash.com/photo-1473625247510-8ceb1760943f?q=80&w=800",
-    color: "bg-gradient-to-r from-orange-400 to-orange-600",
-  },
-];
+// const timelineEvents = [
+//   {
+//     time: "4:00 PM",
+//     title: "Check-in",
+//     description:
+//       "Arrive at the campsite and begin your getaway with a smooth and effortless check-in. Settle into your accommodation and soak in the natural surroundings.",
+//     icon: Sun,
+//     image: "https://26q8s2ga0k.ufs.sh/f/II9VNliNyEeifJFbWyBXLdFhgPlyaA9nm2ZKouVJeQb5OBGN",
+//     color: "bg-gradient-to-r from-orange-400 to-orange-600",
+//   },
+//   {
+//     time: "5:00 PM",
+//     title: "Tea & Pakora",
+//     description:
+//       "Enjoy freshly prepared tea and crispy pakoras as you unwind into the evening. A perfect warm-up for a relaxing lakeside experience.",
+//     icon: Coffee,
+//     image:
+//       "https://images.unsplash.com/photo-1604945516204-526aa4fd6425?q=80&w=1738&auto=format&fit=crop",
+//     color: "bg-gradient-to-r from-amber-400 to-amber-500",
+//   },
+//   {
+//     time: "5:30 PM",
+//     title: "Outdoor Games & Activities",
+//     description:
+//       "Have fun with a variety of engaging activities like badminton, cricket, carrom, and more—perfect for families, friends, and adventure lovers.",
+//     icon: Drum,
+//     image: "https://images.unsplash.com/photo-1517649763962-0c623066013b?q=80&w=800",
+//     color: "bg-gradient-to-r from-orange-400 to-orange-600",
+//   },
+//   {
+//     time: "7:30 PM",
+//     title: "BBQ & DJ Music",
+//     description:
+//       "Relish freshly grilled BBQ snacks while enjoying lively DJ music. The perfect mix of great food and great vibes until 9:30 PM.",
+//     icon: Flame,
+//     image: "https://26q8s2ga0k.ufs.sh/f/II9VNliNyEeiemY3WEd76Pd2TcogJN0njUHmAeRhXaCEO4uf",
+//     color: "bg-gradient-to-r from-red-500 to-red-700",
+//   },
+//   {
+//     time: "9:30 PM",
+//     title: "Dinner",
+//     description:
+//       "Savor a wholesome dinner featuring local dishes prepared with authentic flavors. A comforting meal to end your adventure-filled evening.",
+//     icon: UtensilsCrossed,
+//     image: "https://images.unsplash.com/photo-1544025162-d76694265947?q=80&w=800",
+//     color: "bg-gradient-to-r from-orange-500 to-orange-700",
+//   },
+//   {
+//     time: "10:00 PM",
+//     title: "Campfire",
+//     description:
+//       "Relax around the warm campfire, listen to nature’s sounds, and enjoy meaningful conversations under the night sky.",
+//     icon: Flame,
+//     image:
+//       "https://images.unsplash.com/photo-1533243367503-0b7337004671?q=80&w=1740&auto=format&fit=crop",
+//     color: "bg-gradient-to-r from-amber-500 to-orange-600",
+//   },
+//   {
+//     time: "8:30 AM",
+//     title: "Breakfast",
+//     description:
+//       "Start your morning with a hearty breakfast featuring fresh and local flavors—fueling you for the day’s adventures.",
+//     icon: Sunrise,
+//     image: "https://images.unsplash.com/photo-1673530598977-ee0eda88f0a2?q=80&w=800",
+//     color: "bg-gradient-to-r from-yellow-400 to-amber-500",
+//   },
+//   {
+//     time: "11:00 AM",
+//     title: "Check-out",
+//     description:
+//       "Wrap up your stay with an easy check-out process and leave with unforgettable lakeside memories.",
+//     icon: Sun,
+//     image: "https://images.unsplash.com/photo-1473625247510-8ceb1760943f?q=80&w=800",
+//     color: "bg-gradient-to-r from-orange-400 to-orange-600",
+//   },
+// ];
 
 interface LocationDetailsProps {
   destinationId: "pawna" | "panshet";
@@ -113,17 +107,17 @@ export default function LocationDetails({
   destinationId,
 }: LocationDetailsProps) {
   const info = DESTINATIONS_INFO[destinationId];
-  const [activeEvent, setActiveEvent] = useState<number | null>(null);
+  // const [activeEvent, setActiveEvent] = useState<number | null>(null);
 
   const [compareList, setCompareList] = useState<CampPackage[]>([]);
   const [showCompareModal, setShowCompareModal] = useState(false);
   const [compareError, setCompareError] = useState<string | null>(null);
 
   // Specific filtered packages
-  const activePackages = PACKAGES.filter((p) => p.destination === destinationId);
+  // const activePackages = PACKAGES.filter((p) => p.destination === destinationId);
 
-  // Specific filtered tents
-  const activeTents = TENTS.filter((t) => t.destinations.includes(destinationId));
+  // // Specific filtered tents
+  // const activeTents = TENTS.filter((t) => t.destinations.includes(destinationId));
 
 
   const filteredAndSortedPackages = useMemo(() => {
@@ -136,20 +130,20 @@ export default function LocationDetails({
   }, [destinationId, PACKAGES]);
 
 
-  const toggleCompare = (pkg: CampPackage) => {
-    setCompareError(null);
-    setCompareList((prev) => {
-      const exists = prev.find((item) => item.id === pkg.id);
-      if (exists) {
-        return prev.filter((item) => item.id !== pkg.id);
-      }
-      if (prev.length >= 3) {
-        setCompareError("You can choose up to 3 packages side-by-side!");
-        return prev;
-      }
-      return [...prev, pkg];
-    });
-  };
+  // const toggleCompare = (pkg: CampPackage) => {
+  //   setCompareError(null);
+  //   setCompareList((prev) => {
+  //     const exists = prev.find((item) => item.id === pkg.id);
+  //     if (exists) {
+  //       return prev.filter((item) => item.id !== pkg.id);
+  //     }
+  //     if (prev.length >= 3) {
+  //       setCompareError("You can choose up to 3 packages side-by-side!");
+  //       return prev;
+  //     }
+  //     return [...prev, pkg];
+  //   });
+  // };
 
   const clearComparisons = () => {
     setCompareList([]);
@@ -205,7 +199,7 @@ export default function LocationDetails({
               <div className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 ">
 
                 {filteredAndSortedPackages.map((pkg) => {
-                  const isCompared = compareList.some((item) => item.id === pkg.id);
+                  // const isCompared = compareList.some((item) => item.id === pkg.id);
                   return (
                     // <div
                     //   id={`package-card-${pkg.id}`}
